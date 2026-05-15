@@ -1,0 +1,28 @@
+# BasicCurrencygpFlow
+
+main: kit: flow: BasicCurrencygpFlow:
+{
+  entity: "currencygp",
+  kind: "basic",
+  name: "BasicCurrencygpFlow",
+  step: [
+    {
+      input: {
+        ref: "currencygp_ref01",
+        srcdatavar: "currencygp_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-currencygp_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCurrencygpFlow"
+}

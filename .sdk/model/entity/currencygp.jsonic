@@ -1,0 +1,97 @@
+# Entity: currencygp
+
+main: kit: entity: currencygp: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "amount"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "converted_amount"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "exchange_rate"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "from"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "timestamp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "to"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "currencygp"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: 100
+                kind: "query"
+                name: "amount"
+                orig: "amount"
+                reqd: true
+                type: "`$NUMBER`"
+              }
+              {
+                example: "USD"
+                kind: "query"
+                name: "from"
+                orig: "from"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "EUR"
+                kind: "query"
+                name: "to"
+                orig: "to"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/currency.gp"
+          parts: [
+            "currency.gp"
+          ]
+          select: {
+            exist: [
+              "amount"
+              "from"
+              "to"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,90 @@
+{
+  "existing": {
+    "jsongp": {
+      "JSONGP00": {
+        "geoplugin_area_code": "sb4",
+        "geoplugin_city": "sb5",
+        "geoplugin_continent_code": "sb6",
+        "geoplugin_country_code": "sb7",
+        "geoplugin_country_name": "sb8",
+        "geoplugin_credit": "sb9",
+        "geoplugin_currency_code": "sba",
+        "geoplugin_currency_converter": 187,
+        "geoplugin_currency_symbol": "sbc",
+        "geoplugin_currency_symbol_utf8": "sbd",
+        "geoplugin_dma_code": "sbe",
+        "geoplugin_latitude": "sbf",
+        "geoplugin_longitude": "sc0",
+        "geoplugin_region": "sc1",
+        "geoplugin_region_code": "sc2",
+        "geoplugin_region_name": "sc3",
+        "geoplugin_request": "sc4",
+        "geoplugin_status": "sc5"
+      },
+      "JSONGP01": {
+        "geoplugin_area_code": "s168",
+        "geoplugin_city": "s169",
+        "geoplugin_continent_code": "s16a",
+        "geoplugin_country_code": "s16b",
+        "geoplugin_country_name": "s16c",
+        "geoplugin_credit": "s16d",
+        "geoplugin_currency_code": "s16e",
+        "geoplugin_currency_converter": 367,
+        "geoplugin_currency_symbol": "s170",
+        "geoplugin_currency_symbol_utf8": "s171",
+        "geoplugin_dma_code": "s172",
+        "geoplugin_latitude": "s173",
+        "geoplugin_longitude": "s174",
+        "geoplugin_region": "s175",
+        "geoplugin_region_code": "s176",
+        "geoplugin_region_name": "s177",
+        "geoplugin_request": "s178",
+        "geoplugin_status": "s179"
+      },
+      "JSONGP02": {
+        "geoplugin_area_code": "s21c",
+        "geoplugin_city": "s21d",
+        "geoplugin_continent_code": "s21e",
+        "geoplugin_country_code": "s21f",
+        "geoplugin_country_name": "s220",
+        "geoplugin_credit": "s221",
+        "geoplugin_currency_code": "s222",
+        "geoplugin_currency_converter": 547,
+        "geoplugin_currency_symbol": "s224",
+        "geoplugin_currency_symbol_utf8": "s225",
+        "geoplugin_dma_code": "s226",
+        "geoplugin_latitude": "s227",
+        "geoplugin_longitude": "s228",
+        "geoplugin_region": "s229",
+        "geoplugin_region_code": "s22a",
+        "geoplugin_region_name": "s22b",
+        "geoplugin_request": "s22c",
+        "geoplugin_status": "s22d"
+      }
+    }
+  },
+  "new": {
+    "jsongp": {
+      "jsongp_ref01": {
+        "geoplugin_area_code": "s2d0",
+        "geoplugin_city": "s2d1",
+        "geoplugin_continent_code": "s2d2",
+        "geoplugin_country_code": "s2d3",
+        "geoplugin_country_name": "s2d4",
+        "geoplugin_credit": "s2d5",
+        "geoplugin_currency_code": "s2d6",
+        "geoplugin_currency_converter": 727,
+        "geoplugin_currency_symbol": "s2d8",
+        "geoplugin_currency_symbol_utf8": "s2d9",
+        "geoplugin_dma_code": "s2da",
+        "geoplugin_latitude": "s2db",
+        "geoplugin_longitude": "s2dc",
+        "geoplugin_region": "s2dd",
+        "geoplugin_region_code": "s2de",
+        "geoplugin_region_name": "s2df",
+        "geoplugin_request": "s2e0",
+        "geoplugin_status": "s2e1"
+      }
+    }
+  }
+}

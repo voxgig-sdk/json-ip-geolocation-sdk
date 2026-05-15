@@ -1,0 +1,366 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IP Geolocation & Currency Converter",
+    "description": "The JSON IP Geolocation API allows you to determine the geographical location of visitors based on their IP addresses. It provides detailed location data such as country, region, city, and coordinates in a structured JSON format. This API also includes currency conversion capabilities with up-to-date exchange rates.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "GeoPlugin Support",
+      "url": "https://www.geoplugin.com"
+    },
+    "termsOfService": "https://www.geoplugin.com/privacy-policy",
+    "license": {
+      "name": "Creative Commons Attribution-ShareAlike 3.0 Unported License",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://www.geoplugin.net",
+      "description": "GeoPlugin JSON API Server"
+    }
+  ],
+  "paths": {
+    "/json.gp": {
+      "get": {
+        "summary": "Get IP Geolocation Data",
+        "description": "Retrieve geolocation information for a visitor based on their IP address. Returns detailed location data including country, region, city, coordinates, and currency information in JSON format.",
+        "operationId": "getGeolocation",
+        "parameters": [
+          {
+            "name": "ip",
+            "in": "query",
+            "description": "The IP address to geolocate. If not provided, the IP address of the requesting client will be used automatically.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "ipv4",
+              "example": "8.8.8.8"
+            }
+          },
+          {
+            "name": "base_currency",
+            "in": "query",
+            "description": "Base currency code for currency conversion",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "USD"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful geolocation response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeolocationResponse"
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "geoplugin_request": "8.8.8.8",
+                      "geoplugin_status": 200,
+                      "geoplugin_credit": "Some of the returned data includes GeoLite data created by MaxMind, available from http://www.maxmind.com",
+                      "geoplugin_city": "Mountain View",
+                      "geoplugin_region": "California",
+                      "geoplugin_regionCode": "CA",
+                      "geoplugin_regionName": "California",
+                      "geoplugin_areaCode": "650",
+                      "geoplugin_dmaCode": "807",
+                      "geoplugin_countryCode": "US",
+                      "geoplugin_countryName": "United States",
+                      "geoplugin_continentCode": "NA",
+                      "geoplugin_latitude": "37.386",
+                      "geoplugin_longitude": "-122.0838",
+                      "geoplugin_currencyCode": "USD",
+                      "geoplugin_currencySymbol": "$",
+                      "geoplugin_currencySymbol_UTF8": "$",
+                      "geoplugin_currencyConverter": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded (120 requests per minute on free plan)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Geolocation"
+        ]
+      }
+    },
+    "/currency.gp": {
+      "get": {
+        "summary": "Currency Conversion",
+        "description": "Convert currency amounts using up-to-date exchange rates. This endpoint provides real-time currency conversion based on the visitor's location or specified currencies.",
+        "operationId": "convertCurrency",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Source currency code (3-letter ISO code)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "USD",
+              "minLength": 3,
+              "maxLength": 3
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "Target currency code (3-letter ISO code)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "EUR",
+              "minLength": 3,
+              "maxLength": 3
+            }
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "description": "Amount to convert",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "example": 100,
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful currency conversion response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrencyConversionResponse"
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "from": "USD",
+                      "to": "EUR",
+                      "amount": 100,
+                      "converted_amount": 92.15,
+                      "exchange_rate": 0.9215,
+                      "timestamp": "2024-01-15T10:30:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid currency code or amount",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded (120 requests per minute on free plan)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Currency"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GeolocationResponse": {
+        "type": "object",
+        "properties": {
+          "geoplugin_request": {
+            "type": "string",
+            "description": "The IP address that was geolocated",
+            "example": "8.8.8.8"
+          },
+          "geoplugin_status": {
+            "type": "integer",
+            "description": "HTTP status code of the response",
+            "example": 200
+          },
+          "geoplugin_credit": {
+            "type": "string",
+            "description": "Attribution credit for data sources"
+          },
+          "geoplugin_city": {
+            "type": "string",
+            "description": "City name derived from IP address",
+            "example": "Mountain View"
+          },
+          "geoplugin_region": {
+            "type": "string",
+            "description": "Region or state name",
+            "example": "California"
+          },
+          "geoplugin_regionCode": {
+            "type": "string",
+            "description": "Region or state code",
+            "example": "CA"
+          },
+          "geoplugin_regionName": {
+            "type": "string",
+            "description": "Full region or state name",
+            "example": "California"
+          },
+          "geoplugin_areaCode": {
+            "type": "string",
+            "description": "Telephone area code",
+            "example": "650"
+          },
+          "geoplugin_dmaCode": {
+            "type": "string",
+            "description": "Designated Market Area code",
+            "example": "807"
+          },
+          "geoplugin_countryCode": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code",
+            "example": "US"
+          },
+          "geoplugin_countryName": {
+            "type": "string",
+            "description": "Full country name",
+            "example": "United States"
+          },
+          "geoplugin_continentCode": {
+            "type": "string",
+            "description": "Continent code",
+            "example": "NA"
+          },
+          "geoplugin_latitude": {
+            "type": "string",
+            "description": "Latitude coordinate",
+            "example": "37.386"
+          },
+          "geoplugin_longitude": {
+            "type": "string",
+            "description": "Longitude coordinate",
+            "example": "-122.0838"
+          },
+          "geoplugin_currencyCode": {
+            "type": "string",
+            "description": "ISO 4217 currency code for the location",
+            "example": "USD"
+          },
+          "geoplugin_currencySymbol": {
+            "type": "string",
+            "description": "Currency symbol",
+            "example": "$"
+          },
+          "geoplugin_currencySymbol_UTF8": {
+            "type": "string",
+            "description": "UTF-8 encoded currency symbol",
+            "example": "$"
+          },
+          "geoplugin_currencyConverter": {
+            "type": "number",
+            "description": "Exchange rate converter value",
+            "example": 1
+          }
+        }
+      },
+      "CurrencyConversionResponse": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Source currency code",
+            "example": "USD"
+          },
+          "to": {
+            "type": "string",
+            "description": "Target currency code",
+            "example": "EUR"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Original amount to convert",
+            "example": 100
+          },
+          "converted_amount": {
+            "type": "number",
+            "description": "Converted amount in target currency",
+            "example": 92.15
+          },
+          "exchange_rate": {
+            "type": "number",
+            "description": "Exchange rate used for conversion",
+            "example": 0.9215
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the conversion"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message describing what went wrong"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Geolocation",
+      "description": "IP-based geolocation services to determine visitor location"
+    },
+    {
+      "name": "Currency",
+      "description": "Currency conversion services with real-time exchange rates"
+    }
+  ],
+  "externalDocs": {
+    "description": "Complete API Documentation",
+    "url": "https://www.geoplugin.com/webservices/json"
+  }
+}

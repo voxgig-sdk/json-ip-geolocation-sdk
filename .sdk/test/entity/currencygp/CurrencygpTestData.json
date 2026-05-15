@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "currencygp": {
+      "CURRENCYGP00": {
+        "amount": 60,
+        "converted_amount": 61,
+        "exchange_rate": 62,
+        "from": "s3f",
+        "timestamp": "s40",
+        "to": "s41"
+      },
+      "CURRENCYGP01": {
+        "amount": 120,
+        "converted_amount": 121,
+        "exchange_rate": 122,
+        "from": "s7b",
+        "timestamp": "s7c",
+        "to": "s7d"
+      },
+      "CURRENCYGP02": {
+        "amount": 180,
+        "converted_amount": 181,
+        "exchange_rate": 182,
+        "from": "sb7",
+        "timestamp": "sb8",
+        "to": "sb9"
+      }
+    }
+  },
+  "new": {
+    "currencygp": {
+      "currencygp_ref01": {
+        "amount": 240,
+        "converted_amount": 241,
+        "exchange_rate": 242,
+        "from": "sf3",
+        "timestamp": "sf4",
+        "to": "sf5"
+      }
+    }
+  }
+}

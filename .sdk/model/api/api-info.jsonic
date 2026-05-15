@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "GeoPlugin Support"
+        url: "https://www.geoplugin.com"
+      }
+      description: "The JSON IP Geolocation API allows you to determine the geographical location of visitors based on their IP addresses. It provides detailed location data such as country, region, city, and coordinates in a structured JSON format. This API also includes currency conversion capabilities with up-to-date exchange rates."
+      license: {
+        name: "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+        url: "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+      servers: [
+        {
+          description: "GeoPlugin JSON API Server"
+          url: "http://www.geoplugin.net"
+        }
+      ]
+      termsOfService: "https://www.geoplugin.com/privacy-policy"
+      title: "IP Geolocation & Currency Converter"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

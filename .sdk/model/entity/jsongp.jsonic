@@ -1,0 +1,148 @@
+# Entity: jsongp
+
+main: kit: entity: jsongp: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "geoplugin_area_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_city"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_continent_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_country_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_country_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_credit"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_currency_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_currency_converter"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "geoplugin_currency_symbol"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_currency_symbol_utf8"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_dma_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_latitude"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_longitude"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_region"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_region_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_region_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_request"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "geoplugin_status"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "jsongp"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "USD"
+                kind: "query"
+                name: "base_currency"
+                orig: "base_currency"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "8.8.8.8"
+                kind: "query"
+                name: "ip"
+                orig: "ip"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/json.gp"
+          parts: [
+            "json.gp"
+          ]
+          select: {
+            exist: [
+              "base_currency"
+              "ip"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
