@@ -19,7 +19,8 @@
         "geoplugin_region_code": "sc2",
         "geoplugin_region_name": "sc3",
         "geoplugin_request": "sc4",
-        "geoplugin_status": "sc5"
+        "geoplugin_status": "sc5",
+        "id": "JSONGP00"
       },
       "JSONGP01": {
         "geoplugin_area_code": "s168",
@@ -39,7 +40,8 @@
         "geoplugin_region_code": "s176",
         "geoplugin_region_name": "s177",
         "geoplugin_request": "s178",
-        "geoplugin_status": "s179"
+        "geoplugin_status": "s179",
+        "id": "JSONGP01"
       },
       "JSONGP02": {
         "geoplugin_area_code": "s21c",
@@ -59,7 +61,8 @@
         "geoplugin_region_code": "s22a",
         "geoplugin_region_name": "s22b",
         "geoplugin_request": "s22c",
-        "geoplugin_status": "s22d"
+        "geoplugin_status": "s22d",
+        "id": "JSONGP02"
       }
     }
   },

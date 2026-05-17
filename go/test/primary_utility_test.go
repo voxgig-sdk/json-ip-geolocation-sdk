@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/json-ip-geolocation-sdk"
+	sdk "github.com/voxgig-sdk/json-ip-geolocation-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/json-ip-geolocation-sdk/go/utility/struct"
 )
 
 func TestPrimaryUtility(t *testing.T) {

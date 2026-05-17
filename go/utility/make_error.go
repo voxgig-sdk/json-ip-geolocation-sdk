@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/json-ip-geolocation-sdk/core"
+import "github.com/voxgig-sdk/json-ip-geolocation-sdk/go/core"
 
 func makeErrorUtil(ctx *core.Context, err error) (any, error) {
 	if ctx == nil {

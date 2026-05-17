@@ -12,9 +12,9 @@ import (
 	"sync"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/json-ip-geolocation-sdk"
+	sdk "github.com/voxgig-sdk/json-ip-geolocation-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/json-ip-geolocation-sdk/go/utility/struct"
 )
 
 var envLocalOnce sync.Once

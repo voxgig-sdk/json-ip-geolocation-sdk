@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/json-ip-geolocation-sdk"
-	"github.com/voxgig-sdk/json-ip-geolocation-sdk/core"
+	sdk "github.com/voxgig-sdk/json-ip-geolocation-sdk/go"
+	"github.com/voxgig-sdk/json-ip-geolocation-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/json-ip-geolocation-sdk/go/utility/struct"
 )
 
 func TestJsongpEntity(t *testing.T) {

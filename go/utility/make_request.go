@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/json-ip-geolocation-sdk/core"
+import "github.com/voxgig-sdk/json-ip-geolocation-sdk/go/core"
 
 func makeRequestUtil(ctx *core.Context) (*core.Response, error) {
 	if ctx.Out["request"] != nil {

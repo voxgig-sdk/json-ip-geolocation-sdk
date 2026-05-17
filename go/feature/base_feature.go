@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/json-ip-geolocation-sdk/core"
+	"github.com/voxgig-sdk/json-ip-geolocation-sdk/go/core"
 )
 
 type BaseFeature struct {

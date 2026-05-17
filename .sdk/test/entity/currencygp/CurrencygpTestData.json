@@ -7,7 +7,8 @@
         "exchange_rate": 62,
         "from": "s3f",
         "timestamp": "s40",
-        "to": "s41"
+        "to": "s41",
+        "id": "CURRENCYGP00"
       },
       "CURRENCYGP01": {
         "amount": 120,
@@ -15,7 +16,8 @@
         "exchange_rate": 122,
         "from": "s7b",
         "timestamp": "s7c",
-        "to": "s7d"
+        "to": "s7d",
+        "id": "CURRENCYGP01"
       },
       "CURRENCYGP02": {
         "amount": 180,
@@ -23,7 +25,8 @@
         "exchange_rate": 182,
         "from": "sb7",
         "timestamp": "sb8",
-        "to": "sb9"
+        "to": "sb9",
+        "id": "CURRENCYGP02"
       }
     }
   },
