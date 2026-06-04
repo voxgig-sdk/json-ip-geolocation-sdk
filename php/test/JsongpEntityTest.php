@@ -85,7 +85,6 @@ function jsongp_basic_setup($extra)
         "JSONIPGEOLOCATION_TEST_JSONGP_ENTID" => $idmap,
         "JSONIPGEOLOCATION_TEST_LIVE" => "FALSE",
         "JSONIPGEOLOCATION_TEST_EXPLAIN" => "FALSE",
-        "JSONIPGEOLOCATION_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +96,6 @@ function jsongp_basic_setup($extra)
     if ($env["JSONIPGEOLOCATION_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["JSONIPGEOLOCATION_APIKEY"],
             ],
             $extra ?? [],
         ]);

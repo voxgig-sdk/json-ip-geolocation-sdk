@@ -91,7 +91,6 @@ function currencygp_basic_setup(extra)
     ["JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID"] = idmap,
     ["JSONIPGEOLOCATION_TEST_LIVE"] = "FALSE",
     ["JSONIPGEOLOCATION_TEST_EXPLAIN"] = "FALSE",
-    ["JSONIPGEOLOCATION_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function currencygp_basic_setup(extra)
   if env["JSONIPGEOLOCATION_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["JSONIPGEOLOCATION_APIKEY"],
       },
       extra or {},
     })
