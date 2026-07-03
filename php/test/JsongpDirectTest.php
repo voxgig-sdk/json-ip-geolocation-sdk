@@ -67,12 +67,14 @@ function jsongp_direct_setup($mockres)
     $env = Runner::env_override([
         "JSONIPGEOLOCATION_TEST_JSONGP_ENTID" => [],
         "JSONIPGEOLOCATION_TEST_LIVE" => "FALSE",
+        "JSONIPGEOLOCATION_APIKEY" => "NONE",
     ]);
 
     $live = $env["JSONIPGEOLOCATION_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["JSONIPGEOLOCATION_APIKEY"],
         ];
         $client = new JsonIpGeolocationSDK($merged_opts);
         return [

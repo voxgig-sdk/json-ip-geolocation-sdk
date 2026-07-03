@@ -107,12 +107,14 @@ func currencygpDirectSetup(mockres any) *currencygpDirectSetupResult {
 	env := envOverride(map[string]any{
 		"JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID": map[string]any{},
 		"JSONIPGEOLOCATION_TEST_LIVE":    "FALSE",
+		"JSONIPGEOLOCATION_APIKEY":       "NONE",
 	})
 
 	live := env["JSONIPGEOLOCATION_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["JSONIPGEOLOCATION_APIKEY"],
 		}
 		client := sdk.NewJsonIpGeolocationSDK(mergedOpts)
 

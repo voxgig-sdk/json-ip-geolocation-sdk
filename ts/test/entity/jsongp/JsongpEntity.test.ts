@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'JSON_IP_GEOLOCATION_TEST_JSONGP_ENTID': idmap,
     'JSON_IP_GEOLOCATION_TEST_LIVE': 'FALSE',
     'JSON_IP_GEOLOCATION_TEST_EXPLAIN': 'FALSE',
+    'JSON_IP_GEOLOCATION_APIKEY': 'NONE',
   })
 
   idmap = env['JSON_IP_GEOLOCATION_TEST_JSONGP_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new JsonIpGeolocationSDK(merge([
       {
+        apikey: env.JSON_IP_GEOLOCATION_APIKEY,
       },
       extra
     ]))

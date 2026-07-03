@@ -80,12 +80,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID': {},
     'JSONIPGEOLOCATION_TEST_LIVE': 'FALSE',
+    'JSONIPGEOLOCATION_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.JSONIPGEOLOCATION_TEST_LIVE
 
   if (live) {
     const client = new JsonIpGeolocationSDK({
+      apikey: env.JSONIPGEOLOCATION_APIKEY,
     })
 
     let idmap: any = env['JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID']

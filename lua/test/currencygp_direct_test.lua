@@ -70,12 +70,14 @@ function currencygp_direct_setup(mockres)
   local env = runner.env_override({
     ["JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID"] = {},
     ["JSONIPGEOLOCATION_TEST_LIVE"] = "FALSE",
+    ["JSONIPGEOLOCATION_APIKEY"] = "NONE",
   })
 
   local live = env["JSONIPGEOLOCATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["JSONIPGEOLOCATION_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

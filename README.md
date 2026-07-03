@@ -1,21 +1,8 @@
 # JsonIpGeolocation SDK
 
-Look up visitor geolocation from an IP address and convert currencies using GeoPlugin's JSON endpoint
+IP Geolocation & Currency Converter client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About IP Geolocation & Currency Converter
-
-[GeoPlugin](https://www.geoplugin.net) is a long-running IP geolocation and currency conversion service run by geoPlugin.com. It maps a visitor's IP address to country, region, city and coordinates, and pairs that with currency and locale metadata so a website can adapt content to the visitor without server-side detection.
-
-What you get from the API:
-- Visitor IP address echoed back
-- Country, region/state and city
-- Latitude and longitude
-- Currency code, symbol and an up-to-date exchange rate against a chosen base
-- Language and calling-code hints
-
-The JSON endpoint lives at `http://www.geoplugin.net/json.gp` and can be called either with no parameters (lookup of the caller's own IP) or with `ip=` to look up an arbitrary address. Passing `base_currency=` returns conversion rates relative to that currency. Underlying geolocation data comes from MaxMind's GeoLite database. A free tier is available; paid plans exist for higher volume and SSL access.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install json-ip-geolocation-sdk
 luarocks install json-ip-geolocation-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { JsonIpGeolocationSDK } from 'json-ip-geolocation'
 
-const client = new JsonIpGeolocationSDK({})
+const client = new JsonIpGeolocationSDK({
+  apikey: process.env.JSON-IP-GEOLOCATION_APIKEY,
+})
 
+// Load currencygp data
+const currencygp = await client.Currencygp().load({})
+console.log(currencygp.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -110,15 +101,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from jsonipgeolocation_sdk import JsonIpGeolocationSDK
 
-client = JsonIpGeolocationSDK({})
+client = JsonIpGeolocationSDK({
+    "apikey": os.environ.get("JSON-IP-GEOLOCATION_APIKEY"),
+})
 
 
 # Load a specific currencygp
-currencygp, err = client.Currencygp(None).load(
-    {"id": "example_id"}, None
-)
+currencygp, err = client.Currencygp().load({"id": "example_id"})
+print(currencygp)
 ```
 
 ### PHP
@@ -127,13 +120,14 @@ currencygp, err = client.Currencygp(None).load(
 <?php
 require_once 'jsonipgeolocation_sdk.php';
 
-$client = new JsonIpGeolocationSDK([]);
+$client = new JsonIpGeolocationSDK([
+    "apikey" => getenv("JSON-IP-GEOLOCATION_APIKEY"),
+]);
 
 
 // Load a specific currencygp
-[$currencygp, $err] = $client->Currencygp(null)->load(
-    ["id" => "example_id"], null
-);
+[$currencygp, $err] = $client->Currencygp()->load(["id" => "example_id"]);
+print_r($currencygp);
 ```
 
 ### Golang
@@ -141,8 +135,13 @@ $client = new JsonIpGeolocationSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/json-ip-geolocation-sdk/go"
 
-client := sdk.NewJsonIpGeolocationSDK(map[string]any{})
+client := sdk.NewJsonIpGeolocationSDK(map[string]any{
+    "apikey": os.Getenv("JSON-IP-GEOLOCATION_APIKEY"),
+})
 
+// Load currencygp data
+currencygp, err := client.Currencygp(nil).Load(map[string]any{}, nil)
+fmt.Println(currencygp)
 ```
 
 ### Ruby
@@ -150,13 +149,14 @@ client := sdk.NewJsonIpGeolocationSDK(map[string]any{})
 ```ruby
 require_relative "JsonIpGeolocation_sdk"
 
-client = JsonIpGeolocationSDK.new({})
+client = JsonIpGeolocationSDK.new({
+  "apikey" => ENV["JSON-IP-GEOLOCATION_APIKEY"],
+})
 
 
 # Load a specific currencygp
-currencygp, err = client.Currencygp(nil).load(
-  { "id" => "example_id" }, nil
-)
+currencygp, err = client.Currencygp().load({ "id" => "example_id" })
+puts currencygp
 ```
 
 ### Lua
@@ -164,13 +164,14 @@ currencygp, err = client.Currencygp(nil).load(
 ```lua
 local sdk = require("json-ip-geolocation_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("JSON-IP-GEOLOCATION_APIKEY"),
+})
 
 
 -- Load a specific currencygp
-local currencygp, err = client:Currencygp(nil):load(
-  { id = "example_id" }, nil
-)
+local currencygp, err = client:Currencygp():load({ id = "example_id" })
+print(currencygp)
 ```
 
 ## Unit testing in offline mode
@@ -189,25 +190,21 @@ const result = await client.Currencygp().load({ id: 'test01' })
 ### Python
 
 ```python
-client = JsonIpGeolocationSDK.test(None, None)
-result, err = client.Currencygp(None).load(
-    {"id": "test01"}, None
-)
+client = JsonIpGeolocationSDK.test()
+result, err = client.Currencygp().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = JsonIpGeolocationSDK::test(null, null);
-[$result, $err] = $client->Currencygp(null)->load(
-    ["id" => "test01"], null
-);
+$client = JsonIpGeolocationSDK::test();
+[$result, $err] = $client->Currencygp()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Currencygp(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -216,19 +213,15 @@ result, err := client.Currencygp(nil).Load(
 ### Ruby
 
 ```ruby
-client = JsonIpGeolocationSDK.test(nil, nil)
-result, err = client.Currencygp(nil).load(
-  { "id" => "test01" }, nil
-)
+client = JsonIpGeolocationSDK.test
+result, err = client.Currencygp().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Currencygp(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Currencygp():load({ id = "test01" })
 ```
 
 ## How it works
@@ -332,15 +325,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the IP Geolocation & Currency Converter
-
-- Upstream: [https://www.geoplugin.com/](https://www.geoplugin.com/)
-- API docs: [https://www.geoplugin.com/webservices/json](https://www.geoplugin.com/webservices/json)
-
-- Use of GeoPlugin geolocation data is conditional on accepting the Creative Commons Attribution-ShareAlike 3.0 Unported License.
-- Attribution to GeoPlugin (and to MaxMind's GeoLite database, which underlies the data) is expected when the data is redistributed.
-- Derivative works that share the data must be released under the same licence terms.
 
 ---
 

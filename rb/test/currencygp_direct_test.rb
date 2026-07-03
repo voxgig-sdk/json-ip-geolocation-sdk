@@ -69,12 +69,14 @@ def currencygp_direct_setup(mockres)
   env = Runner.env_override({
     "JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID" => {},
     "JSONIPGEOLOCATION_TEST_LIVE" => "FALSE",
+    "JSONIPGEOLOCATION_APIKEY" => "NONE",
   })
 
   live = env["JSONIPGEOLOCATION_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["JSONIPGEOLOCATION_APIKEY"],
     }
     client = JsonIpGeolocationSDK.new(merged_opts)
     return {

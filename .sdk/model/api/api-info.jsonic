@@ -22,24 +22,7 @@ main: {
       termsOfService: "https://www.geoplugin.com/privacy-policy"
       title: "IP Geolocation & Currency Converter"
       version: "1.0.0"
-      tagline: "Look up visitor geolocation from an IP address and convert currencies using GeoPlugin's JSON endpoint"
-      homepage: "https://www.geoplugin.com/"
-      docs_url: "https://www.geoplugin.com/webservices/json"
-      license_short: "Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)"
-      license_md: `- Use of GeoPlugin geolocation data is conditional on accepting the Creative Commons Attribution-ShareAlike 3.0 Unported License.
-- Attribution to GeoPlugin (and to MaxMind's GeoLite database, which underlies the data) is expected when the data is redistributed.
-- Derivative works that share the data must be released under the same licence terms.`
-      about_md: `[GeoPlugin](https://www.geoplugin.net) is a long-running IP geolocation and currency conversion service run by geoPlugin.com. It maps a visitor's IP address to country, region, city and coordinates, and pairs that with currency and locale metadata so a website can adapt content to the visitor without server-side detection.
-
-What you get from the API:
-- Visitor IP address echoed back
-- Country, region/state and city
-- Latitude and longitude
-- Currency code, symbol and an up-to-date exchange rate against a chosen base
-- Language and calling-code hints
-
-The JSON endpoint lives at \`http://www.geoplugin.net/json.gp\` and can be called either with no parameters (lookup of the caller's own IP) or with \`ip=\` to look up an arbitrary address. Passing \`base_currency=\` returns conversion rates relative to that currency. Underlying geolocation data comes from MaxMind's GeoLite database. A free tier is available; paid plans exist for higher volume and SSL access.`
-      auth: false
     }
   }
 }
+
