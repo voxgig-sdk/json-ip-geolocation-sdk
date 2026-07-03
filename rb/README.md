@@ -10,13 +10,13 @@ The Ruby SDK for the JsonIpGeolocation API — an entity-oriented client using i
 
 ## Install
 ```bash
-gem install json-ip-geolocation-sdk
+gem install voxgig-sdk-json-ip-geolocation
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "json-ip-geolocation-sdk"
+gem "voxgig-sdk-json-ip-geolocation"
 ```
 
 Then run:

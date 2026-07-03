@@ -10,7 +10,7 @@ The PHP SDK for the JsonIpGeolocation API — an entity-oriented client using PH
 
 ## Install
 ```bash
-composer require voxgig/json-ip-geolocation-sdk
+composer require voxgig-sdk/json-ip-geolocation
 ```
 
 

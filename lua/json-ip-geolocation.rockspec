@@ -8,12 +8,14 @@ source = {
   dir = "json-ip-geolocation-sdk/lua"
 }
 description = {
-  summary = "JsonIpGeolocation SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the IP Geolocation & Currency Converter public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/json-ip-geolocation-sdk",
+  issues_url = "https://github.com/voxgig-sdk/json-ip-geolocation-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "json-ip-geolocation" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

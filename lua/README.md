@@ -10,7 +10,7 @@ The Lua SDK for the JsonIpGeolocation API — an entity-oriented client using Lu
 
 ## Install
 ```bash
-luarocks install json-ip-geolocation-sdk
+luarocks install voxgig-sdk-json-ip-geolocation
 ```
 
 If the module is not yet published, add the source directory to

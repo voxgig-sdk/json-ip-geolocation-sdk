@@ -10,7 +10,7 @@ The TypeScript SDK for the JsonIpGeolocation API — a type-safe, entity-oriente
 
 ## Install
 ```bash
-npm install json-ip-geolocation
+npm install @voxgig-sdk/json-ip-geolocation
 ```
 ## Tutorial: your first API call
 

@@ -10,7 +10,7 @@ The Python SDK for the JsonIpGeolocation API — an entity-oriented client follo
 
 ## Install
 ```bash
-pip install json-ip-geolocation-sdk
+pip install voxgig-sdk-json-ip-geolocation
 ```
 
 Or install from source:
