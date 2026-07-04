@@ -26,9 +26,9 @@ import { JsonIpGeolocationSDK } from '@voxgig-sdk/json-ip-geolocation'
 
 const client = new JsonIpGeolocationSDK()
 
-// Load currencygp data
-const currencygp = await client.currencygp.load({})
-console.log(currencygp.data)
+// Load currencygp data (returns a Currencygp)
+const currencygp = await client.Currencygp().load()
+console.log(currencygp)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,8 +85,8 @@ from jsonipgeolocation_sdk import JsonIpGeolocationSDK
 client = JsonIpGeolocationSDK()
 
 
-# Load a specific currencygp
-currencygp = client.currencygp.load({"id": "example_id"})
+# Load a specific currencygp (returns the record, raises on error)
+currencygp = client.Currencygp().load({"id": "example_id"})
 print(currencygp)
 ```
 
@@ -99,8 +99,8 @@ require_once 'jsonipgeolocation_sdk.php';
 $client = new JsonIpGeolocationSDK();
 
 
-// Load a specific currencygp
-$currencygp = $client->currencygp()->load(["id" => "example_id"]);
+// Load a specific currencygp (returns the bare record; throws on error)
+$currencygp = $client->Currencygp()->load(["id" => "example_id"]);
 print_r($currencygp);
 ```
 
@@ -124,8 +124,8 @@ require_relative "JsonIpGeolocation_sdk"
 client = JsonIpGeolocationSDK.new
 
 
-# Load a specific currencygp
-currencygp = client.currencygp.load({ "id" => "example_id" })
+# Load a specific currencygp (returns the bare record; raises on error)
+currencygp = client.Currencygp.load({ "id" => "example_id" })
 puts currencygp
 ```
 
@@ -138,7 +138,7 @@ local client = sdk.new()
 
 
 -- Load a specific currencygp
-local currencygp, err = client:currencygp():load({ id = "example_id" })
+local currencygp, err = client:Currencygp():load({ id = "example_id" })
 print(currencygp)
 ```
 
@@ -151,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = JsonIpGeolocationSDK.test()
-const result = await client.currencygp.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const currencygp = await client.Currencygp().load({ id: 'test01' })
+// currencygp is a bare Currencygp populated with mock data
+console.log(currencygp)
 ```
 
 ### Python
 
 ```python
 client = JsonIpGeolocationSDK.test()
-result = client.currencygp.load({"id": "test01"})
+currencygp = client.Currencygp().load({"id": "test01"})
+print(currencygp)
 ```
 
 ### PHP
 
 ```php
-$client = JsonIpGeolocationSDK::test();
-$result = $client->currencygp()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = JsonIpGeolocationSDK::test([
+    "entity" => ["currencygp" => ["test01" => ["id" => "test01"]]],
+]);
+$currencygp = $client->Currencygp()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -181,15 +186,18 @@ result, err := client.Currencygp(nil).Load(
 ### Ruby
 
 ```ruby
-client = JsonIpGeolocationSDK.test
-result = client.currencygp.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = JsonIpGeolocationSDK.test({
+  "entity" => { "currencygp" => { "test01" => { "id" => "test01" } } },
+})
+currencygp = client.Currencygp.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:currencygp():load({ id = "test01" })
+local result, err = client:Currencygp():load({ id = "test01" })
 ```
 
 ## How it works
@@ -237,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

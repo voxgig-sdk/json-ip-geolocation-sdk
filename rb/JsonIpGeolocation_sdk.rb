@@ -208,26 +208,14 @@ class JsonIpGeolocationSDK
   end
 
 
-  # Idiomatic facade: client.currencygp.list / client.currencygp.load({ "id" => ... })
-  def currencygp
-    require_relative 'entity/currencygp_entity'
-    @currencygp ||= CurrencygpEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.currencygp instead.
+  # Canonical facade: client.Currencygp.list / client.Currencygp.load({ "id" => ... })
   def Currencygp(data = nil)
     require_relative 'entity/currencygp_entity'
     CurrencygpEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.jsongp.list / client.jsongp.load({ "id" => ... })
-  def jsongp
-    require_relative 'entity/jsongp_entity'
-    @jsongp ||= JsongpEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.jsongp instead.
+  # Canonical facade: client.Jsongp.list / client.Jsongp.load({ "id" => ... })
   def Jsongp(data = nil)
     require_relative 'entity/jsongp_entity'
     JsongpEntity.new(self, data)

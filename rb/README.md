@@ -32,8 +32,9 @@ client = JsonIpGeolocationSDK.new
 
 ```ruby
 begin
-  result = client.currencygp.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Currencygp record (raises on error).
+  currencygp = client.Currencygp.load({ "id" => "example_id" })
+  puts currencygp
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = JsonIpGeolocationSDK.test
+client = JsonIpGeolocationSDK.test({
+  "entity" => { "currencygp" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.currencygp.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+currencygp = client.Currencygp.load({ "id" => "test01" })
+puts currencygp
 ```
 
 ### Use a custom fetch function
@@ -251,7 +256,7 @@ API path: `/json.gp`
 
 ### Currencygp
 
-Create an instance: `const currencygp = client.currencygp`
+Create an instance: `currencygp = client.Currencygp`
 
 #### Operations
 
@@ -272,14 +277,15 @@ Create an instance: `const currencygp = client.currencygp`
 
 #### Example: Load
 
-```ts
-const currencygp = await client.currencygp.load({ id: 'currencygp_id' })
+```ruby
+# load returns the bare Currencygp record (raises on error).
+currencygp = client.Currencygp.load({ "id" => "currencygp_id" })
 ```
 
 
 ### Jsongp
 
-Create an instance: `const jsongp = client.jsongp`
+Create an instance: `jsongp = client.Jsongp`
 
 #### Operations
 
@@ -312,8 +318,9 @@ Create an instance: `const jsongp = client.jsongp`
 
 #### Example: Load
 
-```ts
-const jsongp = await client.jsongp.load({ id: 'jsongp_id' })
+```ruby
+# load returns the bare Jsongp record (raises on error).
+jsongp = client.Jsongp.load({ "id" => "jsongp_id" })
 ```
 
 
@@ -388,7 +395,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-currencygp = client.currencygp
+currencygp = client.Currencygp
 currencygp.load({ "id" => "example_id" })
 
 # currencygp.data_get now returns the loaded currencygp data

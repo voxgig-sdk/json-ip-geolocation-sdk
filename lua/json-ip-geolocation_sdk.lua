@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:currencygp():list() / client:currencygp():load({ id = ... })
-function JsonIpGeolocationSDK:currencygp(data)
+-- Idiomatic facade: client:Currencygp():list() / client:Currencygp():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function JsonIpGeolocationSDK:Currencygp(data)
   local EntityMod = require("entity.currencygp_entity")
   if data == nil then
     if self._currencygp == nil then
@@ -256,15 +257,10 @@ function JsonIpGeolocationSDK:currencygp(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:currencygp() instead.
-function JsonIpGeolocationSDK:Currencygp(data)
-  local EntityMod = require("entity.currencygp_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:jsongp():list() / client:jsongp():load({ id = ... })
-function JsonIpGeolocationSDK:jsongp(data)
+-- Idiomatic facade: client:Jsongp():list() / client:Jsongp():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function JsonIpGeolocationSDK:Jsongp(data)
   local EntityMod = require("entity.jsongp_entity")
   if data == nil then
     if self._jsongp == nil then
@@ -272,12 +268,6 @@ function JsonIpGeolocationSDK:jsongp(data)
     end
     return self._jsongp
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:jsongp() instead.
-function JsonIpGeolocationSDK:Jsongp(data)
-  local EntityMod = require("entity.jsongp_entity")
   return EntityMod.new(self, data)
 end
 

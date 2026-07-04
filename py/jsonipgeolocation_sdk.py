@@ -220,41 +220,21 @@ class JsonIpGeolocationSDK:
         }
 
 
-    @property
-    def currencygp(self):
-        """Idiomatic facade: client.currencygp.list() / client.currencygp.load({"id": ...})."""
-        from entity.currencygp_entity import CurrencygpEntity
-        cached = getattr(self, "_currencygp", None)
-        if cached is None:
-            cached = CurrencygpEntity(self, None)
-            self._currencygp = cached
-        return cached
-
-    def Currencygp(self, data=None):
-        # Deprecated: use client.currencygp instead.
+    def Currencygp(self, data=None) -> "CurrencygpEntity":
+        """Entity factory: client.Currencygp().list({}) / client.Currencygp().load({"id": ...})."""
         from entity.currencygp_entity import CurrencygpEntity
         return CurrencygpEntity(self, data)
 
 
-    @property
-    def jsongp(self):
-        """Idiomatic facade: client.jsongp.list() / client.jsongp.load({"id": ...})."""
-        from entity.jsongp_entity import JsongpEntity
-        cached = getattr(self, "_jsongp", None)
-        if cached is None:
-            cached = JsongpEntity(self, None)
-            self._jsongp = cached
-        return cached
-
-    def Jsongp(self, data=None):
-        # Deprecated: use client.jsongp instead.
+    def Jsongp(self, data=None) -> "JsongpEntity":
+        """Entity factory: client.Jsongp().list({}) / client.Jsongp().load({"id": ...})."""
         from entity.jsongp_entity import JsongpEntity
         return JsongpEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "JsonIpGeolocationSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class JsonIpGeolocationSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.currencygp_entity import CurrencygpEntity
+    from entity.jsongp_entity import JsongpEntity

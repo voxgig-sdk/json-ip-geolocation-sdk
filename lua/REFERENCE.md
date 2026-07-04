@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## CurrencygpEntity
 
 ```lua
-local currencygp = client:currencygp(nil)
+local currencygp = client:Currencygp(nil)
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ local currencygp = client:currencygp(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:currencygp():load({ id = "currencygp_id" })
+local result, err = client:Currencygp():load({ id = "currencygp_id" })
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## JsongpEntity
 
 ```lua
-local jsongp = client:jsongp(nil)
+local jsongp = client:Jsongp(nil)
 ```
 
 ### Fields
@@ -177,7 +177,7 @@ local jsongp = client:jsongp(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:jsongp():load({ id = "jsongp_id" })
+local result, err = client:Jsongp():load({ id = "jsongp_id" })
 ```
 
 ### Common Methods

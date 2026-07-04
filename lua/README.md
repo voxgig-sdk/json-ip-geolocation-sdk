@@ -34,9 +34,9 @@ local client = sdk.new()
 ### 3. Load a currencygp
 
 ```lua
-local result, err = client:currencygp():load({ id = "example_id" })
+local currencygp, err = client:Currencygp():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(currencygp)
 ```
 
 
@@ -82,8 +82,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:currencygp():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Currencygp():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -184,17 +184,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local currencygp, err = client:Currencygp():load({ id = "example_id" })
+    if err then error(err) end
+    -- currencygp is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -247,7 +252,7 @@ API path: `/json.gp`
 
 ### Currencygp
 
-Create an instance: `const currencygp = client.currencygp`
+Create an instance: `local currencygp = client:Currencygp(nil)`
 
 #### Operations
 
@@ -268,14 +273,14 @@ Create an instance: `const currencygp = client.currencygp`
 
 #### Example: Load
 
-```ts
-const currencygp = await client.currencygp.load({ id: 'currencygp_id' })
+```lua
+local currencygp, err = client:Currencygp():load({ id = "currencygp_id" })
 ```
 
 
 ### Jsongp
 
-Create an instance: `const jsongp = client.jsongp`
+Create an instance: `local jsongp = client:Jsongp(nil)`
 
 #### Operations
 
@@ -308,8 +313,8 @@ Create an instance: `const jsongp = client.jsongp`
 
 #### Example: Load
 
-```ts
-const jsongp = await client.jsongp.load({ id: 'jsongp_id' })
+```lua
+local jsongp, err = client:Jsongp():load({ id = "jsongp_id" })
 ```
 
 
@@ -384,7 +389,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local currencygp = client:currencygp()
+local currencygp = client:Currencygp()
 currencygp:load({ id = "example_id" })
 
 -- currencygp:data_get() now returns the loaded currencygp data

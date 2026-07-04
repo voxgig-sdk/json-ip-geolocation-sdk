@@ -233,10 +233,10 @@ class JsonIpGeolocationSDK
 
     private $_currencygp = null;
 
-    // Idiomatic facade: $client->currencygp()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Currencygp() (PHP method
-    // names are case-insensitive).
-    public function currencygp($data = null)
+    // Canonical facade: $client->Currencygp()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->currencygp()
+    // resolves here too.
+    public function Currencygp($data = null)
     {
         require_once __DIR__ . '/entity/currencygp_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class JsonIpGeolocationSDK
 
     private $_jsongp = null;
 
-    // Idiomatic facade: $client->jsongp()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Jsongp() (PHP method
-    // names are case-insensitive).
-    public function jsongp($data = null)
+    // Canonical facade: $client->Jsongp()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->jsongp()
+    // resolves here too.
+    public function Jsongp($data = null)
     {
         require_once __DIR__ . '/entity/jsongp_entity.php';
         if ($data === null) {

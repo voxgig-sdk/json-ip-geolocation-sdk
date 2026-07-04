@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CurrencygpEntity
 
 ```python
-currencygp = client.currencygp
+currencygp = client.Currencygp()
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ currencygp = client.currencygp
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.currencygp.load({"id": "currencygp_id"})
+result = client.Currencygp().load({"id": "currencygp_id"})
 ```
 
 ### Common Methods
@@ -140,7 +140,7 @@ Return the entity name.
 ## JsongpEntity
 
 ```python
-jsongp = client.jsongp
+jsongp = client.Jsongp()
 ```
 
 ### Fields
@@ -173,7 +173,7 @@ jsongp = client.jsongp
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.jsongp.load({"id": "jsongp_id"})
+result = client.Jsongp().load({"id": "jsongp_id"})
 ```
 
 ### Common Methods

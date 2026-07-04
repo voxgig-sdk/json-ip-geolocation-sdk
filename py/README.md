@@ -33,10 +33,12 @@ client = JsonIpGeolocationSDK()
 
 ### 3. Load a currencygp
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.currencygp.load({"id": "example_id"})
-    print(result)
+    currencygp = client.Currencygp().load({"id": "example_id"})
+    print(currencygp)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = JsonIpGeolocationSDK.test()
 
-result = client.currencygp.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+currencygp = client.Currencygp().load({"id": "test01"})
+# currencygp contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -251,7 +254,7 @@ API path: `/json.gp`
 
 ### Currencygp
 
-Create an instance: `const currencygp = client.currencygp`
+Create an instance: `currencygp = client.Currencygp()`
 
 #### Operations
 
@@ -272,14 +275,14 @@ Create an instance: `const currencygp = client.currencygp`
 
 #### Example: Load
 
-```ts
-const currencygp = await client.currencygp.load({ id: 'currencygp_id' })
+```python
+currencygp = client.Currencygp().load({"id": "currencygp_id"})
 ```
 
 
 ### Jsongp
 
-Create an instance: `const jsongp = client.jsongp`
+Create an instance: `jsongp = client.Jsongp()`
 
 #### Operations
 
@@ -312,8 +315,8 @@ Create an instance: `const jsongp = client.jsongp`
 
 #### Example: Load
 
-```ts
-const jsongp = await client.jsongp.load({ id: 'jsongp_id' })
+```python
+jsongp = client.Jsongp().load({"id": "jsongp_id"})
 ```
 
 
@@ -387,7 +390,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-currencygp = client.currencygp
+currencygp = client.Currencygp()
 currencygp.load({"id": "example_id"})
 
 # currencygp.data_get() now returns the loaded currencygp data

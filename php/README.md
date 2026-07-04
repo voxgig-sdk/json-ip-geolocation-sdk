@@ -33,9 +33,10 @@ $client = new JsonIpGeolocationSDK();
 
 ```php
 try {
-    $result = $client->currencygp()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Currencygp record (throws on error).
+    $currencygp = $client->Currencygp()->load(["id" => "example_id"]);
+    print_r($currencygp);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = JsonIpGeolocationSDK::test();
+$client = JsonIpGeolocationSDK::test([
+    "entity" => ["currencygp" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->currencygp()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$currencygp = $client->Currencygp()->load(["id" => "test01"]);
+print_r($currencygp);
 ```
 
 ### Use a custom fetch function
@@ -256,7 +261,7 @@ API path: `/json.gp`
 
 ### Currencygp
 
-Create an instance: `const currencygp = client.currencygp`
+Create an instance: `$currencygp = $client->Currencygp();`
 
 #### Operations
 
@@ -277,14 +282,15 @@ Create an instance: `const currencygp = client.currencygp`
 
 #### Example: Load
 
-```ts
-const currencygp = await client.currencygp.load({ id: 'currencygp_id' })
+```php
+// load() returns the bare Currencygp record (throws on error).
+$currencygp = $client->Currencygp()->load(["id" => "currencygp_id"]);
 ```
 
 
 ### Jsongp
 
-Create an instance: `const jsongp = client.jsongp`
+Create an instance: `$jsongp = $client->Jsongp();`
 
 #### Operations
 
@@ -317,8 +323,9 @@ Create an instance: `const jsongp = client.jsongp`
 
 #### Example: Load
 
-```ts
-const jsongp = await client.jsongp.load({ id: 'jsongp_id' })
+```php
+// load() returns the bare Jsongp record (throws on error).
+$jsongp = $client->Jsongp()->load(["id" => "jsongp_id"]);
 ```
 
 
@@ -393,7 +400,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$currencygp = $client->currencygp();
+$currencygp = $client->Currencygp();
 $currencygp->load(["id" => "example_id"]);
 
 // $currencygp->dataGet() now returns the loaded currencygp data

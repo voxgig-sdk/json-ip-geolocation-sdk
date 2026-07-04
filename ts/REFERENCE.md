@@ -121,7 +121,7 @@ Alias for `JsonIpGeolocationSDK.test()`.
 ## CurrencygpEntity
 
 ```ts
-const currencygp = client.currencygp
+const currencygp = client.Currencygp()
 ```
 
 ### Fields
@@ -142,7 +142,7 @@ const currencygp = client.currencygp
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.currencygp.load({ id: 'currencygp_id' })
+const result = await client.Currencygp().load({ id: 'currencygp_id' })
 ```
 
 ### Common Methods
@@ -176,7 +176,7 @@ Return a copy of the entity options.
 ## JsongpEntity
 
 ```ts
-const jsongp = client.jsongp
+const jsongp = client.Jsongp()
 ```
 
 ### Fields
@@ -209,7 +209,7 @@ const jsongp = client.jsongp
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.jsongp.load({ id: 'jsongp_id' })
+const result = await client.Jsongp().load({ id: 'jsongp_id' })
 ```
 
 ### Common Methods

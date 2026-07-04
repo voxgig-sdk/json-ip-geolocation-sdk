@@ -4,71 +4,71 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Currencygp:
-    amount: Optional[float] = None
-    converted_amount: Optional[float] = None
-    exchange_rate: Optional[float] = None
-    timestamp: Optional[str] = None
-    to: Optional[str] = None
+class Currencygp(TypedDict, total=False):
+    amount: float
+    converted_amount: float
+    exchange_rate: float
+    timestamp: str
+    to: str
 
 
-@dataclass
-class CurrencygpLoadMatch:
-    amount: Optional[float] = None
-    converted_amount: Optional[float] = None
-    exchange_rate: Optional[float] = None
-    timestamp: Optional[str] = None
-    to: Optional[str] = None
+class CurrencygpLoadMatch(TypedDict, total=False):
+    amount: float
+    converted_amount: float
+    exchange_rate: float
+    timestamp: str
+    to: str
 
 
-@dataclass
-class Jsongp:
-    geoplugin_area_code: Optional[str] = None
-    geoplugin_city: Optional[str] = None
-    geoplugin_continent_code: Optional[str] = None
-    geoplugin_country_code: Optional[str] = None
-    geoplugin_country_name: Optional[str] = None
-    geoplugin_credit: Optional[str] = None
-    geoplugin_currency_code: Optional[str] = None
-    geoplugin_currency_converter: Optional[float] = None
-    geoplugin_currency_symbol: Optional[str] = None
-    geoplugin_currency_symbol_utf8: Optional[str] = None
-    geoplugin_dma_code: Optional[str] = None
-    geoplugin_latitude: Optional[str] = None
-    geoplugin_longitude: Optional[str] = None
-    geoplugin_region: Optional[str] = None
-    geoplugin_region_code: Optional[str] = None
-    geoplugin_region_name: Optional[str] = None
-    geoplugin_request: Optional[str] = None
-    geoplugin_status: Optional[int] = None
+class Jsongp(TypedDict, total=False):
+    geoplugin_area_code: str
+    geoplugin_city: str
+    geoplugin_continent_code: str
+    geoplugin_country_code: str
+    geoplugin_country_name: str
+    geoplugin_credit: str
+    geoplugin_currency_code: str
+    geoplugin_currency_converter: float
+    geoplugin_currency_symbol: str
+    geoplugin_currency_symbol_utf8: str
+    geoplugin_dma_code: str
+    geoplugin_latitude: str
+    geoplugin_longitude: str
+    geoplugin_region: str
+    geoplugin_region_code: str
+    geoplugin_region_name: str
+    geoplugin_request: str
+    geoplugin_status: int
 
 
-@dataclass
-class JsongpLoadMatch:
-    geoplugin_area_code: Optional[str] = None
-    geoplugin_city: Optional[str] = None
-    geoplugin_continent_code: Optional[str] = None
-    geoplugin_country_code: Optional[str] = None
-    geoplugin_country_name: Optional[str] = None
-    geoplugin_credit: Optional[str] = None
-    geoplugin_currency_code: Optional[str] = None
-    geoplugin_currency_converter: Optional[float] = None
-    geoplugin_currency_symbol: Optional[str] = None
-    geoplugin_currency_symbol_utf8: Optional[str] = None
-    geoplugin_dma_code: Optional[str] = None
-    geoplugin_latitude: Optional[str] = None
-    geoplugin_longitude: Optional[str] = None
-    geoplugin_region: Optional[str] = None
-    geoplugin_region_code: Optional[str] = None
-    geoplugin_region_name: Optional[str] = None
-    geoplugin_request: Optional[str] = None
-    geoplugin_status: Optional[int] = None
-
+class JsongpLoadMatch(TypedDict, total=False):
+    geoplugin_area_code: str
+    geoplugin_city: str
+    geoplugin_continent_code: str
+    geoplugin_country_code: str
+    geoplugin_country_name: str
+    geoplugin_credit: str
+    geoplugin_currency_code: str
+    geoplugin_currency_converter: float
+    geoplugin_currency_symbol: str
+    geoplugin_currency_symbol_utf8: str
+    geoplugin_dma_code: str
+    geoplugin_latitude: str
+    geoplugin_longitude: str
+    geoplugin_region: str
+    geoplugin_region_code: str
+    geoplugin_region_name: str
+    geoplugin_request: str
+    geoplugin_status: int

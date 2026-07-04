@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CurrencygpEntity
 
 ```php
-$currencygp = $client->currencygp();
+$currencygp = $client->Currencygp();
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ $currencygp = $client->currencygp();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->currencygp()->load(["id" => "currencygp_id"]);
+$result = $client->Currencygp()->load(["id" => "currencygp_id"]);
 ```
 
 ### Common Methods
@@ -146,7 +146,7 @@ Return the entity name.
 ## JsongpEntity
 
 ```php
-$jsongp = $client->jsongp();
+$jsongp = $client->Jsongp();
 ```
 
 ### Fields
@@ -179,7 +179,7 @@ $jsongp = $client->jsongp();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->jsongp()->load(["id" => "jsongp_id"]);
+$result = $client->Jsongp()->load(["id" => "jsongp_id"]);
 ```
 
 ### Common Methods

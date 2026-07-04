@@ -205,28 +205,14 @@ class JsonIpGeolocationSDK {
 
 
 
-  _currencygp?: CurrencygpEntity
-
-  // Idiomatic facade: `client.currencygp.list()` / `client.currencygp.load({ id })`.
-  get currencygp(): CurrencygpEntity {
-    return (this._currencygp ??= new CurrencygpEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.currencygp` instead. */
+  // Entity access: `client.Currencygp().list()` / `client.Currencygp().load({ id })`.
   Currencygp(data?: any) {
     const self = this
     return new CurrencygpEntity(self,data)
   }
 
 
-  _jsongp?: JsongpEntity
-
-  // Idiomatic facade: `client.jsongp.list()` / `client.jsongp.load({ id })`.
-  get jsongp(): JsongpEntity {
-    return (this._jsongp ??= new JsongpEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.jsongp` instead. */
+  // Entity access: `client.Jsongp().list()` / `client.Jsongp().load({ id })`.
   Jsongp(data?: any) {
     const self = this
     return new JsongpEntity(self,data)
