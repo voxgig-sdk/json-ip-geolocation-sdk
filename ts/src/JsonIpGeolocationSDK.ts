@@ -3,6 +3,8 @@
 import { CurrencygpEntity } from './entity/CurrencygpEntity'
 import { JsongpEntity } from './entity/JsongpEntity'
 
+export type * from './JsonIpGeolocationTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class JsonIpGeolocationSDK {
 
 
 
+  _currencygp?: CurrencygpEntity
+
+  // Idiomatic facade: `client.currencygp.list()` / `client.currencygp.load({ id })`.
+  get currencygp(): CurrencygpEntity {
+    return (this._currencygp ??= new CurrencygpEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.currencygp` instead. */
   Currencygp(data?: any) {
     const self = this
     return new CurrencygpEntity(self,data)
   }
 
 
+  _jsongp?: JsongpEntity
+
+  // Idiomatic facade: `client.jsongp.list()` / `client.jsongp.load({ id })`.
+  get jsongp(): JsongpEntity {
+    return (this._jsongp ??= new JsongpEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.jsongp` instead. */
   Jsongp(data?: any) {
     const self = this
     return new JsongpEntity(self,data)

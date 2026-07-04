@@ -85,6 +85,27 @@ func (e *CurrencygpEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Currencygp; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *CurrencygpEntity) DataTyped(data ...Currencygp) Currencygp {
+	if len(data) > 0 {
+		return typedFrom[Currencygp](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Currencygp](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Currencygp (all fields
+// optional at the wire level).
+func (e *CurrencygpEntity) MatchTyped(match ...Currencygp) Currencygp {
+	if len(match) > 0 {
+		return typedFrom[Currencygp](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Currencygp](e.Match())
+}
+
 
 func (e *CurrencygpEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *CurrencygpEntity) Load(reqmatch map[string]any, ctrl map[string]any) (a
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// CurrencygpLoadMatch and returns an Currencygp. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *CurrencygpEntity) LoadTyped(reqmatch CurrencygpLoadMatch, ctrl map[string]any) (Currencygp, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Currencygp{}, err
+	}
+	return typedFrom[Currencygp](res), nil
 }
 
 

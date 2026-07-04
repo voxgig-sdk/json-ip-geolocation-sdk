@@ -49,8 +49,7 @@ class CurrencygpEntityTest extends TestCase
         // LOAD
         $currencygp_ref01_ent = $client->Currencygp(null);
         $currencygp_ref01_match_dt0 = [];
-        [$currencygp_ref01_data_dt0_loaded, $err] = $currencygp_ref01_ent->load($currencygp_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $currencygp_ref01_data_dt0_loaded = $currencygp_ref01_ent->load($currencygp_ref01_match_dt0, null);
         $this->assertNotNull($currencygp_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function currencygp_basic_setup($extra)
         "JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID" => $idmap,
         "JSONIPGEOLOCATION_TEST_LIVE" => "FALSE",
         "JSONIPGEOLOCATION_TEST_EXPLAIN" => "FALSE",
-        "JSONIPGEOLOCATION_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function currencygp_basic_setup($extra)
     if ($env["JSONIPGEOLOCATION_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["JSONIPGEOLOCATION_APIKEY"],
             ],
             $extra ?? [],
         ]);

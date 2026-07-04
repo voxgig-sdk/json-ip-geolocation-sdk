@@ -49,8 +49,7 @@ class TestJsongpEntity:
         # LOAD
         jsongp_ref01_ent = client.Jsongp(None)
         jsongp_ref01_match_dt0 = {}
-        jsongp_ref01_data_dt0_loaded, err = jsongp_ref01_ent.load(jsongp_ref01_match_dt0, None)
-        assert err is None
+        jsongp_ref01_data_dt0_loaded = jsongp_ref01_ent.load(jsongp_ref01_match_dt0, None)
         assert jsongp_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _jsongp_basic_setup(extra):
         "JSONIPGEOLOCATION_TEST_JSONGP_ENTID": idmap,
         "JSONIPGEOLOCATION_TEST_LIVE": "FALSE",
         "JSONIPGEOLOCATION_TEST_EXPLAIN": "FALSE",
-        "JSONIPGEOLOCATION_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _jsongp_basic_setup(extra):
     if env.get("JSONIPGEOLOCATION_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("JSONIPGEOLOCATION_APIKEY"),
             },
             extra or {},
         ])

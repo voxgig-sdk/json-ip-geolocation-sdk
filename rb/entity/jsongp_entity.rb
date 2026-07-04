@@ -45,6 +45,7 @@ class JsongpEntity
     end
   end
 
+  # @return [Jsongp, Hash] the current Jsongp data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class JsongpEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Jsongp fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Jsongp.
+  #
+  # @param reqmatch [JsongpLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Jsongp, Hash] the loaded Jsongp; raises JsonIpGeolocationError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch JsongpLoadMatch
+---@param ctrl? table
+---@return Jsongp
+---@return string? err
 function JsongpEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

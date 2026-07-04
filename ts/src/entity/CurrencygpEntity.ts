@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Currencygp,
+  CurrencygpLoadMatch,
+} from '../JsonIpGeolocationTypes'
 
 // TODO: needs Entity superclass
-class CurrencygpEntity extends JsonIpGeolocationEntityBase {
+class CurrencygpEntity extends JsonIpGeolocationEntityBase<Currencygp> {
 
   constructor(client: JsonIpGeolocationSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class CurrencygpEntity extends JsonIpGeolocationEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: CurrencygpLoadMatch, ctrl?: Control): Promise<Currencygp> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class CurrencygpEntity extends JsonIpGeolocationEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Currencygp> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

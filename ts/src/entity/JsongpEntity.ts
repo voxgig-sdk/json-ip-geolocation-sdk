@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Jsongp,
+  JsongpLoadMatch,
+} from '../JsonIpGeolocationTypes'
 
 // TODO: needs Entity superclass
-class JsongpEntity extends JsonIpGeolocationEntityBase {
+class JsongpEntity extends JsonIpGeolocationEntityBase<Jsongp> {
 
   constructor(client: JsonIpGeolocationSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class JsongpEntity extends JsonIpGeolocationEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: JsongpLoadMatch, ctrl?: Control): Promise<Jsongp> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class JsongpEntity extends JsonIpGeolocationEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Jsongp> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

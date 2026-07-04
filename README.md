@@ -10,26 +10,24 @@ This is an unofficial SDK for the IP Geolocation & Currency Converter public API
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/json-ip-geolocation` | `npm install @voxgig-sdk/json-ip-geolocation` |
-| Python | `voxgig-sdk-json-ip-geolocation` | `pip install voxgig-sdk-json-ip-geolocation` |
-| PHP | `voxgig-sdk/json-ip-geolocation` | `composer require voxgig-sdk/json-ip-geolocation` |
-| Golang | `github.com/voxgig-sdk/json-ip-geolocation-sdk/go` | `go get github.com/voxgig-sdk/json-ip-geolocation-sdk/go` |
-| Ruby | `voxgig-sdk-json-ip-geolocation` | `gem install voxgig-sdk-json-ip-geolocation` |
-| Lua | `voxgig-sdk-json-ip-geolocation` | `luarocks install voxgig-sdk-json-ip-geolocation` |
+| TypeScript | `@voxgig-sdk/json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
+| Python | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
+| PHP | `voxgig-sdk/json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
+| Golang | `github.com/voxgig-sdk/json-ip-geolocation-sdk/go` | `go get github.com/voxgig-sdk/json-ip-geolocation-sdk/go@latest` |
+| Ruby | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
+| Lua | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
 
 ## Quickstart
 
 ### TypeScript
 
 ```ts
-import { JsonIpGeolocationSDK } from 'json-ip-geolocation'
+import { JsonIpGeolocationSDK } from '@voxgig-sdk/json-ip-geolocation'
 
-const client = new JsonIpGeolocationSDK({
-  apikey: process.env.JSON-IP-GEOLOCATION_APIKEY,
-})
+const client = new JsonIpGeolocationSDK()
 
 // Load currencygp data
-const currencygp = await client.Currencygp().load({})
+const currencygp = await client.currencygp.load({})
 console.log(currencygp.data)
 ```
 
@@ -71,8 +69,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Currencygp** |  | `/currency.gp` |
-| **Jsongp** |  | `/json.gp` |
+| **Currencygp** | The Currencygp entity (load). | `/currency.gp` |
+| **Jsongp** | The Jsongp entity (load). | `/json.gp` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -82,16 +80,13 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
-import os
 from jsonipgeolocation_sdk import JsonIpGeolocationSDK
 
-client = JsonIpGeolocationSDK({
-    "apikey": os.environ.get("JSON-IP-GEOLOCATION_APIKEY"),
-})
+client = JsonIpGeolocationSDK()
 
 
 # Load a specific currencygp
-currencygp, err = client.Currencygp().load({"id": "example_id"})
+currencygp = client.currencygp.load({"id": "example_id"})
 print(currencygp)
 ```
 
@@ -101,13 +96,11 @@ print(currencygp)
 <?php
 require_once 'jsonipgeolocation_sdk.php';
 
-$client = new JsonIpGeolocationSDK([
-    "apikey" => getenv("JSON-IP-GEOLOCATION_APIKEY"),
-]);
+$client = new JsonIpGeolocationSDK();
 
 
 // Load a specific currencygp
-[$currencygp, $err] = $client->Currencygp()->load(["id" => "example_id"]);
+$currencygp = $client->currencygp()->load(["id" => "example_id"]);
 print_r($currencygp);
 ```
 
@@ -116,9 +109,7 @@ print_r($currencygp);
 ```go
 import sdk "github.com/voxgig-sdk/json-ip-geolocation-sdk/go"
 
-client := sdk.NewJsonIpGeolocationSDK(map[string]any{
-    "apikey": os.Getenv("JSON-IP-GEOLOCATION_APIKEY"),
-})
+client := sdk.New()
 
 // Load currencygp data
 currencygp, err := client.Currencygp(nil).Load(map[string]any{}, nil)
@@ -130,13 +121,11 @@ fmt.Println(currencygp)
 ```ruby
 require_relative "JsonIpGeolocation_sdk"
 
-client = JsonIpGeolocationSDK.new({
-  "apikey" => ENV["JSON-IP-GEOLOCATION_APIKEY"],
-})
+client = JsonIpGeolocationSDK.new
 
 
 # Load a specific currencygp
-currencygp, err = client.Currencygp().load({ "id" => "example_id" })
+currencygp = client.currencygp.load({ "id" => "example_id" })
 puts currencygp
 ```
 
@@ -145,13 +134,11 @@ puts currencygp
 ```lua
 local sdk = require("json-ip-geolocation_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("JSON-IP-GEOLOCATION_APIKEY"),
-})
+local client = sdk.new()
 
 
 -- Load a specific currencygp
-local currencygp, err = client:Currencygp():load({ id = "example_id" })
+local currencygp, err = client:currencygp():load({ id = "example_id" })
 print(currencygp)
 ```
 
@@ -164,7 +151,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = JsonIpGeolocationSDK.test()
-const result = await client.Currencygp().load({ id: 'test01' })
+const result = await client.currencygp.load({ id: 'test01' })
 // result.ok === true, result.data contains mock data
 ```
 
@@ -172,14 +159,14 @@ const result = await client.Currencygp().load({ id: 'test01' })
 
 ```python
 client = JsonIpGeolocationSDK.test()
-result, err = client.Currencygp().load({"id": "test01"})
+result = client.currencygp.load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
 $client = JsonIpGeolocationSDK::test();
-[$result, $err] = $client->Currencygp()->load(["id" => "test01"]);
+$result = $client->currencygp()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -195,14 +182,14 @@ result, err := client.Currencygp(nil).Load(
 
 ```ruby
 client = JsonIpGeolocationSDK.test
-result, err = client.Currencygp().load({ "id" => "test01" })
+result = client.currencygp.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Currencygp():load({ id = "test01" })
+local result, err = client:currencygp():load({ id = "test01" })
 ```
 
 ## How it works
@@ -255,7 +242,7 @@ console.log(result.data)
 
 **Python:**
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
@@ -264,7 +251,7 @@ result, err = client.direct({
 
 **PHP:**
 ```php
-[$result, $err] = $client->direct([
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
@@ -282,7 +269,7 @@ result, err := client.Direct(map[string]any{
 
 **Ruby:**
 ```ruby
-result, err = client.direct({
+result = client.direct({
   "path" => "/api/resource/{id}",
   "method" => "GET",
   "params" => { "id" => "example" },

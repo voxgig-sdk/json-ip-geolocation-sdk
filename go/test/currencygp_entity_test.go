@@ -117,7 +117,6 @@ func currencygpBasicSetup(extra map[string]any) *entityTestSetup {
 		"JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID": idmap,
 		"JSONIPGEOLOCATION_TEST_LIVE":      "FALSE",
 		"JSONIPGEOLOCATION_TEST_EXPLAIN":   "FALSE",
-		"JSONIPGEOLOCATION_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID"])
@@ -128,7 +127,6 @@ func currencygpBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["JSONIPGEOLOCATION_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["JSONIPGEOLOCATION_APIKEY"],
 			},
 			extra,
 		})

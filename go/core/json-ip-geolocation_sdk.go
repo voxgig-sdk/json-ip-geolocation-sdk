@@ -245,11 +245,17 @@ func (sdk *JsonIpGeolocationSDK) Direct(fetchargs map[string]any) (map[string]an
 }
 
 
+// Currencygp returns a Currencygp entity bound to this client.
+// Idiomatic usage: client.Currencygp(nil).List(nil, nil) or
+// client.Currencygp(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *JsonIpGeolocationSDK) Currencygp(data map[string]any) JsonIpGeolocationEntity {
 	return NewCurrencygpEntityFunc(sdk, data)
 }
 
 
+// Jsongp returns a Jsongp entity bound to this client.
+// Idiomatic usage: client.Jsongp(nil).List(nil, nil) or
+// client.Jsongp(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *JsonIpGeolocationSDK) Jsongp(data map[string]any) JsonIpGeolocationEntity {
 	return NewJsongpEntityFunc(sdk, data)
 }

@@ -15,9 +15,6 @@ module JsonIpGeolocationConfig
       },
       "options" => {
         "base" => "http://www.geoplugin.net",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

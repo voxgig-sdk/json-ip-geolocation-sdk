@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `JsonIpGeolocationSDK.test()`.
 ## CurrencygpEntity
 
 ```ts
-const currencygp = client.Currencygp()
+const currencygp = client.currencygp
 ```
 
 ### Fields
@@ -143,7 +142,7 @@ const currencygp = client.Currencygp()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Currencygp().load({ id: 'currencygp_id' })
+const result = await client.currencygp.load({ id: 'currencygp_id' })
 ```
 
 ### Common Methods
@@ -177,7 +176,7 @@ Return a copy of the entity options.
 ## JsongpEntity
 
 ```ts
-const jsongp = client.Jsongp()
+const jsongp = client.jsongp
 ```
 
 ### Fields
@@ -210,7 +209,7 @@ const jsongp = client.Jsongp()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Jsongp().load({ id: 'jsongp_id' })
+const result = await client.jsongp.load({ id: 'jsongp_id' })
 ```
 
 ### Common Methods

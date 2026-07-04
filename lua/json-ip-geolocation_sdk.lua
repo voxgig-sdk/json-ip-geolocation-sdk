@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:currencygp():list() / client:currencygp():load({ id = ... })
+function JsonIpGeolocationSDK:currencygp(data)
+  local EntityMod = require("entity.currencygp_entity")
+  if data == nil then
+    if self._currencygp == nil then
+      self._currencygp = EntityMod.new(self, nil)
+    end
+    return self._currencygp
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:currencygp() instead.
 function JsonIpGeolocationSDK:Currencygp(data)
   local EntityMod = require("entity.currencygp_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:jsongp():list() / client:jsongp():load({ id = ... })
+function JsonIpGeolocationSDK:jsongp(data)
+  local EntityMod = require("entity.jsongp_entity")
+  if data == nil then
+    if self._jsongp == nil then
+      self._jsongp = EntityMod.new(self, nil)
+    end
+    return self._jsongp
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:jsongp() instead.
 function JsonIpGeolocationSDK:Jsongp(data)
   local EntityMod = require("entity.jsongp_entity")
   return EntityMod.new(self, data)

@@ -42,8 +42,7 @@ class CurrencygpEntityTest < Minitest::Test
     # LOAD
     currencygp_ref01_ent = client.Currencygp(nil)
     currencygp_ref01_match_dt0 = {}
-    currencygp_ref01_data_dt0_loaded, err = currencygp_ref01_ent.load(currencygp_ref01_match_dt0, nil)
-    assert_nil err
+    currencygp_ref01_data_dt0_loaded = currencygp_ref01_ent.load(currencygp_ref01_match_dt0, nil)
     assert !currencygp_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def currencygp_basic_setup(extra)
     "JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID" => idmap,
     "JSONIPGEOLOCATION_TEST_LIVE" => "FALSE",
     "JSONIPGEOLOCATION_TEST_EXPLAIN" => "FALSE",
-    "JSONIPGEOLOCATION_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def currencygp_basic_setup(extra)
   if env["JSONIPGEOLOCATION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["JSONIPGEOLOCATION_APIKEY"],
       },
       extra || {},
     ])

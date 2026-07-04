@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## CurrencygpEntity
 
 ```lua
-local currencygp = client:Currencygp(nil)
+local currencygp = client:currencygp(nil)
 ```
 
 ### Fields
@@ -109,7 +108,7 @@ local currencygp = client:Currencygp(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Currencygp():load({ id = "currencygp_id" })
+local result, err = client:currencygp():load({ id = "currencygp_id" })
 ```
 
 ### Common Methods
@@ -145,7 +144,7 @@ Return the entity name.
 ## JsongpEntity
 
 ```lua
-local jsongp = client:Jsongp(nil)
+local jsongp = client:jsongp(nil)
 ```
 
 ### Fields
@@ -178,7 +177,7 @@ local jsongp = client:Jsongp(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Jsongp():load({ id = "jsongp_id" })
+local result, err = client:jsongp():load({ id = "jsongp_id" })
 ```
 
 ### Common Methods

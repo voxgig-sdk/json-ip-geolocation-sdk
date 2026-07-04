@@ -42,8 +42,7 @@ class JsongpEntityTest < Minitest::Test
     # LOAD
     jsongp_ref01_ent = client.Jsongp(nil)
     jsongp_ref01_match_dt0 = {}
-    jsongp_ref01_data_dt0_loaded, err = jsongp_ref01_ent.load(jsongp_ref01_match_dt0, nil)
-    assert_nil err
+    jsongp_ref01_data_dt0_loaded = jsongp_ref01_ent.load(jsongp_ref01_match_dt0, nil)
     assert !jsongp_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def jsongp_basic_setup(extra)
     "JSONIPGEOLOCATION_TEST_JSONGP_ENTID" => idmap,
     "JSONIPGEOLOCATION_TEST_LIVE" => "FALSE",
     "JSONIPGEOLOCATION_TEST_EXPLAIN" => "FALSE",
-    "JSONIPGEOLOCATION_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def jsongp_basic_setup(extra)
   if env["JSONIPGEOLOCATION_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["JSONIPGEOLOCATION_APIKEY"],
       },
       extra || {},
     ])
