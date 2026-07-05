@@ -23,7 +23,7 @@ class Currencygp
     public ?string $to = null;
 }
 
-/** Match filter for Currencygp#load (any subset of Currencygp fields). */
+/** Request payload for Currencygp#load. */
 class CurrencygpLoadMatch
 {
     public ?float $amount = null;
@@ -57,7 +57,7 @@ class Jsongp
     public ?int $geoplugin_status = null;
 }
 
-/** Match filter for Jsongp#load (any subset of Jsongp fields). */
+/** Request payload for Jsongp#load. */
 class JsongpLoadMatch
 {
     public ?string $geoplugin_area_code = null;

@@ -8,7 +8,7 @@ Complete API reference for the JsonIpGeolocation PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/json-ip-geolocation_sdk.php';
+require_once __DIR__ . '/jsonipgeolocation_sdk.php';
 
 $client = new JsonIpGeolocationSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `CurrencygpEntity` instance. Pass `null` for no initial data.
 
 Create a new `JsongpEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): JsonIpGeolocationUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,12 +96,12 @@ $currencygp = $client->Currencygp();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amount` | ``$NUMBER`` | No |  |
-| `converted_amount` | ``$NUMBER`` | No |  |
-| `exchange_rate` | ``$NUMBER`` | No |  |
-| `from` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `to` | ``$STRING`` | No |  |
+| `amount` | `float` | No |  |
+| `converted_amount` | `float` | No |  |
+| `exchange_rate` | `float` | No |  |
+| `from` | `string` | No |  |
+| `timestamp` | `string` | No |  |
+| `to` | `string` | No |  |
 
 ### Operations
 
@@ -110,24 +110,24 @@ $currencygp = $client->Currencygp();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Currencygp()->load(["id" => "currencygp_id"]);
+$result = $client->Currencygp()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -136,7 +136,7 @@ Set the entity match criteria.
 Create a new `CurrencygpEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -153,24 +153,24 @@ $jsongp = $client->Jsongp();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `geoplugin_area_code` | ``$STRING`` | No |  |
-| `geoplugin_city` | ``$STRING`` | No |  |
-| `geoplugin_continent_code` | ``$STRING`` | No |  |
-| `geoplugin_country_code` | ``$STRING`` | No |  |
-| `geoplugin_country_name` | ``$STRING`` | No |  |
-| `geoplugin_credit` | ``$STRING`` | No |  |
-| `geoplugin_currency_code` | ``$STRING`` | No |  |
-| `geoplugin_currency_converter` | ``$NUMBER`` | No |  |
-| `geoplugin_currency_symbol` | ``$STRING`` | No |  |
-| `geoplugin_currency_symbol_utf8` | ``$STRING`` | No |  |
-| `geoplugin_dma_code` | ``$STRING`` | No |  |
-| `geoplugin_latitude` | ``$STRING`` | No |  |
-| `geoplugin_longitude` | ``$STRING`` | No |  |
-| `geoplugin_region` | ``$STRING`` | No |  |
-| `geoplugin_region_code` | ``$STRING`` | No |  |
-| `geoplugin_region_name` | ``$STRING`` | No |  |
-| `geoplugin_request` | ``$STRING`` | No |  |
-| `geoplugin_status` | ``$INTEGER`` | No |  |
+| `geoplugin_area_code` | `string` | No |  |
+| `geoplugin_city` | `string` | No |  |
+| `geoplugin_continent_code` | `string` | No |  |
+| `geoplugin_country_code` | `string` | No |  |
+| `geoplugin_country_name` | `string` | No |  |
+| `geoplugin_credit` | `string` | No |  |
+| `geoplugin_currency_code` | `string` | No |  |
+| `geoplugin_currency_converter` | `float` | No |  |
+| `geoplugin_currency_symbol` | `string` | No |  |
+| `geoplugin_currency_symbol_utf8` | `string` | No |  |
+| `geoplugin_dma_code` | `string` | No |  |
+| `geoplugin_latitude` | `string` | No |  |
+| `geoplugin_longitude` | `string` | No |  |
+| `geoplugin_region` | `string` | No |  |
+| `geoplugin_region_code` | `string` | No |  |
+| `geoplugin_region_name` | `string` | No |  |
+| `geoplugin_request` | `string` | No |  |
+| `geoplugin_status` | `int` | No |  |
 
 ### Operations
 
@@ -179,24 +179,24 @@ $jsongp = $client->Jsongp();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Jsongp()->load(["id" => "jsongp_id"]);
+$result = $client->Jsongp()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -205,7 +205,7 @@ Set the entity match criteria.
 Create a new `JsongpEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

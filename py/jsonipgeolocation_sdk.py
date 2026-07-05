@@ -221,13 +221,13 @@ class JsonIpGeolocationSDK:
 
 
     def Currencygp(self, data=None) -> "CurrencygpEntity":
-        """Entity factory: client.Currencygp().list({}) / client.Currencygp().load({"id": ...})."""
+        """Entity factory: client.Currencygp().list() / client.Currencygp().load({"id": ...})."""
         from entity.currencygp_entity import CurrencygpEntity
         return CurrencygpEntity(self, data)
 
 
     def Jsongp(self, data=None) -> "JsongpEntity":
-        """Entity factory: client.Jsongp().list({}) / client.Jsongp().load({"id": ...})."""
+        """Entity factory: client.Jsongp().list() / client.Jsongp().load({"id": ...})."""
         from entity.jsongp_entity import JsongpEntity
         return JsongpEntity(self, data)
 

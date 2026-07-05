@@ -8,7 +8,7 @@ Complete API reference for the JsonIpGeolocation Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'json-ip-geolocation_sdk'
+require_relative 'JsonIpGeolocation_sdk'
 
 client = JsonIpGeolocationSDK.new(options)
 ```
@@ -97,12 +97,12 @@ currencygp = client.Currencygp
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amount` | ``$NUMBER`` | No |  |
-| `converted_amount` | ``$NUMBER`` | No |  |
-| `exchange_rate` | ``$NUMBER`` | No |  |
-| `from` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `to` | ``$STRING`` | No |  |
+| `amount` | `Float` | No |  |
+| `converted_amount` | `Float` | No |  |
+| `exchange_rate` | `Float` | No |  |
+| `from` | `String` | No |  |
+| `timestamp` | `String` | No |  |
+| `to` | `String` | No |  |
 
 ### Operations
 
@@ -111,7 +111,7 @@ currencygp = client.Currencygp
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Currencygp.load({ "id" => "currencygp_id" })
+result = client.Currencygp.load()
 ```
 
 ### Common Methods
@@ -154,24 +154,24 @@ jsongp = client.Jsongp
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `geoplugin_area_code` | ``$STRING`` | No |  |
-| `geoplugin_city` | ``$STRING`` | No |  |
-| `geoplugin_continent_code` | ``$STRING`` | No |  |
-| `geoplugin_country_code` | ``$STRING`` | No |  |
-| `geoplugin_country_name` | ``$STRING`` | No |  |
-| `geoplugin_credit` | ``$STRING`` | No |  |
-| `geoplugin_currency_code` | ``$STRING`` | No |  |
-| `geoplugin_currency_converter` | ``$NUMBER`` | No |  |
-| `geoplugin_currency_symbol` | ``$STRING`` | No |  |
-| `geoplugin_currency_symbol_utf8` | ``$STRING`` | No |  |
-| `geoplugin_dma_code` | ``$STRING`` | No |  |
-| `geoplugin_latitude` | ``$STRING`` | No |  |
-| `geoplugin_longitude` | ``$STRING`` | No |  |
-| `geoplugin_region` | ``$STRING`` | No |  |
-| `geoplugin_region_code` | ``$STRING`` | No |  |
-| `geoplugin_region_name` | ``$STRING`` | No |  |
-| `geoplugin_request` | ``$STRING`` | No |  |
-| `geoplugin_status` | ``$INTEGER`` | No |  |
+| `geoplugin_area_code` | `String` | No |  |
+| `geoplugin_city` | `String` | No |  |
+| `geoplugin_continent_code` | `String` | No |  |
+| `geoplugin_country_code` | `String` | No |  |
+| `geoplugin_country_name` | `String` | No |  |
+| `geoplugin_credit` | `String` | No |  |
+| `geoplugin_currency_code` | `String` | No |  |
+| `geoplugin_currency_converter` | `Float` | No |  |
+| `geoplugin_currency_symbol` | `String` | No |  |
+| `geoplugin_currency_symbol_utf8` | `String` | No |  |
+| `geoplugin_dma_code` | `String` | No |  |
+| `geoplugin_latitude` | `String` | No |  |
+| `geoplugin_longitude` | `String` | No |  |
+| `geoplugin_region` | `String` | No |  |
+| `geoplugin_region_code` | `String` | No |  |
+| `geoplugin_region_name` | `String` | No |  |
+| `geoplugin_request` | `String` | No |  |
+| `geoplugin_status` | `Integer` | No |  |
 
 ### Operations
 
@@ -180,7 +180,7 @@ jsongp = client.Jsongp
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Jsongp.load({ "id" => "jsongp_id" })
+result = client.Jsongp.load()
 ```
 
 ### Common Methods

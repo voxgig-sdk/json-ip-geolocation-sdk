@@ -37,7 +37,7 @@ Currencygp = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Currencygp#load (any subset of Currencygp fields).
+# Request payload for Currencygp#load.
 #
 # @!attribute [rw] amount
 #   @return [Float, nil]
@@ -143,7 +143,7 @@ Jsongp = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Jsongp#load (any subset of Jsongp fields).
+# Request payload for Jsongp#load.
 #
 # @!attribute [rw] geoplugin_area_code
 #   @return [String, nil]

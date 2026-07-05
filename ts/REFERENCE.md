@@ -128,12 +128,12 @@ const currencygp = client.Currencygp()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amount` | ``$NUMBER`` | No |  |
-| `converted_amount` | ``$NUMBER`` | No |  |
-| `exchange_rate` | ``$NUMBER`` | No |  |
-| `from` | ``$STRING`` | No |  |
-| `timestamp` | ``$STRING`` | No |  |
-| `to` | ``$STRING`` | No |  |
+| `amount` | `number` | No |  |
+| `converted_amount` | `number` | No |  |
+| `exchange_rate` | `number` | No |  |
+| `from` | `string` | No |  |
+| `timestamp` | `string` | No |  |
+| `to` | `string` | No |  |
 
 ### Operations
 
@@ -142,7 +142,7 @@ const currencygp = client.Currencygp()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Currencygp().load({ id: 'currencygp_id' })
+const result = await client.Currencygp().load()
 ```
 
 ### Common Methods
@@ -183,24 +183,24 @@ const jsongp = client.Jsongp()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `geoplugin_area_code` | ``$STRING`` | No |  |
-| `geoplugin_city` | ``$STRING`` | No |  |
-| `geoplugin_continent_code` | ``$STRING`` | No |  |
-| `geoplugin_country_code` | ``$STRING`` | No |  |
-| `geoplugin_country_name` | ``$STRING`` | No |  |
-| `geoplugin_credit` | ``$STRING`` | No |  |
-| `geoplugin_currency_code` | ``$STRING`` | No |  |
-| `geoplugin_currency_converter` | ``$NUMBER`` | No |  |
-| `geoplugin_currency_symbol` | ``$STRING`` | No |  |
-| `geoplugin_currency_symbol_utf8` | ``$STRING`` | No |  |
-| `geoplugin_dma_code` | ``$STRING`` | No |  |
-| `geoplugin_latitude` | ``$STRING`` | No |  |
-| `geoplugin_longitude` | ``$STRING`` | No |  |
-| `geoplugin_region` | ``$STRING`` | No |  |
-| `geoplugin_region_code` | ``$STRING`` | No |  |
-| `geoplugin_region_name` | ``$STRING`` | No |  |
-| `geoplugin_request` | ``$STRING`` | No |  |
-| `geoplugin_status` | ``$INTEGER`` | No |  |
+| `geoplugin_area_code` | `string` | No |  |
+| `geoplugin_city` | `string` | No |  |
+| `geoplugin_continent_code` | `string` | No |  |
+| `geoplugin_country_code` | `string` | No |  |
+| `geoplugin_country_name` | `string` | No |  |
+| `geoplugin_credit` | `string` | No |  |
+| `geoplugin_currency_code` | `string` | No |  |
+| `geoplugin_currency_converter` | `number` | No |  |
+| `geoplugin_currency_symbol` | `string` | No |  |
+| `geoplugin_currency_symbol_utf8` | `string` | No |  |
+| `geoplugin_dma_code` | `string` | No |  |
+| `geoplugin_latitude` | `string` | No |  |
+| `geoplugin_longitude` | `string` | No |  |
+| `geoplugin_region` | `string` | No |  |
+| `geoplugin_region_code` | `string` | No |  |
+| `geoplugin_region_name` | `string` | No |  |
+| `geoplugin_request` | `string` | No |  |
+| `geoplugin_status` | `number` | No |  |
 
 ### Operations
 
@@ -209,7 +209,7 @@ const jsongp = client.Jsongp()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Jsongp().load({ id: 'jsongp_id' })
+const result = await client.Jsongp().load()
 ```
 
 ### Common Methods

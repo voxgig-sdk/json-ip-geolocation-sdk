@@ -18,8 +18,7 @@ type Currencygp struct {
 	To *string `json:"to,omitempty"`
 }
 
-// CurrencygpLoadMatch mirrors the currencygp fields as an all-optional match
-// filter (Go analog of Partial<Currencygp>).
+// CurrencygpLoadMatch is the typed request payload for Currencygp.LoadTyped.
 type CurrencygpLoadMatch struct {
 	Amount *float64 `json:"amount,omitempty"`
 	ConvertedAmount *float64 `json:"converted_amount,omitempty"`
@@ -51,8 +50,7 @@ type Jsongp struct {
 	GeopluginStatus *int `json:"geoplugin_status,omitempty"`
 }
 
-// JsongpLoadMatch mirrors the jsongp fields as an all-optional match
-// filter (Go analog of Partial<Jsongp>).
+// JsongpLoadMatch is the typed request payload for Jsongp.LoadTyped.
 type JsongpLoadMatch struct {
 	GeopluginAreaCode *string `json:"geoplugin_area_code,omitempty"`
 	GeopluginCity *string `json:"geoplugin_city,omitempty"`

@@ -4,6 +4,8 @@
 
 The PHP SDK for the JsonIpGeolocation API — an entity-oriented client using PHP conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->Currencygp()` — with named operations (`load`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -34,10 +36,41 @@ $client = new JsonIpGeolocationSDK();
 ```php
 try {
     // load() returns the bare Currencygp record (throws on error).
-    $currencygp = $client->Currencygp()->load(["id" => "example_id"]);
+    $currencygp = $client->Currencygp()->load();
     print_r($currencygp);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
+}
+```
+
+
+## Error handling
+
+Entity operations throw a `\Throwable` on failure, so wrap them in
+`try` / `catch`:
+
+```php
+try {
+    $currencygp = $client->Currencygp()->load();
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
+```
+
+`direct()` does **not** throw — it returns the result array. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```php
+$result = $client->direct([
+    "path" => "/api/resource/{id}",
+    "method" => "GET",
+    "params" => ["id" => "example_id"],
+]);
+
+if (! $result["ok"]) {
+    $err = $result["err"] ?? null;
+    echo "request failed: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -61,7 +94,10 @@ if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
 } else {
-    echo "Error: " . $result["err"]->getMessage();
+    // On an HTTP error status there is no err (only a transport failure sets
+    // it), so fall back to the status code.
+    $err = $result["err"] ?? null;
+    echo "Error: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -82,16 +118,13 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = JsonIpGeolocationSDK::test([
-    "entity" => ["currencygp" => ["test01" => ["id" => "test01"]]],
-]);
+$client = JsonIpGeolocationSDK::test();
 
-// load() returns the bare mock record (throws on error).
-$currencygp = $client->Currencygp()->load(["id" => "test01"]);
+// Entity ops return the bare mock record (throws on error).
+$currencygp = $client->Currencygp()->load();
 print_r($currencygp);
 ```
 
@@ -181,10 +214,6 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `($reqmatch, $ctrl): array` | List entities matching the criteria. |
-| `create` | `($reqdata, $ctrl): array` | Create a new entity. |
-| `update` | `($reqdata, $ctrl): array` | Update an existing entity. |
-| `remove` | `($reqmatch, $ctrl): array` | Remove an entity. |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -273,18 +302,18 @@ Create an instance: `$currencygp = $client->Currencygp();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amount` | ``$NUMBER`` |  |
-| `converted_amount` | ``$NUMBER`` |  |
-| `exchange_rate` | ``$NUMBER`` |  |
-| `from` | ``$STRING`` |  |
-| `timestamp` | ``$STRING`` |  |
-| `to` | ``$STRING`` |  |
+| `amount` | `float` |  |
+| `converted_amount` | `float` |  |
+| `exchange_rate` | `float` |  |
+| `from` | `string` |  |
+| `timestamp` | `string` |  |
+| `to` | `string` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the bare Currencygp record (throws on error).
-$currencygp = $client->Currencygp()->load(["id" => "currencygp_id"]);
+$currencygp = $client->Currencygp()->load();
 ```
 
 
@@ -302,39 +331,43 @@ Create an instance: `$jsongp = $client->Jsongp();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `geoplugin_area_code` | ``$STRING`` |  |
-| `geoplugin_city` | ``$STRING`` |  |
-| `geoplugin_continent_code` | ``$STRING`` |  |
-| `geoplugin_country_code` | ``$STRING`` |  |
-| `geoplugin_country_name` | ``$STRING`` |  |
-| `geoplugin_credit` | ``$STRING`` |  |
-| `geoplugin_currency_code` | ``$STRING`` |  |
-| `geoplugin_currency_converter` | ``$NUMBER`` |  |
-| `geoplugin_currency_symbol` | ``$STRING`` |  |
-| `geoplugin_currency_symbol_utf8` | ``$STRING`` |  |
-| `geoplugin_dma_code` | ``$STRING`` |  |
-| `geoplugin_latitude` | ``$STRING`` |  |
-| `geoplugin_longitude` | ``$STRING`` |  |
-| `geoplugin_region` | ``$STRING`` |  |
-| `geoplugin_region_code` | ``$STRING`` |  |
-| `geoplugin_region_name` | ``$STRING`` |  |
-| `geoplugin_request` | ``$STRING`` |  |
-| `geoplugin_status` | ``$INTEGER`` |  |
+| `geoplugin_area_code` | `string` |  |
+| `geoplugin_city` | `string` |  |
+| `geoplugin_continent_code` | `string` |  |
+| `geoplugin_country_code` | `string` |  |
+| `geoplugin_country_name` | `string` |  |
+| `geoplugin_credit` | `string` |  |
+| `geoplugin_currency_code` | `string` |  |
+| `geoplugin_currency_converter` | `float` |  |
+| `geoplugin_currency_symbol` | `string` |  |
+| `geoplugin_currency_symbol_utf8` | `string` |  |
+| `geoplugin_dma_code` | `string` |  |
+| `geoplugin_latitude` | `string` |  |
+| `geoplugin_longitude` | `string` |  |
+| `geoplugin_region` | `string` |  |
+| `geoplugin_region_code` | `string` |  |
+| `geoplugin_region_name` | `string` |  |
+| `geoplugin_request` | `string` |  |
+| `geoplugin_status` | `int` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the bare Jsongp record (throws on error).
-$jsongp = $client->Jsongp()->load(["id" => "jsongp_id"]);
+$jsongp = $client->Jsongp()->load();
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -351,8 +384,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return array.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -401,10 +435,10 @@ stores the returned data and match criteria internally.
 
 ```php
 $currencygp = $client->Currencygp();
-$currencygp->load(["id" => "example_id"]);
+$currencygp->load();
 
-// $currencygp->dataGet() now returns the loaded currencygp data
-// $currencygp->matchGet() returns the last match criteria
+// $currencygp->data_get() now returns the currencygp data from the last load
+// $currencygp->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration
