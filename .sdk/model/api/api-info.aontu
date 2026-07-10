@@ -20,10 +20,10 @@ main: {
           url: "http://www.geoplugin.net"
         }
       ]
+      summary: "The JSON IP Geolocation API allows you to determine the geographical location of visitors based on their IP addresses."
       termsOfService: "https://www.geoplugin.com/privacy-policy"
       title: "IP Geolocation & Currency Converter"
       version: "1.0.0"
+      website: "https://www.geoplugin.com/webservices/json"
     }
   }
-}
-

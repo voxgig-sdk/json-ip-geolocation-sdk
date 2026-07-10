@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -463,15 +460,18 @@
           "name": "Creative Commons Attribution-ShareAlike 3.0 Unported License",
           "url": "https://creativecommons.org/licenses/by-sa/3.0/"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "GeoPlugin JSON API Server",
             "url": "http://www.geoplugin.net"
           }
         ],
+        "summary": "The JSON IP Geolocation API allows you to determine the geographical location of visitors based on their IP addresses.",
         "termsOfService": "https://www.geoplugin.com/privacy-policy",
         "title": "IP Geolocation & Currency Converter",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://www.geoplugin.com/webservices/json"
       },
       "option": {},
       "target": {
@@ -524,6 +524,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -574,6 +577,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

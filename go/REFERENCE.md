@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 currencygp := client.Currencygp(nil)
+fmt.Println(currencygp.GetName()) // "currencygp"
 ```
 
 ### Fields
@@ -116,6 +117,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Currencygp(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -146,6 +151,7 @@ Return the entity name.
 
 ```go
 jsongp := client.Jsongp(nil)
+fmt.Println(jsongp.GetName()) // "jsongp"
 ```
 
 ### Fields
@@ -179,6 +185,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Jsongp(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
