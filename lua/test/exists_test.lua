@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- JsonIpGeolocation SDK exists test
 
 local sdk = require("json-ip-geolocation_sdk")
 
