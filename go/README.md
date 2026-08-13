@@ -274,22 +274,22 @@ API path: `/currency.gp`
 
 | Field | Description |
 | --- | --- |
-| `"geoplugin_area_code"` |  |
+| `"geoplugin_areaCode"` |  |
 | `"geoplugin_city"` |  |
-| `"geoplugin_continent_code"` |  |
-| `"geoplugin_country_code"` |  |
-| `"geoplugin_country_name"` |  |
+| `"geoplugin_continentCode"` |  |
+| `"geoplugin_countryCode"` |  |
+| `"geoplugin_countryName"` |  |
 | `"geoplugin_credit"` |  |
-| `"geoplugin_currency_code"` |  |
-| `"geoplugin_currency_converter"` |  |
-| `"geoplugin_currency_symbol"` |  |
-| `"geoplugin_currency_symbol_utf8"` |  |
-| `"geoplugin_dma_code"` |  |
+| `"geoplugin_currencyCode"` |  |
+| `"geoplugin_currencyConverter"` |  |
+| `"geoplugin_currencySymbol"` |  |
+| `"geoplugin_currencySymbol_UTF8"` |  |
+| `"geoplugin_dmaCode"` |  |
 | `"geoplugin_latitude"` |  |
 | `"geoplugin_longitude"` |  |
 | `"geoplugin_region"` |  |
-| `"geoplugin_region_code"` |  |
-| `"geoplugin_region_name"` |  |
+| `"geoplugin_regionCode"` |  |
+| `"geoplugin_regionName"` |  |
 | `"geoplugin_request"` |  |
 | `"geoplugin_status"` |  |
 
@@ -348,22 +348,22 @@ Create an instance: `jsongp := client.Jsongp(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `geoplugin_area_code` | `string` |  |
+| `geoplugin_areaCode` | `string` |  |
 | `geoplugin_city` | `string` |  |
-| `geoplugin_continent_code` | `string` |  |
-| `geoplugin_country_code` | `string` |  |
-| `geoplugin_country_name` | `string` |  |
+| `geoplugin_continentCode` | `string` |  |
+| `geoplugin_countryCode` | `string` |  |
+| `geoplugin_countryName` | `string` |  |
 | `geoplugin_credit` | `string` |  |
-| `geoplugin_currency_code` | `string` |  |
-| `geoplugin_currency_converter` | `float64` |  |
-| `geoplugin_currency_symbol` | `string` |  |
-| `geoplugin_currency_symbol_utf8` | `string` |  |
-| `geoplugin_dma_code` | `string` |  |
+| `geoplugin_currencyCode` | `string` |  |
+| `geoplugin_currencyConverter` | `float64` |  |
+| `geoplugin_currencySymbol` | `string` |  |
+| `geoplugin_currencySymbol_UTF8` | `string` |  |
+| `geoplugin_dmaCode` | `string` |  |
 | `geoplugin_latitude` | `string` |  |
 | `geoplugin_longitude` | `string` |  |
 | `geoplugin_region` | `string` |  |
-| `geoplugin_region_code` | `string` |  |
-| `geoplugin_region_name` | `string` |  |
+| `geoplugin_regionCode` | `string` |  |
+| `geoplugin_regionName` | `string` |  |
 | `geoplugin_request` | `string` |  |
 | `geoplugin_status` | `int` |  |
 

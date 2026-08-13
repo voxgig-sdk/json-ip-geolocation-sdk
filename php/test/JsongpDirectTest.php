@@ -65,11 +65,11 @@ function jsongp_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "JSONIPGEOLOCATION_TEST_JSONGP_ENTID" => [],
-        "JSONIPGEOLOCATION_TEST_LIVE" => "FALSE",
+        "JSON_IP_GEOLOCATION_TEST_JSONGP_ENTID" => [],
+        "JSON_IP_GEOLOCATION_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["JSONIPGEOLOCATION_TEST_LIVE"] === "TRUE";
+    $live = $env["JSON_IP_GEOLOCATION_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

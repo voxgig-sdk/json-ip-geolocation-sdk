@@ -107,6 +107,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/currency.gp",
 								"parts": []any{
@@ -126,7 +127,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -137,7 +137,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_area_code",
+						"name": "geoplugin_areaCode",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
@@ -151,21 +151,21 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_continent_code",
+						"name": "geoplugin_continentCode",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_country_code",
+						"name": "geoplugin_countryCode",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_country_name",
+						"name": "geoplugin_countryName",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
@@ -179,35 +179,35 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_currency_code",
+						"name": "geoplugin_currencyCode",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 6,
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_currency_converter",
+						"name": "geoplugin_currencyConverter",
 						"req": false,
 						"type": "`$NUMBER`",
 						"index$": 7,
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_currency_symbol",
+						"name": "geoplugin_currencySymbol",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 8,
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_currency_symbol_utf8",
+						"name": "geoplugin_currencySymbol_UTF8",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 9,
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_dma_code",
+						"name": "geoplugin_dmaCode",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 10,
@@ -235,14 +235,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_region_code",
+						"name": "geoplugin_regionCode",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 14,
 					},
 					map[string]any{
 						"active": true,
-						"name": "geoplugin_region_name",
+						"name": "geoplugin_regionName",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 15,
@@ -292,6 +292,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/json.gp",
 								"parts": []any{
@@ -310,7 +311,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

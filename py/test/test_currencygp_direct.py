@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from jsonipgeolocation_sdk.utility.voxgig_struct import voxgig_struct as vs
 from jsonipgeolocation_sdk import JsonIpGeolocationSDK
-from core import helpers
+from jsonipgeolocation_sdk.core import helpers
 from test import runner
 
 
@@ -63,11 +63,11 @@ def _currencygp_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID": {},
-        "JSONIPGEOLOCATION_TEST_LIVE": "FALSE",
+        "JSON_IP_GEOLOCATION_TEST_CURRENCYGP_ENTID": {},
+        "JSON_IP_GEOLOCATION_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("JSONIPGEOLOCATION_TEST_LIVE") == "TRUE"
+    live = env.get("JSON_IP_GEOLOCATION_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

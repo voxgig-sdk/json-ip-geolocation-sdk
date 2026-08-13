@@ -68,11 +68,11 @@ function currencygp_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["JSONIPGEOLOCATION_TEST_CURRENCYGP_ENTID"] = {},
-    ["JSONIPGEOLOCATION_TEST_LIVE"] = "FALSE",
+    ["JSON_IP_GEOLOCATION_TEST_CURRENCYGP_ENTID"] = {},
+    ["JSON_IP_GEOLOCATION_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["JSONIPGEOLOCATION_TEST_LIVE"] == "TRUE"
+  local live = env["JSON_IP_GEOLOCATION_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

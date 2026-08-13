@@ -16,11 +16,11 @@
 import pytest
 
 from jsonipgeolocation_sdk import JsonIpGeolocationSDK
-from core.error import JsonIpGeolocationError
-from core.result import JsonIpGeolocationResult
-from core.response import JsonIpGeolocationResponse
-from core.spec import JsonIpGeolocationSpec
-from feature.base_feature import JsonIpGeolocationBaseFeature
+from jsonipgeolocation_sdk.core.error import JsonIpGeolocationError
+from jsonipgeolocation_sdk.core.result import JsonIpGeolocationResult
+from jsonipgeolocation_sdk.core.response import JsonIpGeolocationResponse
+from jsonipgeolocation_sdk.core.spec import JsonIpGeolocationSpec
+from jsonipgeolocation_sdk.feature.base_feature import JsonIpGeolocationBaseFeature
 
 
 def _client():

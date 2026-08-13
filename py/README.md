@@ -38,7 +38,7 @@ client = JsonIpGeolocationSDK()
 
 ### 3. Load a currencygp
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = JsonIpGeolocationSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 currencygp = client.Currencygp().load()
 # currencygp contains the mock response record
 ```
@@ -219,7 +220,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -256,22 +257,22 @@ API path: `/currency.gp`
 
 | Field | Description |
 | --- | --- |
-| `geoplugin_area_code` |  |
+| `geoplugin_areaCode` |  |
 | `geoplugin_city` |  |
-| `geoplugin_continent_code` |  |
-| `geoplugin_country_code` |  |
-| `geoplugin_country_name` |  |
+| `geoplugin_continentCode` |  |
+| `geoplugin_countryCode` |  |
+| `geoplugin_countryName` |  |
 | `geoplugin_credit` |  |
-| `geoplugin_currency_code` |  |
-| `geoplugin_currency_converter` |  |
-| `geoplugin_currency_symbol` |  |
-| `geoplugin_currency_symbol_utf8` |  |
-| `geoplugin_dma_code` |  |
+| `geoplugin_currencyCode` |  |
+| `geoplugin_currencyConverter` |  |
+| `geoplugin_currencySymbol` |  |
+| `geoplugin_currencySymbol_UTF8` |  |
+| `geoplugin_dmaCode` |  |
 | `geoplugin_latitude` |  |
 | `geoplugin_longitude` |  |
 | `geoplugin_region` |  |
-| `geoplugin_region_code` |  |
-| `geoplugin_region_name` |  |
+| `geoplugin_regionCode` |  |
+| `geoplugin_regionName` |  |
 | `geoplugin_request` |  |
 | `geoplugin_status` |  |
 
@@ -326,22 +327,22 @@ Create an instance: `jsongp = client.Jsongp()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `geoplugin_area_code` | `str` |  |
+| `geoplugin_areaCode` | `str` |  |
 | `geoplugin_city` | `str` |  |
-| `geoplugin_continent_code` | `str` |  |
-| `geoplugin_country_code` | `str` |  |
-| `geoplugin_country_name` | `str` |  |
+| `geoplugin_continentCode` | `str` |  |
+| `geoplugin_countryCode` | `str` |  |
+| `geoplugin_countryName` | `str` |  |
 | `geoplugin_credit` | `str` |  |
-| `geoplugin_currency_code` | `str` |  |
-| `geoplugin_currency_converter` | `float` |  |
-| `geoplugin_currency_symbol` | `str` |  |
-| `geoplugin_currency_symbol_utf8` | `str` |  |
-| `geoplugin_dma_code` | `str` |  |
+| `geoplugin_currencyCode` | `str` |  |
+| `geoplugin_currencyConverter` | `float` |  |
+| `geoplugin_currencySymbol` | `str` |  |
+| `geoplugin_currencySymbol_UTF8` | `str` |  |
+| `geoplugin_dmaCode` | `str` |  |
 | `geoplugin_latitude` | `str` |  |
 | `geoplugin_longitude` | `str` |  |
 | `geoplugin_region` | `str` |  |
-| `geoplugin_region_code` | `str` |  |
-| `geoplugin_region_name` | `str` |  |
+| `geoplugin_regionCode` | `str` |  |
+| `geoplugin_regionName` | `str` |  |
 | `geoplugin_request` | `str` |  |
 | `geoplugin_status` | `int` |  |
 

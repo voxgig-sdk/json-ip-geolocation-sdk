@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ JsonIpGeolocationUtility.registrar = ->(u) {
   u.prepare_params = JsonIpGeolocationUtilities::PrepareParams
   u.prepare_path = JsonIpGeolocationUtilities::PreparePath
   u.prepare_query = JsonIpGeolocationUtilities::PrepareQuery
+  u.graphql_body = JsonIpGeolocationUtilities::GraphqlBody
+  u.graphql_errors = JsonIpGeolocationUtilities::GraphqlErrors
   u.result_basic = JsonIpGeolocationUtilities::ResultBasic
   u.result_body = JsonIpGeolocationUtilities::ResultBody
   u.result_headers = JsonIpGeolocationUtilities::ResultHeaders

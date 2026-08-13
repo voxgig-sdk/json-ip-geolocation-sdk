@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# JsonIpGeolocation SDK exists test
 
 import pytest
 from jsonipgeolocation_sdk import JsonIpGeolocationSDK

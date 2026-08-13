@@ -147,22 +147,22 @@ jsongp = client.Jsongp()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `geoplugin_area_code` | `str` | No |  |
+| `geoplugin_areaCode` | `str` | No |  |
 | `geoplugin_city` | `str` | No |  |
-| `geoplugin_continent_code` | `str` | No |  |
-| `geoplugin_country_code` | `str` | No |  |
-| `geoplugin_country_name` | `str` | No |  |
+| `geoplugin_continentCode` | `str` | No |  |
+| `geoplugin_countryCode` | `str` | No |  |
+| `geoplugin_countryName` | `str` | No |  |
 | `geoplugin_credit` | `str` | No |  |
-| `geoplugin_currency_code` | `str` | No |  |
-| `geoplugin_currency_converter` | `float` | No |  |
-| `geoplugin_currency_symbol` | `str` | No |  |
-| `geoplugin_currency_symbol_utf8` | `str` | No |  |
-| `geoplugin_dma_code` | `str` | No |  |
+| `geoplugin_currencyCode` | `str` | No |  |
+| `geoplugin_currencyConverter` | `float` | No |  |
+| `geoplugin_currencySymbol` | `str` | No |  |
+| `geoplugin_currencySymbol_UTF8` | `str` | No |  |
+| `geoplugin_dmaCode` | `str` | No |  |
 | `geoplugin_latitude` | `str` | No |  |
 | `geoplugin_longitude` | `str` | No |  |
 | `geoplugin_region` | `str` | No |  |
-| `geoplugin_region_code` | `str` | No |  |
-| `geoplugin_region_name` | `str` | No |  |
+| `geoplugin_regionCode` | `str` | No |  |
+| `geoplugin_regionName` | `str` | No |  |
 | `geoplugin_request` | `str` | No |  |
 | `geoplugin_status` | `int` | No |  |
 

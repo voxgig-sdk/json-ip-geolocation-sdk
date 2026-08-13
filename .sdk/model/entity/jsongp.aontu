@@ -6,7 +6,7 @@ main: kit: entity: jsongp: {
 
   fields: [
     {
-      name: "geoplugin_area_code"
+      name: "geoplugin_areaCode"
       req: false
       type: "`$STRING`"
     }
@@ -16,17 +16,17 @@ main: kit: entity: jsongp: {
       type: "`$STRING`"
     }
     {
-      name: "geoplugin_continent_code"
+      name: "geoplugin_continentCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "geoplugin_country_code"
+      name: "geoplugin_countryCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "geoplugin_country_name"
+      name: "geoplugin_countryName"
       req: false
       type: "`$STRING`"
     }
@@ -36,27 +36,27 @@ main: kit: entity: jsongp: {
       type: "`$STRING`"
     }
     {
-      name: "geoplugin_currency_code"
+      name: "geoplugin_currencyCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "geoplugin_currency_converter"
+      name: "geoplugin_currencyConverter"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "geoplugin_currency_symbol"
+      name: "geoplugin_currencySymbol"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "geoplugin_currency_symbol_utf8"
+      name: "geoplugin_currencySymbol_UTF8"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "geoplugin_dma_code"
+      name: "geoplugin_dmaCode"
       req: false
       type: "`$STRING`"
     }
@@ -76,12 +76,12 @@ main: kit: entity: jsongp: {
       type: "`$STRING`"
     }
     {
-      name: "geoplugin_region_code"
+      name: "geoplugin_regionCode"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "geoplugin_region_name"
+      name: "geoplugin_regionName"
       req: false
       type: "`$STRING`"
     }

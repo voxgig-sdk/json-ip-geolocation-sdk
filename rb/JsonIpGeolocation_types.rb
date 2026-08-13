@@ -68,37 +68,37 @@ CurrencygpLoadMatch = Struct.new(
 
 # Jsongp entity data model.
 #
-# @!attribute [rw] geoplugin_area_code
+# @!attribute [rw] geoplugin_areaCode
 #   @return [String, nil]
 #
 # @!attribute [rw] geoplugin_city
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_continent_code
+# @!attribute [rw] geoplugin_continentCode
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_country_code
+# @!attribute [rw] geoplugin_countryCode
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_country_name
+# @!attribute [rw] geoplugin_countryName
 #   @return [String, nil]
 #
 # @!attribute [rw] geoplugin_credit
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_currency_code
+# @!attribute [rw] geoplugin_currencyCode
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_currency_converter
+# @!attribute [rw] geoplugin_currencyConverter
 #   @return [Float, nil]
 #
-# @!attribute [rw] geoplugin_currency_symbol
+# @!attribute [rw] geoplugin_currencySymbol
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_currency_symbol_utf8
+# @!attribute [rw] geoplugin_currencySymbol_UTF8
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_dma_code
+# @!attribute [rw] geoplugin_dmaCode
 #   @return [String, nil]
 #
 # @!attribute [rw] geoplugin_latitude
@@ -110,10 +110,10 @@ CurrencygpLoadMatch = Struct.new(
 # @!attribute [rw] geoplugin_region
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_region_code
+# @!attribute [rw] geoplugin_regionCode
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_region_name
+# @!attribute [rw] geoplugin_regionName
 #   @return [String, nil]
 #
 # @!attribute [rw] geoplugin_request
@@ -122,22 +122,22 @@ CurrencygpLoadMatch = Struct.new(
 # @!attribute [rw] geoplugin_status
 #   @return [Integer, nil]
 Jsongp = Struct.new(
-  :geoplugin_area_code,
+  :geoplugin_areaCode,
   :geoplugin_city,
-  :geoplugin_continent_code,
-  :geoplugin_country_code,
-  :geoplugin_country_name,
+  :geoplugin_continentCode,
+  :geoplugin_countryCode,
+  :geoplugin_countryName,
   :geoplugin_credit,
-  :geoplugin_currency_code,
-  :geoplugin_currency_converter,
-  :geoplugin_currency_symbol,
-  :geoplugin_currency_symbol_utf8,
-  :geoplugin_dma_code,
+  :geoplugin_currencyCode,
+  :geoplugin_currencyConverter,
+  :geoplugin_currencySymbol,
+  :geoplugin_currencySymbol_UTF8,
+  :geoplugin_dmaCode,
   :geoplugin_latitude,
   :geoplugin_longitude,
   :geoplugin_region,
-  :geoplugin_region_code,
-  :geoplugin_region_name,
+  :geoplugin_regionCode,
+  :geoplugin_regionName,
   :geoplugin_request,
   :geoplugin_status,
   keyword_init: true
@@ -145,37 +145,37 @@ Jsongp = Struct.new(
 
 # Request payload for Jsongp#load.
 #
-# @!attribute [rw] geoplugin_area_code
+# @!attribute [rw] geoplugin_areaCode
 #   @return [String, nil]
 #
 # @!attribute [rw] geoplugin_city
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_continent_code
+# @!attribute [rw] geoplugin_continentCode
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_country_code
+# @!attribute [rw] geoplugin_countryCode
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_country_name
+# @!attribute [rw] geoplugin_countryName
 #   @return [String, nil]
 #
 # @!attribute [rw] geoplugin_credit
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_currency_code
+# @!attribute [rw] geoplugin_currencyCode
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_currency_converter
+# @!attribute [rw] geoplugin_currencyConverter
 #   @return [Float, nil]
 #
-# @!attribute [rw] geoplugin_currency_symbol
+# @!attribute [rw] geoplugin_currencySymbol
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_currency_symbol_utf8
+# @!attribute [rw] geoplugin_currencySymbol_UTF8
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_dma_code
+# @!attribute [rw] geoplugin_dmaCode
 #   @return [String, nil]
 #
 # @!attribute [rw] geoplugin_latitude
@@ -187,10 +187,10 @@ Jsongp = Struct.new(
 # @!attribute [rw] geoplugin_region
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_region_code
+# @!attribute [rw] geoplugin_regionCode
 #   @return [String, nil]
 #
-# @!attribute [rw] geoplugin_region_name
+# @!attribute [rw] geoplugin_regionName
 #   @return [String, nil]
 #
 # @!attribute [rw] geoplugin_request
@@ -199,22 +199,22 @@ Jsongp = Struct.new(
 # @!attribute [rw] geoplugin_status
 #   @return [Integer, nil]
 JsongpLoadMatch = Struct.new(
-  :geoplugin_area_code,
+  :geoplugin_areaCode,
   :geoplugin_city,
-  :geoplugin_continent_code,
-  :geoplugin_country_code,
-  :geoplugin_country_name,
+  :geoplugin_continentCode,
+  :geoplugin_countryCode,
+  :geoplugin_countryName,
   :geoplugin_credit,
-  :geoplugin_currency_code,
-  :geoplugin_currency_converter,
-  :geoplugin_currency_symbol,
-  :geoplugin_currency_symbol_utf8,
-  :geoplugin_dma_code,
+  :geoplugin_currencyCode,
+  :geoplugin_currencyConverter,
+  :geoplugin_currencySymbol,
+  :geoplugin_currencySymbol_UTF8,
+  :geoplugin_dmaCode,
   :geoplugin_latitude,
   :geoplugin_longitude,
   :geoplugin_region,
-  :geoplugin_region_code,
-  :geoplugin_region_name,
+  :geoplugin_regionCode,
+  :geoplugin_regionName,
   :geoplugin_request,
   :geoplugin_status,
   keyword_init: true

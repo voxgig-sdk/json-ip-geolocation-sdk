@@ -23,8 +23,8 @@ module JsonIpGeolocationTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("JSONIPGEOLOCATION_TEST_LIVE")
-    override = getenv("JSONIPGEOLOCATION_TEST_OVERRIDE")
+    live = getenv("JSON_IP_GEOLOCATION_TEST_LIVE")
+    override = getenv("JSON_IP_GEOLOCATION_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module JsonIpGeolocationTestRunner
       end
     end
 
-    explain = getenv("JSONIPGEOLOCATION_TEST_EXPLAIN")
-    m["JSONIPGEOLOCATION_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("JSON_IP_GEOLOCATION_TEST_EXPLAIN")
+    m["JSON_IP_GEOLOCATION_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

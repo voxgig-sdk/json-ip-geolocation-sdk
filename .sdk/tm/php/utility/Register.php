@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ JsonIpGeolocationUtility::setRegistrar(function (JsonIpGeolocationUtility $u): v
     $u->prepare_params = [JsonIpGeolocationPrepareParams::class, 'call'];
     $u->prepare_path = [JsonIpGeolocationPreparePath::class, 'call'];
     $u->prepare_query = [JsonIpGeolocationPrepareQuery::class, 'call'];
+    $u->graphql_body = [JsonIpGeolocationGraphql::class, 'body'];
+    $u->graphql_errors = [JsonIpGeolocationGraphql::class, 'errors'];
     $u->result_basic = [JsonIpGeolocationResultBasic::class, 'call'];
     $u->result_body = [JsonIpGeolocationResultBody::class, 'call'];
     $u->result_headers = [JsonIpGeolocationResultHeaders::class, 'call'];

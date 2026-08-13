@@ -23,42 +23,42 @@
 ---@field to? string
 
 ---@class Jsongp
----@field geoplugin_area_code? string
+---@field geoplugin_areaCode? string
 ---@field geoplugin_city? string
----@field geoplugin_continent_code? string
----@field geoplugin_country_code? string
----@field geoplugin_country_name? string
+---@field geoplugin_continentCode? string
+---@field geoplugin_countryCode? string
+---@field geoplugin_countryName? string
 ---@field geoplugin_credit? string
----@field geoplugin_currency_code? string
----@field geoplugin_currency_converter? number
----@field geoplugin_currency_symbol? string
----@field geoplugin_currency_symbol_utf8? string
----@field geoplugin_dma_code? string
+---@field geoplugin_currencyCode? string
+---@field geoplugin_currencyConverter? number
+---@field geoplugin_currencySymbol? string
+---@field geoplugin_currencySymbol_UTF8? string
+---@field geoplugin_dmaCode? string
 ---@field geoplugin_latitude? string
 ---@field geoplugin_longitude? string
 ---@field geoplugin_region? string
----@field geoplugin_region_code? string
----@field geoplugin_region_name? string
+---@field geoplugin_regionCode? string
+---@field geoplugin_regionName? string
 ---@field geoplugin_request? string
 ---@field geoplugin_status? number
 
 ---@class JsongpLoadMatch
----@field geoplugin_area_code? string
+---@field geoplugin_areaCode? string
 ---@field geoplugin_city? string
----@field geoplugin_continent_code? string
----@field geoplugin_country_code? string
----@field geoplugin_country_name? string
+---@field geoplugin_continentCode? string
+---@field geoplugin_countryCode? string
+---@field geoplugin_countryName? string
 ---@field geoplugin_credit? string
----@field geoplugin_currency_code? string
----@field geoplugin_currency_converter? number
----@field geoplugin_currency_symbol? string
----@field geoplugin_currency_symbol_utf8? string
----@field geoplugin_dma_code? string
+---@field geoplugin_currencyCode? string
+---@field geoplugin_currencyConverter? number
+---@field geoplugin_currencySymbol? string
+---@field geoplugin_currencySymbol_UTF8? string
+---@field geoplugin_dmaCode? string
 ---@field geoplugin_latitude? string
 ---@field geoplugin_longitude? string
 ---@field geoplugin_region? string
----@field geoplugin_region_code? string
----@field geoplugin_region_name? string
+---@field geoplugin_regionCode? string
+---@field geoplugin_regionName? string
 ---@field geoplugin_request? string
 ---@field geoplugin_status? number
 

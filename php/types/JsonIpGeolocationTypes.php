@@ -37,22 +37,22 @@ class CurrencygpLoadMatch
 /** Jsongp entity data model. */
 class Jsongp
 {
-    public ?string $geoplugin_area_code = null;
+    public ?string $geoplugin_areaCode = null;
     public ?string $geoplugin_city = null;
-    public ?string $geoplugin_continent_code = null;
-    public ?string $geoplugin_country_code = null;
-    public ?string $geoplugin_country_name = null;
+    public ?string $geoplugin_continentCode = null;
+    public ?string $geoplugin_countryCode = null;
+    public ?string $geoplugin_countryName = null;
     public ?string $geoplugin_credit = null;
-    public ?string $geoplugin_currency_code = null;
-    public ?float $geoplugin_currency_converter = null;
-    public ?string $geoplugin_currency_symbol = null;
-    public ?string $geoplugin_currency_symbol_utf8 = null;
-    public ?string $geoplugin_dma_code = null;
+    public ?string $geoplugin_currencyCode = null;
+    public ?float $geoplugin_currencyConverter = null;
+    public ?string $geoplugin_currencySymbol = null;
+    public ?string $geoplugin_currencySymbol_UTF8 = null;
+    public ?string $geoplugin_dmaCode = null;
     public ?string $geoplugin_latitude = null;
     public ?string $geoplugin_longitude = null;
     public ?string $geoplugin_region = null;
-    public ?string $geoplugin_region_code = null;
-    public ?string $geoplugin_region_name = null;
+    public ?string $geoplugin_regionCode = null;
+    public ?string $geoplugin_regionName = null;
     public ?string $geoplugin_request = null;
     public ?int $geoplugin_status = null;
 }
@@ -60,22 +60,22 @@ class Jsongp
 /** Request payload for Jsongp#load. */
 class JsongpLoadMatch
 {
-    public ?string $geoplugin_area_code = null;
+    public ?string $geoplugin_areaCode = null;
     public ?string $geoplugin_city = null;
-    public ?string $geoplugin_continent_code = null;
-    public ?string $geoplugin_country_code = null;
-    public ?string $geoplugin_country_name = null;
+    public ?string $geoplugin_continentCode = null;
+    public ?string $geoplugin_countryCode = null;
+    public ?string $geoplugin_countryName = null;
     public ?string $geoplugin_credit = null;
-    public ?string $geoplugin_currency_code = null;
-    public ?float $geoplugin_currency_converter = null;
-    public ?string $geoplugin_currency_symbol = null;
-    public ?string $geoplugin_currency_symbol_utf8 = null;
-    public ?string $geoplugin_dma_code = null;
+    public ?string $geoplugin_currencyCode = null;
+    public ?float $geoplugin_currencyConverter = null;
+    public ?string $geoplugin_currencySymbol = null;
+    public ?string $geoplugin_currencySymbol_UTF8 = null;
+    public ?string $geoplugin_dmaCode = null;
     public ?string $geoplugin_latitude = null;
     public ?string $geoplugin_longitude = null;
     public ?string $geoplugin_region = null;
-    public ?string $geoplugin_region_code = null;
-    public ?string $geoplugin_region_name = null;
+    public ?string $geoplugin_regionCode = null;
+    public ?string $geoplugin_regionName = null;
     public ?string $geoplugin_request = null;
     public ?int $geoplugin_status = null;
 }

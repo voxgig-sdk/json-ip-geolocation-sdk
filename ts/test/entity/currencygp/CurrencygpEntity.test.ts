@@ -26,8 +26,8 @@ import {
 describe('CurrencygpEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when JSONIPGEOLOCATION_TEST_LIVE=TRUE.
-  afterEach(liveDelay('JSONIPGEOLOCATION_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when JSON_IP_GEOLOCATION_TEST_LIVE=TRUE.
+  afterEach(liveDelay('JSON_IP_GEOLOCATION_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = JsonIpGeolocationSDK.test()
@@ -62,7 +62,7 @@ describe('CurrencygpEntity', async () => {
     // LOAD
     const currencygp_ref01_ent = client.Currencygp()
     const currencygp_ref01_match_dt0: any = {}
-    const currencygp_ref01_data_dt0 = await currencygp_ref01_ent.load(currencygp_ref01_match_dt0)
+    const currencygp_ref01_data_dt0 = (await currencygp_ref01_ent.load(currencygp_ref01_match_dt0)).data()
     assert(null != currencygp_ref01_data_dt0)
 
 

@@ -24,43 +24,43 @@ export interface CurrencygpLoadMatch {
 }
 
 export interface Jsongp {
-  geoplugin_area_code?: string
+  geoplugin_areaCode?: string
   geoplugin_city?: string
-  geoplugin_continent_code?: string
-  geoplugin_country_code?: string
-  geoplugin_country_name?: string
+  geoplugin_continentCode?: string
+  geoplugin_countryCode?: string
+  geoplugin_countryName?: string
   geoplugin_credit?: string
-  geoplugin_currency_code?: string
-  geoplugin_currency_converter?: number
-  geoplugin_currency_symbol?: string
-  geoplugin_currency_symbol_utf8?: string
-  geoplugin_dma_code?: string
+  geoplugin_currencyCode?: string
+  geoplugin_currencyConverter?: number
+  geoplugin_currencySymbol?: string
+  geoplugin_currencySymbol_UTF8?: string
+  geoplugin_dmaCode?: string
   geoplugin_latitude?: string
   geoplugin_longitude?: string
   geoplugin_region?: string
-  geoplugin_region_code?: string
-  geoplugin_region_name?: string
+  geoplugin_regionCode?: string
+  geoplugin_regionName?: string
   geoplugin_request?: string
   geoplugin_status?: number
 }
 
 export interface JsongpLoadMatch {
-  geoplugin_area_code?: string
+  geoplugin_areaCode?: string
   geoplugin_city?: string
-  geoplugin_continent_code?: string
-  geoplugin_country_code?: string
-  geoplugin_country_name?: string
+  geoplugin_continentCode?: string
+  geoplugin_countryCode?: string
+  geoplugin_countryName?: string
   geoplugin_credit?: string
-  geoplugin_currency_code?: string
-  geoplugin_currency_converter?: number
-  geoplugin_currency_symbol?: string
-  geoplugin_currency_symbol_utf8?: string
-  geoplugin_dma_code?: string
+  geoplugin_currencyCode?: string
+  geoplugin_currencyConverter?: number
+  geoplugin_currencySymbol?: string
+  geoplugin_currencySymbol_UTF8?: string
+  geoplugin_dmaCode?: string
   geoplugin_latitude?: string
   geoplugin_longitude?: string
   geoplugin_region?: string
-  geoplugin_region_code?: string
-  geoplugin_region_name?: string
+  geoplugin_regionCode?: string
+  geoplugin_regionName?: string
   geoplugin_request?: string
   geoplugin_status?: number
 }

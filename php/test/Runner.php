@@ -43,8 +43,8 @@ class JsonIpGeolocationTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('JSONIPGEOLOCATION_TEST_LIVE');
-        $override = self::getenv('JSONIPGEOLOCATION_TEST_OVERRIDE');
+        $live = self::getenv('JSON_IP_GEOLOCATION_TEST_LIVE');
+        $override = self::getenv('JSON_IP_GEOLOCATION_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class JsonIpGeolocationTestRunner
             }
         }
 
-        $explain = self::getenv('JSONIPGEOLOCATION_TEST_EXPLAIN');
+        $explain = self::getenv('JSON_IP_GEOLOCATION_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['JSONIPGEOLOCATION_TEST_EXPLAIN'] = $explain;
+            $m['JSON_IP_GEOLOCATION_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

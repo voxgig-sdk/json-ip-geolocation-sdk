@@ -34,7 +34,7 @@ client = JsonIpGeolocationSDK.new
 
 ```ruby
 begin
-  # load returns the bare Currencygp record (raises on error).
+  # load returns the ENTITY — call data_get for the Currencygp record (raises on error).
   currencygp = client.Currencygp.load()
   puts currencygp
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = JsonIpGeolocationSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 currencygp = client.Currencygp.load()
 puts currencygp
 ```
@@ -250,22 +251,22 @@ API path: `/currency.gp`
 
 | Field | Description |
 | --- | --- |
-| `geoplugin_area_code` |  |
+| `geoplugin_areaCode` |  |
 | `geoplugin_city` |  |
-| `geoplugin_continent_code` |  |
-| `geoplugin_country_code` |  |
-| `geoplugin_country_name` |  |
+| `geoplugin_continentCode` |  |
+| `geoplugin_countryCode` |  |
+| `geoplugin_countryName` |  |
 | `geoplugin_credit` |  |
-| `geoplugin_currency_code` |  |
-| `geoplugin_currency_converter` |  |
-| `geoplugin_currency_symbol` |  |
-| `geoplugin_currency_symbol_utf8` |  |
-| `geoplugin_dma_code` |  |
+| `geoplugin_currencyCode` |  |
+| `geoplugin_currencyConverter` |  |
+| `geoplugin_currencySymbol` |  |
+| `geoplugin_currencySymbol_UTF8` |  |
+| `geoplugin_dmaCode` |  |
 | `geoplugin_latitude` |  |
 | `geoplugin_longitude` |  |
 | `geoplugin_region` |  |
-| `geoplugin_region_code` |  |
-| `geoplugin_region_name` |  |
+| `geoplugin_regionCode` |  |
+| `geoplugin_regionName` |  |
 | `geoplugin_request` |  |
 | `geoplugin_status` |  |
 
@@ -302,7 +303,7 @@ Create an instance: `currencygp = client.Currencygp`
 #### Example: Load
 
 ```ruby
-# load returns the bare Currencygp record (raises on error).
+# load returns the ENTITY — call data_get for the Currencygp record (raises on error).
 currencygp = client.Currencygp.load()
 ```
 
@@ -321,29 +322,29 @@ Create an instance: `jsongp = client.Jsongp`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `geoplugin_area_code` | `String` |  |
+| `geoplugin_areaCode` | `String` |  |
 | `geoplugin_city` | `String` |  |
-| `geoplugin_continent_code` | `String` |  |
-| `geoplugin_country_code` | `String` |  |
-| `geoplugin_country_name` | `String` |  |
+| `geoplugin_continentCode` | `String` |  |
+| `geoplugin_countryCode` | `String` |  |
+| `geoplugin_countryName` | `String` |  |
 | `geoplugin_credit` | `String` |  |
-| `geoplugin_currency_code` | `String` |  |
-| `geoplugin_currency_converter` | `Float` |  |
-| `geoplugin_currency_symbol` | `String` |  |
-| `geoplugin_currency_symbol_utf8` | `String` |  |
-| `geoplugin_dma_code` | `String` |  |
+| `geoplugin_currencyCode` | `String` |  |
+| `geoplugin_currencyConverter` | `Float` |  |
+| `geoplugin_currencySymbol` | `String` |  |
+| `geoplugin_currencySymbol_UTF8` | `String` |  |
+| `geoplugin_dmaCode` | `String` |  |
 | `geoplugin_latitude` | `String` |  |
 | `geoplugin_longitude` | `String` |  |
 | `geoplugin_region` | `String` |  |
-| `geoplugin_region_code` | `String` |  |
-| `geoplugin_region_name` | `String` |  |
+| `geoplugin_regionCode` | `String` |  |
+| `geoplugin_regionName` | `String` |  |
 | `geoplugin_request` | `String` |  |
 | `geoplugin_status` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Jsongp record (raises on error).
+# load returns the ENTITY — call data_get for the Jsongp record (raises on error).
 jsongp = client.Jsongp.load()
 ```
 

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'JsonIpGeolocation',
   }
 
 
@@ -139,6 +139,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/currency.gp",
               "parts": [
@@ -169,7 +170,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "geoplugin_area_code",
+          "name": "geoplugin_areaCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -183,21 +184,21 @@ class Config {
         },
         {
           "active": true,
-          "name": "geoplugin_continent_code",
+          "name": "geoplugin_continentCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "geoplugin_country_code",
+          "name": "geoplugin_countryCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "geoplugin_country_name",
+          "name": "geoplugin_countryName",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
@@ -211,35 +212,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "geoplugin_currency_code",
+          "name": "geoplugin_currencyCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 6
         },
         {
           "active": true,
-          "name": "geoplugin_currency_converter",
+          "name": "geoplugin_currencyConverter",
           "req": false,
           "type": "`$NUMBER`",
           "index$": 7
         },
         {
           "active": true,
-          "name": "geoplugin_currency_symbol",
+          "name": "geoplugin_currencySymbol",
           "req": false,
           "type": "`$STRING`",
           "index$": 8
         },
         {
           "active": true,
-          "name": "geoplugin_currency_symbol_utf8",
+          "name": "geoplugin_currencySymbol_UTF8",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "geoplugin_dma_code",
+          "name": "geoplugin_dmaCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
@@ -267,14 +268,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "geoplugin_region_code",
+          "name": "geoplugin_regionCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
         },
         {
           "active": true,
-          "name": "geoplugin_region_name",
+          "name": "geoplugin_regionName",
           "req": false,
           "type": "`$STRING`",
           "index$": 15
@@ -324,6 +325,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/json.gp",
               "parts": [
