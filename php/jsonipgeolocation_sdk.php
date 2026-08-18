@@ -40,7 +40,7 @@ class JsonIpGeolocationSDK
         $utility = new JsonIpGeolocationUtility();
         $this->_utility = $utility;
 
-        $config = JsonIpGeolocationConfig::make_config();
+        $config = JsonIpGeolocationConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

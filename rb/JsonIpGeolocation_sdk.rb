@@ -28,7 +28,7 @@ class JsonIpGeolocationSDK
     utility = JsonIpGeolocationUtility.new
     @_utility = utility
 
-    config = JsonIpGeolocationConfig.make_config
+    config = JsonIpGeolocationConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

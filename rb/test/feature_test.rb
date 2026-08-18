@@ -15,7 +15,7 @@ require_relative "../JsonIpGeolocation_sdk"
 module JsonIpGeolocationFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = JsonIpGeolocationConfig.make_config["feature"]
+    f = JsonIpGeolocationConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
