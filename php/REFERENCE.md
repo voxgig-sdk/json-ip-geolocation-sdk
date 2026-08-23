@@ -96,12 +96,12 @@ $currencygp = $client->Currencygp();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amount` | `float` | No |  |
-| `converted_amount` | `float` | No |  |
-| `exchange_rate` | `float` | No |  |
-| `from` | `string` | No |  |
-| `timestamp` | `string` | No |  |
-| `to` | `string` | No |  |
+| `amount` | `float` | No | Original amount to convert |
+| `converted_amount` | `float` | No | Converted amount in target currency |
+| `exchange_rate` | `float` | No | Exchange rate used for conversion |
+| `from` | `string` | No | Source currency code |
+| `timestamp` | `string` | No | Timestamp of the conversion |
+| `to` | `string` | No | Target currency code |
 
 ### Operations
 
@@ -153,24 +153,24 @@ $jsongp = $client->Jsongp();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `geoplugin_areaCode` | `string` | No |  |
-| `geoplugin_city` | `string` | No |  |
-| `geoplugin_continentCode` | `string` | No |  |
-| `geoplugin_countryCode` | `string` | No |  |
-| `geoplugin_countryName` | `string` | No |  |
-| `geoplugin_credit` | `string` | No |  |
-| `geoplugin_currencyCode` | `string` | No |  |
-| `geoplugin_currencyConverter` | `float` | No |  |
-| `geoplugin_currencySymbol` | `string` | No |  |
-| `geoplugin_currencySymbol_UTF8` | `string` | No |  |
-| `geoplugin_dmaCode` | `string` | No |  |
-| `geoplugin_latitude` | `string` | No |  |
-| `geoplugin_longitude` | `string` | No |  |
-| `geoplugin_region` | `string` | No |  |
-| `geoplugin_regionCode` | `string` | No |  |
-| `geoplugin_regionName` | `string` | No |  |
-| `geoplugin_request` | `string` | No |  |
-| `geoplugin_status` | `int` | No |  |
+| `geoplugin_areaCode` | `string` | No | Telephone area code |
+| `geoplugin_city` | `string` | No | City name derived from IP address |
+| `geoplugin_continentCode` | `string` | No | Continent code |
+| `geoplugin_countryCode` | `string` | No | ISO 3166-1 alpha-2 country code |
+| `geoplugin_countryName` | `string` | No | Full country name |
+| `geoplugin_credit` | `string` | No | Attribution credit for data sources |
+| `geoplugin_currencyCode` | `string` | No | ISO 4217 currency code for the location |
+| `geoplugin_currencyConverter` | `float` | No | Exchange rate converter value |
+| `geoplugin_currencySymbol` | `string` | No | Currency symbol |
+| `geoplugin_currencySymbol_UTF8` | `string` | No | UTF-8 encoded currency symbol |
+| `geoplugin_dmaCode` | `string` | No | Designated Market Area code |
+| `geoplugin_latitude` | `string` | No | Latitude coordinate |
+| `geoplugin_longitude` | `string` | No | Longitude coordinate |
+| `geoplugin_region` | `string` | No | Region or state name |
+| `geoplugin_regionCode` | `string` | No | Region or state code |
+| `geoplugin_regionName` | `string` | No | Full region or state name |
+| `geoplugin_request` | `string` | No | The IP address that was geolocated |
+| `geoplugin_status` | `int` | No | HTTP status code of the response |
 
 ### Operations
 

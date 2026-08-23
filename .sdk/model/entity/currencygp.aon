@@ -8,31 +8,37 @@ main: kit: entity: currencygp: {
     {
       name: "amount"
       req: false
+      short: "Original amount to convert"
       type: "`$NUMBER`"
     }
     {
       name: "converted_amount"
       req: false
+      short: "Converted amount in target currency"
       type: "`$NUMBER`"
     }
     {
       name: "exchange_rate"
       req: false
+      short: "Exchange rate used for conversion"
       type: "`$NUMBER`"
     }
     {
       name: "from"
       req: false
+      short: "Source currency code"
       type: "`$STRING`"
     }
     {
       name: "timestamp"
       req: false
+      short: "Timestamp of the conversion"
       type: "`$STRING`"
     }
     {
       name: "to"
       req: false
+      short: "Target currency code"
       type: "`$STRING`"
     }
   ]

@@ -36,36 +36,42 @@
               "active": true,
               "name": "amount",
               "req": false,
+              "short": "Original amount to convert",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "converted_amount",
               "req": false,
+              "short": "Converted amount in target currency",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "exchange_rate",
               "req": false,
+              "short": "Exchange rate used for conversion",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "from",
               "req": false,
+              "short": "Source currency code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "timestamp",
               "req": false,
+              "short": "Timestamp of the conversion",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "to",
               "req": false,
+              "short": "Target currency code",
               "type": "`$STRING`"
             }
           ],
@@ -143,108 +149,126 @@
               "active": true,
               "name": "geoplugin_areaCode",
               "req": false,
+              "short": "Telephone area code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_city",
               "req": false,
+              "short": "City name derived from IP address",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_continentCode",
               "req": false,
+              "short": "Continent code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_countryCode",
               "req": false,
+              "short": "ISO 3166-1 alpha-2 country code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_countryName",
               "req": false,
+              "short": "Full country name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_credit",
               "req": false,
+              "short": "Attribution credit for data sources",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_currencyCode",
               "req": false,
+              "short": "ISO 4217 currency code for the location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_currencyConverter",
               "req": false,
+              "short": "Exchange rate converter value",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "geoplugin_currencySymbol",
               "req": false,
+              "short": "Currency symbol",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_currencySymbol_UTF8",
               "req": false,
+              "short": "UTF-8 encoded currency symbol",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_dmaCode",
               "req": false,
+              "short": "Designated Market Area code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_latitude",
               "req": false,
+              "short": "Latitude coordinate",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_longitude",
               "req": false,
+              "short": "Longitude coordinate",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_region",
               "req": false,
+              "short": "Region or state name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_regionCode",
               "req": false,
+              "short": "Region or state code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_regionName",
               "req": false,
+              "short": "Full region or state name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_request",
               "req": false,
+              "short": "The IP address that was geolocated",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "geoplugin_status",
               "req": false,
+              "short": "HTTP status code of the response",
               "type": "`$INTEGER`"
             }
           ],

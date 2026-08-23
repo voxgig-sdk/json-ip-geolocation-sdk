@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "JsonIpGeolocation",
+			"slug": "json-ip-geolocation",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,26 +37,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "amount",
+						"short": "Original amount to convert",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "converted_amount",
+						"short": "Converted amount in target currency",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "exchange_rate",
+						"short": "Exchange rate used for conversion",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "from",
+						"short": "Source currency code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "timestamp",
+						"short": "Timestamp of the conversion",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "to",
+						"short": "Target currency code",
 						"type": "`$STRING`",
 					},
 				},
@@ -121,74 +130,92 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "geoplugin_areaCode",
+						"short": "Telephone area code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_city",
+						"short": "City name derived from IP address",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_continentCode",
+						"short": "Continent code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_countryCode",
+						"short": "ISO 3166-1 alpha-2 country code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_countryName",
+						"short": "Full country name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_credit",
+						"short": "Attribution credit for data sources",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_currencyCode",
+						"short": "ISO 4217 currency code for the location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_currencyConverter",
+						"short": "Exchange rate converter value",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "geoplugin_currencySymbol",
+						"short": "Currency symbol",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_currencySymbol_UTF8",
+						"short": "UTF-8 encoded currency symbol",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_dmaCode",
+						"short": "Designated Market Area code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_latitude",
+						"short": "Latitude coordinate",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_longitude",
+						"short": "Longitude coordinate",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_region",
+						"short": "Region or state name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_regionCode",
+						"short": "Region or state code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_regionName",
+						"short": "Full region or state name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_request",
+						"short": "The IP address that was geolocated",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "geoplugin_status",
+						"short": "HTTP status code of the response",
 						"type": "`$INTEGER`",
 					},
 				},

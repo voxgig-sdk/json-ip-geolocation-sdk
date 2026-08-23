@@ -97,12 +97,12 @@ currencygp = client.Currencygp
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amount` | `Float` | No |  |
-| `converted_amount` | `Float` | No |  |
-| `exchange_rate` | `Float` | No |  |
-| `from` | `String` | No |  |
-| `timestamp` | `String` | No |  |
-| `to` | `String` | No |  |
+| `amount` | `Float` | No | Original amount to convert |
+| `converted_amount` | `Float` | No | Converted amount in target currency |
+| `exchange_rate` | `Float` | No | Exchange rate used for conversion |
+| `from` | `String` | No | Source currency code |
+| `timestamp` | `String` | No | Timestamp of the conversion |
+| `to` | `String` | No | Target currency code |
 
 ### Operations
 
@@ -154,24 +154,24 @@ jsongp = client.Jsongp
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `geoplugin_areaCode` | `String` | No |  |
-| `geoplugin_city` | `String` | No |  |
-| `geoplugin_continentCode` | `String` | No |  |
-| `geoplugin_countryCode` | `String` | No |  |
-| `geoplugin_countryName` | `String` | No |  |
-| `geoplugin_credit` | `String` | No |  |
-| `geoplugin_currencyCode` | `String` | No |  |
-| `geoplugin_currencyConverter` | `Float` | No |  |
-| `geoplugin_currencySymbol` | `String` | No |  |
-| `geoplugin_currencySymbol_UTF8` | `String` | No |  |
-| `geoplugin_dmaCode` | `String` | No |  |
-| `geoplugin_latitude` | `String` | No |  |
-| `geoplugin_longitude` | `String` | No |  |
-| `geoplugin_region` | `String` | No |  |
-| `geoplugin_regionCode` | `String` | No |  |
-| `geoplugin_regionName` | `String` | No |  |
-| `geoplugin_request` | `String` | No |  |
-| `geoplugin_status` | `Integer` | No |  |
+| `geoplugin_areaCode` | `String` | No | Telephone area code |
+| `geoplugin_city` | `String` | No | City name derived from IP address |
+| `geoplugin_continentCode` | `String` | No | Continent code |
+| `geoplugin_countryCode` | `String` | No | ISO 3166-1 alpha-2 country code |
+| `geoplugin_countryName` | `String` | No | Full country name |
+| `geoplugin_credit` | `String` | No | Attribution credit for data sources |
+| `geoplugin_currencyCode` | `String` | No | ISO 4217 currency code for the location |
+| `geoplugin_currencyConverter` | `Float` | No | Exchange rate converter value |
+| `geoplugin_currencySymbol` | `String` | No | Currency symbol |
+| `geoplugin_currencySymbol_UTF8` | `String` | No | UTF-8 encoded currency symbol |
+| `geoplugin_dmaCode` | `String` | No | Designated Market Area code |
+| `geoplugin_latitude` | `String` | No | Latitude coordinate |
+| `geoplugin_longitude` | `String` | No | Longitude coordinate |
+| `geoplugin_region` | `String` | No | Region or state name |
+| `geoplugin_regionCode` | `String` | No | Region or state code |
+| `geoplugin_regionName` | `String` | No | Full region or state name |
+| `geoplugin_request` | `String` | No | The IP address that was geolocated |
+| `geoplugin_status` | `Integer` | No | HTTP status code of the response |
 
 ### Operations
 

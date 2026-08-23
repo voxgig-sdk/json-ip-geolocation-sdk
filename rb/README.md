@@ -236,12 +236,12 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `amount` |  |
-| `converted_amount` |  |
-| `exchange_rate` |  |
-| `from` |  |
-| `timestamp` |  |
-| `to` |  |
+| `amount` | Original amount to convert |
+| `converted_amount` | Converted amount in target currency |
+| `exchange_rate` | Exchange rate used for conversion |
+| `from` | Source currency code |
+| `timestamp` | Timestamp of the conversion |
+| `to` | Target currency code |
 
 Operations: Load.
 
@@ -251,24 +251,24 @@ API path: `/currency.gp`
 
 | Field | Description |
 | --- | --- |
-| `geoplugin_areaCode` |  |
-| `geoplugin_city` |  |
-| `geoplugin_continentCode` |  |
-| `geoplugin_countryCode` |  |
-| `geoplugin_countryName` |  |
-| `geoplugin_credit` |  |
-| `geoplugin_currencyCode` |  |
-| `geoplugin_currencyConverter` |  |
-| `geoplugin_currencySymbol` |  |
-| `geoplugin_currencySymbol_UTF8` |  |
-| `geoplugin_dmaCode` |  |
-| `geoplugin_latitude` |  |
-| `geoplugin_longitude` |  |
-| `geoplugin_region` |  |
-| `geoplugin_regionCode` |  |
-| `geoplugin_regionName` |  |
-| `geoplugin_request` |  |
-| `geoplugin_status` |  |
+| `geoplugin_areaCode` | Telephone area code |
+| `geoplugin_city` | City name derived from IP address |
+| `geoplugin_continentCode` | Continent code |
+| `geoplugin_countryCode` | ISO 3166-1 alpha-2 country code |
+| `geoplugin_countryName` | Full country name |
+| `geoplugin_credit` | Attribution credit for data sources |
+| `geoplugin_currencyCode` | ISO 4217 currency code for the location |
+| `geoplugin_currencyConverter` | Exchange rate converter value |
+| `geoplugin_currencySymbol` | Currency symbol |
+| `geoplugin_currencySymbol_UTF8` | UTF-8 encoded currency symbol |
+| `geoplugin_dmaCode` | Designated Market Area code |
+| `geoplugin_latitude` | Latitude coordinate |
+| `geoplugin_longitude` | Longitude coordinate |
+| `geoplugin_region` | Region or state name |
+| `geoplugin_regionCode` | Region or state code |
+| `geoplugin_regionName` | Full region or state name |
+| `geoplugin_request` | The IP address that was geolocated |
+| `geoplugin_status` | HTTP status code of the response |
 
 Operations: Load.
 
@@ -293,12 +293,12 @@ Create an instance: `currencygp = client.Currencygp`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amount` | `Float` |  |
-| `converted_amount` | `Float` |  |
-| `exchange_rate` | `Float` |  |
-| `from` | `String` |  |
-| `timestamp` | `String` |  |
-| `to` | `String` |  |
+| `amount` | `Float` | Original amount to convert |
+| `converted_amount` | `Float` | Converted amount in target currency |
+| `exchange_rate` | `Float` | Exchange rate used for conversion |
+| `from` | `String` | Source currency code |
+| `timestamp` | `String` | Timestamp of the conversion |
+| `to` | `String` | Target currency code |
 
 #### Example: Load
 
@@ -322,24 +322,24 @@ Create an instance: `jsongp = client.Jsongp`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `geoplugin_areaCode` | `String` |  |
-| `geoplugin_city` | `String` |  |
-| `geoplugin_continentCode` | `String` |  |
-| `geoplugin_countryCode` | `String` |  |
-| `geoplugin_countryName` | `String` |  |
-| `geoplugin_credit` | `String` |  |
-| `geoplugin_currencyCode` | `String` |  |
-| `geoplugin_currencyConverter` | `Float` |  |
-| `geoplugin_currencySymbol` | `String` |  |
-| `geoplugin_currencySymbol_UTF8` | `String` |  |
-| `geoplugin_dmaCode` | `String` |  |
-| `geoplugin_latitude` | `String` |  |
-| `geoplugin_longitude` | `String` |  |
-| `geoplugin_region` | `String` |  |
-| `geoplugin_regionCode` | `String` |  |
-| `geoplugin_regionName` | `String` |  |
-| `geoplugin_request` | `String` |  |
-| `geoplugin_status` | `Integer` |  |
+| `geoplugin_areaCode` | `String` | Telephone area code |
+| `geoplugin_city` | `String` | City name derived from IP address |
+| `geoplugin_continentCode` | `String` | Continent code |
+| `geoplugin_countryCode` | `String` | ISO 3166-1 alpha-2 country code |
+| `geoplugin_countryName` | `String` | Full country name |
+| `geoplugin_credit` | `String` | Attribution credit for data sources |
+| `geoplugin_currencyCode` | `String` | ISO 4217 currency code for the location |
+| `geoplugin_currencyConverter` | `Float` | Exchange rate converter value |
+| `geoplugin_currencySymbol` | `String` | Currency symbol |
+| `geoplugin_currencySymbol_UTF8` | `String` | UTF-8 encoded currency symbol |
+| `geoplugin_dmaCode` | `String` | Designated Market Area code |
+| `geoplugin_latitude` | `String` | Latitude coordinate |
+| `geoplugin_longitude` | `String` | Longitude coordinate |
+| `geoplugin_region` | `String` | Region or state name |
+| `geoplugin_regionCode` | `String` | Region or state code |
+| `geoplugin_regionName` | `String` | Full region or state name |
+| `geoplugin_request` | `String` | The IP address that was geolocated |
+| `geoplugin_status` | `Integer` | HTTP status code of the response |
 
 #### Example: Load
 
