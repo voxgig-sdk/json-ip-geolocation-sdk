@@ -35,7 +35,7 @@ client = JsonIpGeolocationSDK.new
 ```ruby
 begin
   # load returns the ENTITY — call data_get for the Currencygp record (raises on error).
-  currencygp = client.Currencygp.load()
+  currencygp = client.Currencygp.load({ "amount" => 1, "from" => "example_from", "to" => "example_to" })
   puts currencygp
 rescue => err
   warn "load failed: #{err}"
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  currencygp = client.Currencygp.load()
+  currencygp = client.Currencygp.load({ "amount" => 1, "from" => "example", "to" => "example" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -119,7 +119,7 @@ client = JsonIpGeolocationSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-currencygp = client.Currencygp.load()
+currencygp = client.Currencygp.load({ "amount" => 1, "from" => "example", "to" => "example" })
 puts currencygp
 ```
 
@@ -304,7 +304,7 @@ Create an instance: `currencygp = client.Currencygp`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Currencygp record (raises on error).
-currencygp = client.Currencygp.load()
+currencygp = client.Currencygp.load({ "amount" => 1, "from" => "from", "to" => "to" })
 ```
 
 
@@ -347,6 +347,29 @@ Create an instance: `jsongp = client.Jsongp`
 # load returns the ENTITY — call data_get for the Jsongp record (raises on error).
 jsongp = client.Jsongp.load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -426,7 +449,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 currencygp = client.Currencygp
-currencygp.load()
+currencygp.load({ "amount" => 1, "from" => "example", "to" => "example" })
 
 # currencygp.data_get now returns the currencygp data from the last load
 # currencygp.match_get returns the last match criteria

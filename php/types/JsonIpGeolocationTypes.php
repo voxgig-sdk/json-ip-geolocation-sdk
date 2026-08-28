@@ -26,12 +26,9 @@ class Currencygp
 /** Request payload for Currencygp#load. */
 class CurrencygpLoadMatch
 {
-    public ?float $amount = null;
-    public ?float $converted_amount = null;
-    public ?float $exchange_rate = null;
-    public ?string $from = null;
-    public ?string $timestamp = null;
-    public ?string $to = null;
+    public float $amount;
+    public string $from;
+    public string $to;
 }
 
 /** Jsongp entity data model. */
@@ -60,23 +57,7 @@ class Jsongp
 /** Request payload for Jsongp#load. */
 class JsongpLoadMatch
 {
-    public ?string $geoplugin_areaCode = null;
-    public ?string $geoplugin_city = null;
-    public ?string $geoplugin_continentCode = null;
-    public ?string $geoplugin_countryCode = null;
-    public ?string $geoplugin_countryName = null;
-    public ?string $geoplugin_credit = null;
-    public ?string $geoplugin_currencyCode = null;
-    public ?float $geoplugin_currencyConverter = null;
-    public ?string $geoplugin_currencySymbol = null;
-    public ?string $geoplugin_currencySymbol_UTF8 = null;
-    public ?string $geoplugin_dmaCode = null;
-    public ?string $geoplugin_latitude = null;
-    public ?string $geoplugin_longitude = null;
-    public ?string $geoplugin_region = null;
-    public ?string $geoplugin_regionCode = null;
-    public ?string $geoplugin_regionName = null;
-    public ?string $geoplugin_request = null;
-    public ?int $geoplugin_status = null;
+    public ?string $base_currency = null;
+    public ?string $ip = null;
 }
 

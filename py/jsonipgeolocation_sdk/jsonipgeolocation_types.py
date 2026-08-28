@@ -24,11 +24,8 @@ class Currencygp(TypedDict, total=False):
     to: str
 
 
-class CurrencygpLoadMatch(TypedDict, total=False):
+class CurrencygpLoadMatch(TypedDict):
     amount: float
-    converted_amount: float
-    exchange_rate: float
-    timestamp: str
     to: str
 
 
@@ -54,21 +51,5 @@ class Jsongp(TypedDict, total=False):
 
 
 class JsongpLoadMatch(TypedDict, total=False):
-    geoplugin_areaCode: str
-    geoplugin_city: str
-    geoplugin_continentCode: str
-    geoplugin_countryCode: str
-    geoplugin_countryName: str
-    geoplugin_credit: str
-    geoplugin_currencyCode: str
-    geoplugin_currencyConverter: float
-    geoplugin_currencySymbol: str
-    geoplugin_currencySymbol_UTF8: str
-    geoplugin_dmaCode: str
-    geoplugin_latitude: str
-    geoplugin_longitude: str
-    geoplugin_region: str
-    geoplugin_regionCode: str
-    geoplugin_regionName: str
-    geoplugin_request: str
-    geoplugin_status: int
+    base_currency: str
+    ip: str

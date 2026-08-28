@@ -36,7 +36,7 @@ $client = new JsonIpGeolocationSDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the Currencygp record (throws on error).
-    $currencygp = $client->Currencygp()->load();
+    $currencygp = $client->Currencygp()->load(["amount" => 1, "from" => "example_from", "to" => "example_to"]);
     print_r($currencygp);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $currencygp = $client->Currencygp()->load();
+    $currencygp = $client->Currencygp()->load(["amount" => 1, "from" => "example", "to" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,7 +125,7 @@ $client = JsonIpGeolocationSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$currencygp = $client->Currencygp()->load();
+$currencygp = $client->Currencygp()->load(["amount" => 1, "from" => "example", "to" => "example"]);
 print_r($currencygp);
 ```
 
@@ -314,7 +314,7 @@ Create an instance: `$currencygp = $client->Currencygp();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Currencygp record (throws on error).
-$currencygp = $client->Currencygp()->load();
+$currencygp = $client->Currencygp()->load(["amount" => 1, "from" => "from", "to" => "to"]);
 ```
 
 
@@ -357,6 +357,29 @@ Create an instance: `$jsongp = $client->Jsongp();`
 // load() returns the ENTITY — call data_get() for the Jsongp record (throws on error).
 $jsongp = $client->Jsongp()->load();
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -436,7 +459,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $currencygp = $client->Currencygp();
-$currencygp->load();
+$currencygp->load(["amount" => 1, "from" => "example", "to" => "example"]);
 
 // $currencygp->data_get() now returns the currencygp data from the last load
 // $currencygp->match_get() returns the last match criteria

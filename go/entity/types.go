@@ -24,12 +24,9 @@ type Currencygp struct {
 
 // CurrencygpLoadMatch is the typed request payload for Currencygp.LoadTyped.
 type CurrencygpLoadMatch struct {
-	Amount *float64 `json:"amount,omitempty"`
-	ConvertedAmount *float64 `json:"converted_amount,omitempty"`
-	ExchangeRate *float64 `json:"exchange_rate,omitempty"`
-	From *string `json:"from,omitempty"`
-	Timestamp *string `json:"timestamp,omitempty"`
-	To *string `json:"to,omitempty"`
+	Amount float64 `json:"amount"`
+	From string `json:"from"`
+	To string `json:"to"`
 }
 
 // Jsongp is the typed data model for the jsongp entity.
@@ -56,24 +53,8 @@ type Jsongp struct {
 
 // JsongpLoadMatch is the typed request payload for Jsongp.LoadTyped.
 type JsongpLoadMatch struct {
-	GeopluginAreaCode *string `json:"geoplugin_areaCode,omitempty"`
-	GeopluginCity *string `json:"geoplugin_city,omitempty"`
-	GeopluginContinentCode *string `json:"geoplugin_continentCode,omitempty"`
-	GeopluginCountryCode *string `json:"geoplugin_countryCode,omitempty"`
-	GeopluginCountryName *string `json:"geoplugin_countryName,omitempty"`
-	GeopluginCredit *string `json:"geoplugin_credit,omitempty"`
-	GeopluginCurrencyCode *string `json:"geoplugin_currencyCode,omitempty"`
-	GeopluginCurrencyConverter *float64 `json:"geoplugin_currencyConverter,omitempty"`
-	GeopluginCurrencySymbol *string `json:"geoplugin_currencySymbol,omitempty"`
-	GeopluginCurrencySymbolUTF8 *string `json:"geoplugin_currencySymbol_UTF8,omitempty"`
-	GeopluginDmaCode *string `json:"geoplugin_dmaCode,omitempty"`
-	GeopluginLatitude *string `json:"geoplugin_latitude,omitempty"`
-	GeopluginLongitude *string `json:"geoplugin_longitude,omitempty"`
-	GeopluginRegion *string `json:"geoplugin_region,omitempty"`
-	GeopluginRegionCode *string `json:"geoplugin_regionCode,omitempty"`
-	GeopluginRegionName *string `json:"geoplugin_regionName,omitempty"`
-	GeopluginRequest *string `json:"geoplugin_request,omitempty"`
-	GeopluginStatus *int `json:"geoplugin_status,omitempty"`
+	BaseCurrency *string `json:"base_currency,omitempty"`
+	Ip *string `json:"ip,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

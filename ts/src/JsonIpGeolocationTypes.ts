@@ -15,12 +15,9 @@ export interface Currencygp {
 }
 
 export interface CurrencygpLoadMatch {
-  amount?: number
-  converted_amount?: number
-  exchange_rate?: number
-  from?: string
-  timestamp?: string
-  to?: string
+  amount: number
+  from: string
+  to: string
 }
 
 export interface Jsongp {
@@ -45,23 +42,7 @@ export interface Jsongp {
 }
 
 export interface JsongpLoadMatch {
-  geoplugin_areaCode?: string
-  geoplugin_city?: string
-  geoplugin_continentCode?: string
-  geoplugin_countryCode?: string
-  geoplugin_countryName?: string
-  geoplugin_credit?: string
-  geoplugin_currencyCode?: string
-  geoplugin_currencyConverter?: number
-  geoplugin_currencySymbol?: string
-  geoplugin_currencySymbol_UTF8?: string
-  geoplugin_dmaCode?: string
-  geoplugin_latitude?: string
-  geoplugin_longitude?: string
-  geoplugin_region?: string
-  geoplugin_regionCode?: string
-  geoplugin_regionName?: string
-  geoplugin_request?: string
-  geoplugin_status?: number
+  base_currency?: string
+  ip?: string
 }
 

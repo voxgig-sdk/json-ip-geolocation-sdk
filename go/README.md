@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single currencygp — the value is the loaded record.
-    currencygp, err := client.Currencygp(nil).Load(nil, nil)
+    currencygp, err := client.Currencygp(nil).Load(map[string]any{"amount": 1, "from": "example_from", "to": "example_to"}, nil)
     if err != nil {
         panic(err)
     }
@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-currencygp, err := client.Currencygp(nil).Load(nil, nil)
+currencygp, err := client.Currencygp(nil).Load(map[string]any{"amount": 1, "from": "example", "to": "example"}, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 currencygp, err := client.Currencygp(nil).Load(
-    nil, nil,
+    map[string]any{"amount": 1, "from": "example", "to": "example"}, nil,
 )
 if err != nil {
     panic(err)
@@ -326,7 +326,7 @@ Create an instance: `currencygp := client.Currencygp(nil)`
 #### Example: Load
 
 ```go
-currencygp, err := client.Currencygp(nil).Load(nil, nil)
+currencygp, err := client.Currencygp(nil).Load(map[string]any{"amount": 1, "from": "from", "to": "to"}, nil)
 if err != nil {
     panic(err)
 }
@@ -376,6 +376,29 @@ if err != nil {
 }
 fmt.Println(jsongp) // the loaded record
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -452,7 +475,7 @@ stores the returned data and match criteria internally.
 
 ```go
 currencygp := client.Currencygp(nil)
-currencygp.Load(nil, nil)
+currencygp.Load(map[string]any{"amount": 1, "from": "example", "to": "example"}, nil)
 
 // currencygp.Data() now returns the currencygp data from the last load
 // currencygp.Match() returns the last match criteria
