@@ -53,6 +53,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "timestamp",
             ["short"] = "Timestamp of the conversion",
             ["type"] = "`$STRING`",
@@ -101,8 +102,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/currency.gp",
-                ["parts"] = {
-                  "currency.gp",
+                ["segments"] = {
+                  {
+                    ["lit"] = "currency.gp",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -114,6 +117,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "currency.gp",
                 },
               },
             },
@@ -244,8 +250,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/json.gp",
-                ["parts"] = {
-                  "json.gp",
+                ["segments"] = {
+                  {
+                    ["lit"] = "json.gp",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -256,6 +264,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "json.gp",
                 },
               },
             },

@@ -1,0 +1,304 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FEATURE_PLUGINS = exports.config = void 0;
+const TestFeature_1 = require("./feature/test/TestFeature");
+const FEATURE_CLASS = {
+    test: TestFeature_1.TestFeature,
+};
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS = {};
+exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
+class Config {
+    makeFeature(fn) {
+        const fc = FEATURE_CLASS[fn];
+        const fi = new fc();
+        // TODO: errors etc
+        return fi;
+    }
+    // False for a feature added at runtime via options.extend (station's
+    // adopt path) - the constructor uses this to skip makeFeature for names
+    // no generated class backs.
+    hasFeature(fn) {
+        return null != FEATURE_CLASS[fn];
+    }
+    main = {
+        name: 'JsonIpGeolocation',
+        slug: "json-ip-geolocation",
+        version: "0.0.1",
+        target: "ts",
+    };
+    feature = {
+        test: {
+            "options": {
+                "active": false
+            },
+            "transport": "base"
+        },
+    };
+    options = {
+        base: "http://www.geoplugin.net",
+        headers: {
+            "content-type": "application/json"
+        },
+        entity: {
+            currencygp: {},
+            jsongp: {},
+        }
+    };
+    entity = {
+        "currencygp": {
+            "fields": [
+                {
+                    "name": "amount",
+                    "short": "Original amount to convert",
+                    "type": "`$NUMBER`"
+                },
+                {
+                    "name": "converted_amount",
+                    "short": "Converted amount in target currency",
+                    "type": "`$NUMBER`"
+                },
+                {
+                    "name": "exchange_rate",
+                    "short": "Exchange rate used for conversion",
+                    "type": "`$NUMBER`"
+                },
+                {
+                    "name": "from",
+                    "short": "Source currency code",
+                    "type": "`$STRING`"
+                },
+                {
+                    "format": "date-time",
+                    "name": "timestamp",
+                    "short": "Timestamp of the conversion",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "to",
+                    "short": "Target currency code",
+                    "type": "`$STRING`"
+                }
+            ],
+            "name": "currencygp",
+            "op": {
+                "load": {
+                    "input": "data",
+                    "name": "load",
+                    "points": [
+                        {
+                            "args": {
+                                "query": [
+                                    {
+                                        "example": 100,
+                                        "kind": "query",
+                                        "name": "amount",
+                                        "orig": "amount",
+                                        "reqd": true,
+                                        "type": "`$NUMBER`"
+                                    },
+                                    {
+                                        "example": "USD",
+                                        "kind": "query",
+                                        "name": "from",
+                                        "orig": "from",
+                                        "reqd": true,
+                                        "type": "`$STRING`"
+                                    },
+                                    {
+                                        "example": "EUR",
+                                        "kind": "query",
+                                        "name": "to",
+                                        "orig": "to",
+                                        "reqd": true,
+                                        "type": "`$STRING`"
+                                    }
+                                ]
+                            },
+                            "kind": "http",
+                            "method": "GET",
+                            "orig": "/currency.gp",
+                            "segments": [
+                                {
+                                    "lit": "currency.gp"
+                                }
+                            ],
+                            "select": {
+                                "exist": [
+                                    "amount",
+                                    "from",
+                                    "to"
+                                ]
+                            },
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "parts": [
+                                "currency.gp"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "relations": {
+                "ancestors": []
+            }
+        },
+        "jsongp": {
+            "fields": [
+                {
+                    "name": "geoplugin_areaCode",
+                    "short": "Telephone area code",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_city",
+                    "short": "City name derived from IP address",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_continentCode",
+                    "short": "Continent code",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_countryCode",
+                    "short": "ISO 3166-1 alpha-2 country code",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_countryName",
+                    "short": "Full country name",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_credit",
+                    "short": "Attribution credit for data sources",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_currencyCode",
+                    "short": "ISO 4217 currency code for the location",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_currencyConverter",
+                    "short": "Exchange rate converter value",
+                    "type": "`$NUMBER`"
+                },
+                {
+                    "name": "geoplugin_currencySymbol",
+                    "short": "Currency symbol",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_currencySymbol_UTF8",
+                    "short": "UTF-8 encoded currency symbol",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_dmaCode",
+                    "short": "Designated Market Area code",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_latitude",
+                    "short": "Latitude coordinate",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_longitude",
+                    "short": "Longitude coordinate",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_region",
+                    "short": "Region or state name",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_regionCode",
+                    "short": "Region or state code",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_regionName",
+                    "short": "Full region or state name",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_request",
+                    "short": "The IP address that was geolocated",
+                    "type": "`$STRING`"
+                },
+                {
+                    "name": "geoplugin_status",
+                    "short": "HTTP status code of the response",
+                    "type": "`$INTEGER`"
+                }
+            ],
+            "name": "jsongp",
+            "op": {
+                "load": {
+                    "input": "data",
+                    "name": "load",
+                    "points": [
+                        {
+                            "args": {
+                                "query": [
+                                    {
+                                        "example": "USD",
+                                        "kind": "query",
+                                        "name": "base_currency",
+                                        "orig": "base_currency",
+                                        "type": "`$STRING`"
+                                    },
+                                    {
+                                        "example": "8.8.8.8",
+                                        "kind": "query",
+                                        "name": "ip",
+                                        "orig": "ip",
+                                        "type": "`$STRING`"
+                                    }
+                                ]
+                            },
+                            "kind": "http",
+                            "method": "GET",
+                            "orig": "/json.gp",
+                            "segments": [
+                                {
+                                    "lit": "json.gp"
+                                }
+                            ],
+                            "select": {
+                                "exist": [
+                                    "base_currency",
+                                    "ip"
+                                ]
+                            },
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "parts": [
+                                "json.gp"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "relations": {
+                "ancestors": []
+            }
+        }
+    };
+}
+const config = new Config();
+exports.config = config;
+//# sourceMappingURL=Config.js.map

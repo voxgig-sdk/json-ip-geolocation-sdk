@@ -143,8 +143,10 @@ main: kit: entity: jsongp: {
           }
           method: "GET"
           orig: "/json.gp"
-          parts: [
-            "json.gp"
+          segments: [
+            {
+              lit: "json.gp"
+            }
           ]
           select: {
             exist: [

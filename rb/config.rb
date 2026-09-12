@@ -65,6 +65,7 @@ module JsonIpGeolocationConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date-time",
               "name" => "timestamp",
               "short" => "Timestamp of the conversion",
               "type" => "`$STRING`",
@@ -113,8 +114,10 @@ module JsonIpGeolocationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/currency.gp",
-                  "parts" => [
-                    "currency.gp",
+                  "segments" => [
+                    {
+                      "lit" => "currency.gp",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -127,6 +130,9 @@ module JsonIpGeolocationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "currency.gp",
+                  ],
                 },
               ],
             },
@@ -256,8 +262,10 @@ module JsonIpGeolocationConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/json.gp",
-                  "parts" => [
-                    "json.gp",
+                  "segments" => [
+                    {
+                      "lit" => "json.gp",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -269,6 +277,9 @@ module JsonIpGeolocationConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "json.gp",
+                  ],
                 },
               ],
             },

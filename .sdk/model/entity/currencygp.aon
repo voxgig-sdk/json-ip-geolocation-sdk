@@ -30,6 +30,7 @@ main: kit: entity: currencygp: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "timestamp"
       req: false
       short: "Timestamp of the conversion"
@@ -79,8 +80,10 @@ main: kit: entity: currencygp: {
           }
           method: "GET"
           orig: "/currency.gp"
-          parts: [
-            "currency.gp"
+          segments: [
+            {
+              lit: "currency.gp"
+            }
           ]
           select: {
             exist: [
