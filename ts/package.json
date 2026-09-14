@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/json-ip-geolocation",
+  "name": "@voxgig-sdk/json-ip-geolocation-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the IP Geolocation & Currency Converter public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [

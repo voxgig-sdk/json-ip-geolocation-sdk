@@ -105,7 +105,7 @@ local result, err = client:Currencygp():load({ amount = 1, from = "example", to 
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/json-ip-geolocation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
 | Python | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
 | PHP | `voxgig-sdk/json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/json-ip-geolocation-sdk/go` | `go get github.com/voxgig-sdk/json-ip-geolocation-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Currencygp():load({ amount = 1, from = "example", to 
 ### TypeScript
 
 ```ts
-import { JsonIpGeolocationSDK } from '@voxgig-sdk/json-ip-geolocation'
+import { JsonIpGeolocationSDK } from '@voxgig-sdk/json-ip-geolocation-sdk'
 
 const client = new JsonIpGeolocationSDK()
 
