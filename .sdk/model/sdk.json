@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "currencygp": {
           "active": true,
@@ -114,6 +178,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /currency.gp",
+                    "json": "{\"operationId\":\"convertCurrency\",\"parameters\":[{\"description\":\"Source currency code (3-letter ISO code)\",\"in\":\"query\",\"name\":\"from\",\"required\":true,\"schema\":{\"example\":\"USD\",\"maxLength\":3,\"minLength\":3,\"type\":\"string\"}},{\"description\":\"Target currency code (3-letter ISO code)\",\"in\":\"query\",\"name\":\"to\",\"required\":true,\"schema\":{\"example\":\"EUR\",\"maxLength\":3,\"minLength\":3,\"type\":\"string\"}},{\"description\":\"Amount to convert\",\"in\":\"query\",\"name\":\"amount\",\"required\":true,\"schema\":{\"example\":100,\"format\":\"double\",\"minimum\":0,\"type\":\"number\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"success\":{\"value\":{\"amount\":100,\"converted_amount\":92.15,\"exchange_rate\":0.9215,\"from\":\"USD\",\"timestamp\":\"2024-01-15T10:30:00Z\",\"to\":\"EUR\"}}},\"schema\":{\"properties\":{\"amount\":{\"description\":\"Original amount to convert\",\"example\":100,\"type\":\"number\"},\"converted_amount\":{\"description\":\"Converted amount in target currency\",\"example\":92.15,\"type\":\"number\"},\"exchange_rate\":{\"description\":\"Exchange rate used for conversion\",\"example\":0.9215,\"type\":\"number\"},\"from\":{\"description\":\"Source currency code\",\"example\":\"USD\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp of the conversion\",\"format\":\"date-time\",\"type\":\"string\"},\"to\":{\"description\":\"Target currency code\",\"example\":\"EUR\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful currency conversion response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Invalid currency code or amount\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded (120 requests per minute on free plan)\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -305,6 +375,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /json.gp",
+                    "json": "{\"operationId\":\"getGeolocation\",\"parameters\":[{\"description\":\"The IP address to geolocate. If not provided, the IP address of the requesting client will be used automatically.\",\"in\":\"query\",\"name\":\"ip\",\"required\":false,\"schema\":{\"example\":\"8.8.8.8\",\"format\":\"ipv4\",\"type\":\"string\"}},{\"description\":\"Base currency code for currency conversion\",\"in\":\"query\",\"name\":\"base_currency\",\"required\":false,\"schema\":{\"example\":\"USD\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"success\":{\"value\":{\"geoplugin_areaCode\":\"650\",\"geoplugin_city\":\"Mountain View\",\"geoplugin_continentCode\":\"NA\",\"geoplugin_countryCode\":\"US\",\"geoplugin_countryName\":\"United States\",\"geoplugin_credit\":\"Some of the returned data includes GeoLite data created by MaxMind, available from http://www.maxmind.com\",\"geoplugin_currencyCode\":\"USD\",\"geoplugin_currencyConverter\":1,\"geoplugin_currencySymbol\":\"$\",\"geoplugin_currencySymbol_UTF8\":\"$\",\"geoplugin_dmaCode\":\"807\",\"geoplugin_latitude\":\"37.386\",\"geoplugin_longitude\":\"-122.0838\",\"geoplugin_region\":\"California\",\"geoplugin_regionCode\":\"CA\",\"geoplugin_regionName\":\"California\",\"geoplugin_request\":\"8.8.8.8\",\"geoplugin_status\":200}}},\"schema\":{\"properties\":{\"geoplugin_areaCode\":{\"description\":\"Telephone area code\",\"example\":\"650\",\"type\":\"string\"},\"geoplugin_city\":{\"description\":\"City name derived from IP address\",\"example\":\"Mountain View\",\"type\":\"string\"},\"geoplugin_continentCode\":{\"description\":\"Continent code\",\"example\":\"NA\",\"type\":\"string\"},\"geoplugin_countryCode\":{\"description\":\"ISO 3166-1 alpha-2 country code\",\"example\":\"US\",\"type\":\"string\"},\"geoplugin_countryName\":{\"description\":\"Full country name\",\"example\":\"United States\",\"type\":\"string\"},\"geoplugin_credit\":{\"description\":\"Attribution credit for data sources\",\"type\":\"string\"},\"geoplugin_currencyCode\":{\"description\":\"ISO 4217 currency code for the location\",\"example\":\"USD\",\"type\":\"string\"},\"geoplugin_currencyConverter\":{\"description\":\"Exchange rate converter value\",\"example\":1,\"type\":\"number\"},\"geoplugin_currencySymbol\":{\"description\":\"Currency symbol\",\"example\":\"$\",\"type\":\"string\"},\"geoplugin_currencySymbol_UTF8\":{\"description\":\"UTF-8 encoded currency symbol\",\"example\":\"$\",\"type\":\"string\"},\"geoplugin_dmaCode\":{\"description\":\"Designated Market Area code\",\"example\":\"807\",\"type\":\"string\"},\"geoplugin_latitude\":{\"description\":\"Latitude coordinate\",\"example\":\"37.386\",\"type\":\"string\"},\"geoplugin_longitude\":{\"description\":\"Longitude coordinate\",\"example\":\"-122.0838\",\"type\":\"string\"},\"geoplugin_region\":{\"description\":\"Region or state name\",\"example\":\"California\",\"type\":\"string\"},\"geoplugin_regionCode\":{\"description\":\"Region or state code\",\"example\":\"CA\",\"type\":\"string\"},\"geoplugin_regionName\":{\"description\":\"Full region or state name\",\"example\":\"California\",\"type\":\"string\"},\"geoplugin_request\":{\"description\":\"The IP address that was geolocated\",\"example\":\"8.8.8.8\",\"type\":\"string\"},\"geoplugin_status\":{\"description\":\"HTTP status code of the response\",\"example\":200,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful geolocation response\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded (120 requests per minute on free plan)\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/json.gp",
@@ -333,13 +409,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -430,6 +716,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -519,6 +901,48 @@
         "website": "https://www.geoplugin.com/webservices/json"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1073,6 +1497,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1114,7 +1539,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

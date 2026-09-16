@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.JSON_IP_GEOLOCATION_TEST_LIVE;
         for (const op of ['load']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'currencygp.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'currencygp.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set JSON_IP_GEOLOCATION_TEST_CURRENCYGP_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "amount", "req": false, "short": "Original amount to convert", "type": "`$NUMBER`", "index$": 0 }, { "active": true, "name": "converted_amount", "req": false, "short": "Converted amount in target currency", "type": "`$NUMBER`", "index$": 1 }, { "active": true, "name": "exchange_rate", "req": false, "short": "Exchange rate used for conversion", "type": "`$NUMBER`", "index$": 2 }, { "active": true, "name": "from", "req": false, "short": "Source currency code", "type": "`$STRING`", "index$": 3 }, { "active": true, "format": "date-time", "name": "timestamp", "req": false, "short": "Timestamp of the conversion", "type": "`$STRING`", "index$": 4 }, { "active": true, "name": "to", "req": false, "short": "Target currency code", "type": "`$STRING`", "index$": 5 }], "name": "currencygp", "op": { "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": { "query": [{ "active": true, "example": 100, "kind": "query", "name": "amount", "orig": "amount", "reqd": true, "type": "`$NUMBER`", "index$": 0 }, { "active": true, "example": "USD", "kind": "query", "name": "from", "orig": "from", "reqd": true, "type": "`$STRING`", "index$": 1 }, { "active": true, "example": "EUR", "kind": "query", "name": "to", "orig": "to", "reqd": true, "type": "`$STRING`", "index$": 2 }] }, "contract": { "id": "GET /currency.gp", "json": "{\"operationId\":\"convertCurrency\",\"parameters\":[{\"description\":\"Source currency code (3-letter ISO code)\",\"in\":\"query\",\"name\":\"from\",\"required\":true,\"schema\":{\"example\":\"USD\",\"maxLength\":3,\"minLength\":3,\"type\":\"string\"}},{\"description\":\"Target currency code (3-letter ISO code)\",\"in\":\"query\",\"name\":\"to\",\"required\":true,\"schema\":{\"example\":\"EUR\",\"maxLength\":3,\"minLength\":3,\"type\":\"string\"}},{\"description\":\"Amount to convert\",\"in\":\"query\",\"name\":\"amount\",\"required\":true,\"schema\":{\"example\":100,\"format\":\"double\",\"minimum\":0,\"type\":\"number\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"success\":{\"value\":{\"amount\":100,\"converted_amount\":92.15,\"exchange_rate\":0.9215,\"from\":\"USD\",\"timestamp\":\"2024-01-15T10:30:00Z\",\"to\":\"EUR\"}}},\"schema\":{\"properties\":{\"amount\":{\"description\":\"Original amount to convert\",\"example\":100,\"type\":\"number\"},\"converted_amount\":{\"description\":\"Converted amount in target currency\",\"example\":92.15,\"type\":\"number\"},\"exchange_rate\":{\"description\":\"Exchange rate used for conversion\",\"example\":0.9215,\"type\":\"number\"},\"from\":{\"description\":\"Source currency code\",\"example\":\"USD\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp of the conversion\",\"format\":\"date-time\",\"type\":\"string\"},\"to\":{\"description\":\"Target currency code\",\"example\":\"EUR\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful currency conversion response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Invalid currency code or amount\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded (120 requests per minute on free plan)\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/currency.gp", "segments": [{ "lit": "currency.gp" }], "select": { "exist": ["amount", "from", "to"] }, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "currencygp", "name__orig": "currencygp", "Name": "Currencygp", "name_": "currencygp", "name-": "currencygp", "NAME": "CURRENCYGP", "index$": 0 }, { "active": true, "entity": "currencygp", "key$": "BasicCurrencygpFlow", "kind": "basic", "name": "BasicCurrencygpFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "currencygp_ref01", "srcdatavar": "currencygp_ref01_data", "suffix": "_dt0" }, "match": {}, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-currencygp_ref01" } }], "index$": 0 }] }, 'Currencygp');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -102,12 +100,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['JSON_IP_GEOLOCATION_TEST_CURRENCYGP_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'JSON_IP_GEOLOCATION_TEST_CURRENCYGP_ENTID': idmap,
         'JSON_IP_GEOLOCATION_TEST_LIVE': 'FALSE',
@@ -115,7 +107,13 @@ function basicSetup(extra) {
     });
     idmap = env['JSON_IP_GEOLOCATION_TEST_CURRENCYGP_ENTID'];
     const live = 'TRUE' === env.JSON_IP_GEOLOCATION_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['JSON_IP_GEOLOCATION_TEST_CURRENCYGP_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.JsonIpGeolocationSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -126,7 +124,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -138,7 +137,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.JSON_IP_GEOLOCATION_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

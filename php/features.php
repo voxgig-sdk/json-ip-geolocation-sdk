@@ -4,7 +4,10 @@ declare(strict_types=1);
 // JsonIpGeolocation SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class JsonIpGeolocationFeatures
@@ -14,8 +17,14 @@ class JsonIpGeolocationFeatures
         switch ($name) {
             case "base":
                 return new JsonIpGeolocationBaseFeature();
+            case "ratelimit":
+                return new JsonIpGeolocationRatelimitFeature();
+            case "retry":
+                return new JsonIpGeolocationRetryFeature();
             case "test":
                 return new JsonIpGeolocationTestFeature();
+            case "timeout":
+                return new JsonIpGeolocationTimeoutFeature();
             default:
                 return new JsonIpGeolocationBaseFeature();
         }
@@ -31,7 +40,10 @@ class JsonIpGeolocationFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

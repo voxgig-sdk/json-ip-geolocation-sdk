@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { JsonIpGeolocationSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('JsongpEntity', async () => {
 
     const live = 'TRUE' === process.env.JSON_IP_GEOLOCATION_TEST_LIVE
     for (const op of ['load']) {
-      if (maybeSkipControl(t, 'entityOp', 'jsongp.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'jsongp.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set JSON_IP_GEOLOCATION_TEST_JSONGP_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"geoplugin_areaCode","req":false,"short":"Telephone area code","type":"`$STRING`","index$":0},{"active":true,"name":"geoplugin_city","req":false,"short":"City name derived from IP address","type":"`$STRING`","index$":1},{"active":true,"name":"geoplugin_continentCode","req":false,"short":"Continent code","type":"`$STRING`","index$":2},{"active":true,"name":"geoplugin_countryCode","req":false,"short":"ISO 3166-1 alpha-2 country code","type":"`$STRING`","index$":3},{"active":true,"name":"geoplugin_countryName","req":false,"short":"Full country name","type":"`$STRING`","index$":4},{"active":true,"name":"geoplugin_credit","req":false,"short":"Attribution credit for data sources","type":"`$STRING`","index$":5},{"active":true,"name":"geoplugin_currencyCode","req":false,"short":"ISO 4217 currency code for the location","type":"`$STRING`","index$":6},{"active":true,"name":"geoplugin_currencyConverter","req":false,"short":"Exchange rate converter value","type":"`$NUMBER`","index$":7},{"active":true,"name":"geoplugin_currencySymbol","req":false,"short":"Currency symbol","type":"`$STRING`","index$":8},{"active":true,"name":"geoplugin_currencySymbol_UTF8","req":false,"short":"UTF-8 encoded currency symbol","type":"`$STRING`","index$":9},{"active":true,"name":"geoplugin_dmaCode","req":false,"short":"Designated Market Area code","type":"`$STRING`","index$":10},{"active":true,"name":"geoplugin_latitude","req":false,"short":"Latitude coordinate","type":"`$STRING`","index$":11},{"active":true,"name":"geoplugin_longitude","req":false,"short":"Longitude coordinate","type":"`$STRING`","index$":12},{"active":true,"name":"geoplugin_region","req":false,"short":"Region or state name","type":"`$STRING`","index$":13},{"active":true,"name":"geoplugin_regionCode","req":false,"short":"Region or state code","type":"`$STRING`","index$":14},{"active":true,"name":"geoplugin_regionName","req":false,"short":"Full region or state name","type":"`$STRING`","index$":15},{"active":true,"name":"geoplugin_request","req":false,"short":"The IP address that was geolocated","type":"`$STRING`","index$":16},{"active":true,"name":"geoplugin_status","req":false,"short":"HTTP status code of the response","type":"`$INTEGER`","index$":17}],"name":"jsongp","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{"query":[{"active":true,"example":"USD","kind":"query","name":"base_currency","orig":"base_currency","reqd":false,"type":"`$STRING`","index$":0},{"active":true,"example":"8.8.8.8","kind":"query","name":"ip","orig":"ip","reqd":false,"type":"`$STRING`","index$":1}]},"contract":{"id":"GET /json.gp","json":"{\"operationId\":\"getGeolocation\",\"parameters\":[{\"description\":\"The IP address to geolocate. If not provided, the IP address of the requesting client will be used automatically.\",\"in\":\"query\",\"name\":\"ip\",\"required\":false,\"schema\":{\"example\":\"8.8.8.8\",\"format\":\"ipv4\",\"type\":\"string\"}},{\"description\":\"Base currency code for currency conversion\",\"in\":\"query\",\"name\":\"base_currency\",\"required\":false,\"schema\":{\"example\":\"USD\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"success\":{\"value\":{\"geoplugin_areaCode\":\"650\",\"geoplugin_city\":\"Mountain View\",\"geoplugin_continentCode\":\"NA\",\"geoplugin_countryCode\":\"US\",\"geoplugin_countryName\":\"United States\",\"geoplugin_credit\":\"Some of the returned data includes GeoLite data created by MaxMind, available from http://www.maxmind.com\",\"geoplugin_currencyCode\":\"USD\",\"geoplugin_currencyConverter\":1,\"geoplugin_currencySymbol\":\"$\",\"geoplugin_currencySymbol_UTF8\":\"$\",\"geoplugin_dmaCode\":\"807\",\"geoplugin_latitude\":\"37.386\",\"geoplugin_longitude\":\"-122.0838\",\"geoplugin_region\":\"California\",\"geoplugin_regionCode\":\"CA\",\"geoplugin_regionName\":\"California\",\"geoplugin_request\":\"8.8.8.8\",\"geoplugin_status\":200}}},\"schema\":{\"properties\":{\"geoplugin_areaCode\":{\"description\":\"Telephone area code\",\"example\":\"650\",\"type\":\"string\"},\"geoplugin_city\":{\"description\":\"City name derived from IP address\",\"example\":\"Mountain View\",\"type\":\"string\"},\"geoplugin_continentCode\":{\"description\":\"Continent code\",\"example\":\"NA\",\"type\":\"string\"},\"geoplugin_countryCode\":{\"description\":\"ISO 3166-1 alpha-2 country code\",\"example\":\"US\",\"type\":\"string\"},\"geoplugin_countryName\":{\"description\":\"Full country name\",\"example\":\"United States\",\"type\":\"string\"},\"geoplugin_credit\":{\"description\":\"Attribution credit for data sources\",\"type\":\"string\"},\"geoplugin_currencyCode\":{\"description\":\"ISO 4217 currency code for the location\",\"example\":\"USD\",\"type\":\"string\"},\"geoplugin_currencyConverter\":{\"description\":\"Exchange rate converter value\",\"example\":1,\"type\":\"number\"},\"geoplugin_currencySymbol\":{\"description\":\"Currency symbol\",\"example\":\"$\",\"type\":\"string\"},\"geoplugin_currencySymbol_UTF8\":{\"description\":\"UTF-8 encoded currency symbol\",\"example\":\"$\",\"type\":\"string\"},\"geoplugin_dmaCode\":{\"description\":\"Designated Market Area code\",\"example\":\"807\",\"type\":\"string\"},\"geoplugin_latitude\":{\"description\":\"Latitude coordinate\",\"example\":\"37.386\",\"type\":\"string\"},\"geoplugin_longitude\":{\"description\":\"Longitude coordinate\",\"example\":\"-122.0838\",\"type\":\"string\"},\"geoplugin_region\":{\"description\":\"Region or state name\",\"example\":\"California\",\"type\":\"string\"},\"geoplugin_regionCode\":{\"description\":\"Region or state code\",\"example\":\"CA\",\"type\":\"string\"},\"geoplugin_regionName\":{\"description\":\"Full region or state name\",\"example\":\"California\",\"type\":\"string\"},\"geoplugin_request\":{\"description\":\"The IP address that was geolocated\",\"example\":\"8.8.8.8\",\"type\":\"string\"},\"geoplugin_status\":{\"description\":\"HTTP status code of the response\",\"example\":200,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful geolocation response\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded (120 requests per minute on free plan)\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/json.gp","segments":[{"lit":"json.gp"}],"select":{"exist":["base_currency","ip"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"jsongp","name__orig":"jsongp","Name":"Jsongp","name_":"jsongp","name-":"jsongp","NAME":"JSONGP","index$":1}, {"active":true,"entity":"jsongp","key$":"BasicJsongpFlow","kind":"basic","name":"BasicJsongpFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"jsongp_ref01","srcdatavar":"jsongp_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-jsongp_ref01"}}],"index$":0}]}, 'Jsongp')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['JSON_IP_GEOLOCATION_TEST_JSONGP_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'JSON_IP_GEOLOCATION_TEST_JSONGP_ENTID': idmap,
     'JSON_IP_GEOLOCATION_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.JSON_IP_GEOLOCATION_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['JSON_IP_GEOLOCATION_TEST_JSONGP_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new JsonIpGeolocationSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.JSON_IP_GEOLOCATION_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

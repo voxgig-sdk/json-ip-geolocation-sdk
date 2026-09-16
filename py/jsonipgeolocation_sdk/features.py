@@ -1,12 +1,18 @@
 # JsonIpGeolocation SDK feature factory
 
 from jsonipgeolocation_sdk.feature.base_feature import JsonIpGeolocationBaseFeature
+from jsonipgeolocation_sdk.feature.ratelimit_feature import JsonIpGeolocationRatelimitFeature
+from jsonipgeolocation_sdk.feature.retry_feature import JsonIpGeolocationRetryFeature
 from jsonipgeolocation_sdk.feature.test_feature import JsonIpGeolocationTestFeature
+from jsonipgeolocation_sdk.feature.timeout_feature import JsonIpGeolocationTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: JsonIpGeolocationBaseFeature(),
+    "ratelimit": lambda: JsonIpGeolocationRatelimitFeature(),
+    "retry": lambda: JsonIpGeolocationRetryFeature(),
     "test": lambda: JsonIpGeolocationTestFeature(),
+    "timeout": lambda: JsonIpGeolocationTimeoutFeature(),
 }
 
 

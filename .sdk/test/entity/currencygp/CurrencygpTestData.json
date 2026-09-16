@@ -41,5 +41,149 @@
         "to": "sf5"
       }
     }
+  },
+  "requests": {
+    "GET /currency.gp": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "convertCurrency",
+        "parameters": [
+          {
+            "description": "Source currency code (3-letter ISO code)",
+            "in": "query",
+            "name": "from",
+            "required": true,
+            "schema": {
+              "example": "USD",
+              "maxLength": 3,
+              "minLength": 3,
+              "type": "string"
+            }
+          },
+          {
+            "description": "Target currency code (3-letter ISO code)",
+            "in": "query",
+            "name": "to",
+            "required": true,
+            "schema": {
+              "example": "EUR",
+              "maxLength": 3,
+              "minLength": 3,
+              "type": "string"
+            }
+          },
+          {
+            "description": "Amount to convert",
+            "in": "query",
+            "name": "amount",
+            "required": true,
+            "schema": {
+              "example": 100,
+              "format": "double",
+              "minimum": 0,
+              "type": "number"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "examples": {
+                  "success": {
+                    "value": {
+                      "amount": 100,
+                      "converted_amount": 92.15,
+                      "exchange_rate": 0.9215,
+                      "from": "USD",
+                      "timestamp": "2024-01-15T10:30:00Z",
+                      "to": "EUR"
+                    }
+                  }
+                },
+                "schema": {
+                  "properties": {
+                    "amount": {
+                      "description": "Original amount to convert",
+                      "example": 100,
+                      "type": "number"
+                    },
+                    "converted_amount": {
+                      "description": "Converted amount in target currency",
+                      "example": 92.15,
+                      "type": "number"
+                    },
+                    "exchange_rate": {
+                      "description": "Exchange rate used for conversion",
+                      "example": 0.9215,
+                      "type": "number"
+                    },
+                    "from": {
+                      "description": "Source currency code",
+                      "example": "USD",
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "description": "Timestamp of the conversion",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "to": {
+                      "description": "Target currency code",
+                      "example": "EUR",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful currency conversion response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message describing what went wrong",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Invalid currency code or amount"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message describing what went wrong",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Rate limit exceeded (120 requests per minute on free plan)"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
