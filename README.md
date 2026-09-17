@@ -105,12 +105,12 @@ local result, err = client:Currencygp():load({ amount = 1, from = "example", to 
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/json-ip-geolocation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
-| Python | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
-| PHP | `voxgig-sdk/json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
+| TypeScript | `@voxgig-sdk/json-ip-geolocation-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/tags) |
+| Python | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/tags) |
+| PHP | `voxgig-sdk/json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/json-ip-geolocation-sdk/go` | `go get github.com/voxgig-sdk/json-ip-geolocation-sdk/go@latest` |
-| Ruby | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
-| Lua | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/releases) |
+| Ruby | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/tags) |
+| Lua | `voxgig-sdk-json-ip-geolocation` | publish pending — [install from git tag](https://github.com/voxgig-sdk/json-ip-geolocation-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/json-ip-geolocation-sdk/go-cli` | `go install github.com/voxgig-sdk/json-ip-geolocation-sdk/go-cli/cmd/json-ip-geolocation@latest` |
 | Go MCP server | `github.com/voxgig-sdk/json-ip-geolocation-sdk/go-mcp` | `go get github.com/voxgig-sdk/json-ip-geolocation-sdk/go-mcp@latest` |
 

@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      currencygp: {
-      },
-
-      jsongp: {
-      },
-
+        currencygp: {
+        },
+  
+        jsongp: {
+        },
+  
     }
   }
 

@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicCurrencygpFlow.aon"
-@"BasicJsongpFlow.aon"
+@"./BasicCurrencygpFlow.aon"
+@"./BasicJsongpFlow.aon"

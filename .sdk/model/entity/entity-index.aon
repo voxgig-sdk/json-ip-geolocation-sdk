@@ -1,4 +1,4 @@
 # Entity Models
 
-@"currencygp.aon"
-@"jsongp.aon"
+@"./currencygp.aon"
+@"./jsongp.aon"
