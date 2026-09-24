@@ -1,0 +1,191 @@
+# Entity: jsongp
+
+main: kit: entity: jsongp: {
+
+  alias: field: {}
+
+  fields: {
+    geoplugin_areaCode: {
+      h: "Geoplugin Area Code"
+      n: "geoplugin_areaCode"
+      r: false
+      sh: "Telephone area code"
+      t: "`$STRING`"
+    }
+    geoplugin_city: {
+      h: "Geoplugin City"
+      n: "geoplugin_city"
+      r: false
+      sh: "City name derived from IP address"
+      t: "`$STRING`"
+    }
+    geoplugin_continentCode: {
+      h: "Geoplugin Continent Code"
+      n: "geoplugin_continentCode"
+      r: false
+      sh: "Continent code"
+      t: "`$STRING`"
+    }
+    geoplugin_countryCode: {
+      h: "Geoplugin Country Code"
+      n: "geoplugin_countryCode"
+      r: false
+      sh: "ISO 3166-1 alpha-2 country code"
+      t: "`$STRING`"
+    }
+    geoplugin_countryName: {
+      h: "Geoplugin Country Name"
+      n: "geoplugin_countryName"
+      r: false
+      sh: "Full country name"
+      t: "`$STRING`"
+    }
+    geoplugin_credit: {
+      h: "Geoplugin Credit"
+      n: "geoplugin_credit"
+      r: false
+      sh: "Attribution credit for data sources"
+      t: "`$STRING`"
+    }
+    geoplugin_currencyCode: {
+      h: "Geoplugin Currency Code"
+      n: "geoplugin_currencyCode"
+      r: false
+      sh: "ISO 4217 currency code for the location"
+      t: "`$STRING`"
+    }
+    geoplugin_currencyConverter: {
+      h: "Geoplugin Currency Converter"
+      n: "geoplugin_currencyConverter"
+      r: false
+      sh: "Exchange rate converter value"
+      t: "`$NUMBER`"
+    }
+    geoplugin_currencySymbol: {
+      h: "Geoplugin Currency Symbol"
+      n: "geoplugin_currencySymbol"
+      r: false
+      sh: "Currency symbol"
+      t: "`$STRING`"
+    }
+    geoplugin_currencySymbol_UTF8: {
+      h: "Geoplugin Currency Symbol Utf8"
+      n: "geoplugin_currencySymbol_UTF8"
+      r: false
+      sh: "UTF-8 encoded currency symbol"
+      t: "`$STRING`"
+    }
+    geoplugin_dmaCode: {
+      h: "Geoplugin Dma Code"
+      n: "geoplugin_dmaCode"
+      r: false
+      sh: "Designated Market Area code"
+      t: "`$STRING`"
+    }
+    geoplugin_latitude: {
+      h: "Geoplugin Latitude"
+      n: "geoplugin_latitude"
+      r: false
+      sh: "Latitude coordinate"
+      t: "`$STRING`"
+    }
+    geoplugin_longitude: {
+      h: "Geoplugin Longitude"
+      n: "geoplugin_longitude"
+      r: false
+      sh: "Longitude coordinate"
+      t: "`$STRING`"
+    }
+    geoplugin_region: {
+      h: "Geoplugin Region"
+      n: "geoplugin_region"
+      r: false
+      sh: "Region or state name"
+      t: "`$STRING`"
+    }
+    geoplugin_regionCode: {
+      h: "Geoplugin Region Code"
+      n: "geoplugin_regionCode"
+      r: false
+      sh: "Region or state code"
+      t: "`$STRING`"
+    }
+    geoplugin_regionName: {
+      h: "Geoplugin Region Name"
+      n: "geoplugin_regionName"
+      r: false
+      sh: "Full region or state name"
+      t: "`$STRING`"
+    }
+    geoplugin_request: {
+      h: "Geoplugin Request"
+      n: "geoplugin_request"
+      r: false
+      sh: "The IP address that was geolocated"
+      t: "`$STRING`"
+    }
+    geoplugin_status: {
+      h: "Geoplugin Status"
+      n: "geoplugin_status"
+      r: false
+      sh: "HTTP status code of the response"
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "jsongp"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /json.gp"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "USD"
+                k: "query"
+                n: "base_currency"
+                or: "base_currency"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "8.8.8.8"
+                k: "query"
+                n: "ip"
+                or: "ip"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/json.gp"
+          q: {
+            exist: [
+              "base_currency"
+              "ip"
+            ]
+          }
+          s: [
+            {
+              lit: "json.gp"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

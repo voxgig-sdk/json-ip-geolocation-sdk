@@ -24,57 +24,129 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "currencygp": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "amount",
-              "req": false,
-              "short": "Original amount to convert",
-              "type": "`$NUMBER`"
+          "fields": {
+            "amount": {
+              "a": true,
+              "h": "Amount",
+              "n": "amount",
+              "r": false,
+              "sh": "Original amount to convert",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "converted_amount",
-              "req": false,
-              "short": "Converted amount in target currency",
-              "type": "`$NUMBER`"
+            "converted_amount": {
+              "a": true,
+              "h": "Converted Amount",
+              "n": "converted_amount",
+              "r": false,
+              "sh": "Converted amount in target currency",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "exchange_rate",
-              "req": false,
-              "short": "Exchange rate used for conversion",
-              "type": "`$NUMBER`"
+            "exchange_rate": {
+              "a": true,
+              "h": "Exchange Rate",
+              "n": "exchange_rate",
+              "r": false,
+              "sh": "Exchange rate used for conversion",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "from",
-              "req": false,
-              "short": "Source currency code",
-              "type": "`$STRING`"
+            "from": {
+              "a": true,
+              "h": "From",
+              "n": "from",
+              "r": false,
+              "sh": "Source currency code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "timestamp",
-              "req": false,
-              "short": "Timestamp of the conversion",
-              "type": "`$STRING`"
+            "timestamp": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Timestamp",
+              "n": "timestamp",
+              "r": false,
+              "sh": "Timestamp of the conversion",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "to",
-              "req": false,
-              "short": "Target currency code",
-              "type": "`$STRING`"
+            "to": {
+              "a": true,
+              "h": "To",
+              "n": "to",
+              "r": false,
+              "sh": "Target currency code",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "currencygp",
           "op": {
             "load": {
@@ -82,60 +154,60 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /currency.gp",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": 100,
-                        "kind": "query",
-                        "name": "amount",
-                        "orig": "amount",
-                        "reqd": true,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "ex": 100,
+                        "k": "query",
+                        "n": "amount",
+                        "or": "amount",
+                        "r": true,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "example": "USD",
-                        "kind": "query",
-                        "name": "from",
-                        "orig": "from",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "USD",
+                        "k": "query",
+                        "n": "from",
+                        "or": "from",
+                        "r": true,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "EUR",
-                        "kind": "query",
-                        "name": "to",
-                        "orig": "to",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "EUR",
+                        "k": "query",
+                        "n": "to",
+                        "or": "to",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /currency.gp",
-                    "json": "{\"operationId\":\"convertCurrency\",\"parameters\":[{\"description\":\"Source currency code (3-letter ISO code)\",\"in\":\"query\",\"name\":\"from\",\"required\":true,\"schema\":{\"example\":\"USD\",\"maxLength\":3,\"minLength\":3,\"type\":\"string\"}},{\"description\":\"Target currency code (3-letter ISO code)\",\"in\":\"query\",\"name\":\"to\",\"required\":true,\"schema\":{\"example\":\"EUR\",\"maxLength\":3,\"minLength\":3,\"type\":\"string\"}},{\"description\":\"Amount to convert\",\"in\":\"query\",\"name\":\"amount\",\"required\":true,\"schema\":{\"example\":100,\"format\":\"double\",\"minimum\":0,\"type\":\"number\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"success\":{\"value\":{\"amount\":100,\"converted_amount\":92.15,\"exchange_rate\":0.9215,\"from\":\"USD\",\"timestamp\":\"2024-01-15T10:30:00Z\",\"to\":\"EUR\"}}},\"schema\":{\"properties\":{\"amount\":{\"description\":\"Original amount to convert\",\"example\":100,\"type\":\"number\"},\"converted_amount\":{\"description\":\"Converted amount in target currency\",\"example\":92.15,\"type\":\"number\"},\"exchange_rate\":{\"description\":\"Exchange rate used for conversion\",\"example\":0.9215,\"type\":\"number\"},\"from\":{\"description\":\"Source currency code\",\"example\":\"USD\",\"type\":\"string\"},\"timestamp\":{\"description\":\"Timestamp of the conversion\",\"format\":\"date-time\",\"type\":\"string\"},\"to\":{\"description\":\"Target currency code\",\"example\":\"EUR\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful currency conversion response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Invalid currency code or amount\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded (120 requests per minute on free plan)\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/currency.gp",
-                  "segments": [
-                    {
-                      "lit": "currency.gp"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/currency.gp",
+                  "q": {
                     "exist": [
                       "amount",
                       "from",
                       "to"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "currency.gp"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -152,134 +224,152 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "geoplugin_areaCode",
-              "req": false,
-              "short": "Telephone area code",
-              "type": "`$STRING`"
+          "fields": {
+            "geoplugin_areaCode": {
+              "a": true,
+              "h": "Geoplugin Area Code",
+              "n": "geoplugin_areaCode",
+              "r": false,
+              "sh": "Telephone area code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_city",
-              "req": false,
-              "short": "City name derived from IP address",
-              "type": "`$STRING`"
+            "geoplugin_city": {
+              "a": true,
+              "h": "Geoplugin City",
+              "n": "geoplugin_city",
+              "r": false,
+              "sh": "City name derived from IP address",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_continentCode",
-              "req": false,
-              "short": "Continent code",
-              "type": "`$STRING`"
+            "geoplugin_continentCode": {
+              "a": true,
+              "h": "Geoplugin Continent Code",
+              "n": "geoplugin_continentCode",
+              "r": false,
+              "sh": "Continent code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_countryCode",
-              "req": false,
-              "short": "ISO 3166-1 alpha-2 country code",
-              "type": "`$STRING`"
+            "geoplugin_countryCode": {
+              "a": true,
+              "h": "Geoplugin Country Code",
+              "n": "geoplugin_countryCode",
+              "r": false,
+              "sh": "ISO 3166-1 alpha-2 country code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_countryName",
-              "req": false,
-              "short": "Full country name",
-              "type": "`$STRING`"
+            "geoplugin_countryName": {
+              "a": true,
+              "h": "Geoplugin Country Name",
+              "n": "geoplugin_countryName",
+              "r": false,
+              "sh": "Full country name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_credit",
-              "req": false,
-              "short": "Attribution credit for data sources",
-              "type": "`$STRING`"
+            "geoplugin_credit": {
+              "a": true,
+              "h": "Geoplugin Credit",
+              "n": "geoplugin_credit",
+              "r": false,
+              "sh": "Attribution credit for data sources",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_currencyCode",
-              "req": false,
-              "short": "ISO 4217 currency code for the location",
-              "type": "`$STRING`"
+            "geoplugin_currencyCode": {
+              "a": true,
+              "h": "Geoplugin Currency Code",
+              "n": "geoplugin_currencyCode",
+              "r": false,
+              "sh": "ISO 4217 currency code for the location",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_currencyConverter",
-              "req": false,
-              "short": "Exchange rate converter value",
-              "type": "`$NUMBER`"
+            "geoplugin_currencyConverter": {
+              "a": true,
+              "h": "Geoplugin Currency Converter",
+              "n": "geoplugin_currencyConverter",
+              "r": false,
+              "sh": "Exchange rate converter value",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_currencySymbol",
-              "req": false,
-              "short": "Currency symbol",
-              "type": "`$STRING`"
+            "geoplugin_currencySymbol": {
+              "a": true,
+              "h": "Geoplugin Currency Symbol",
+              "n": "geoplugin_currencySymbol",
+              "r": false,
+              "sh": "Currency symbol",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_currencySymbol_UTF8",
-              "req": false,
-              "short": "UTF-8 encoded currency symbol",
-              "type": "`$STRING`"
+            "geoplugin_currencySymbol_UTF8": {
+              "a": true,
+              "h": "Geoplugin Currency Symbol Utf8",
+              "n": "geoplugin_currencySymbol_UTF8",
+              "r": false,
+              "sh": "UTF-8 encoded currency symbol",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_dmaCode",
-              "req": false,
-              "short": "Designated Market Area code",
-              "type": "`$STRING`"
+            "geoplugin_dmaCode": {
+              "a": true,
+              "h": "Geoplugin Dma Code",
+              "n": "geoplugin_dmaCode",
+              "r": false,
+              "sh": "Designated Market Area code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_latitude",
-              "req": false,
-              "short": "Latitude coordinate",
-              "type": "`$STRING`"
+            "geoplugin_latitude": {
+              "a": true,
+              "h": "Geoplugin Latitude",
+              "n": "geoplugin_latitude",
+              "r": false,
+              "sh": "Latitude coordinate",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_longitude",
-              "req": false,
-              "short": "Longitude coordinate",
-              "type": "`$STRING`"
+            "geoplugin_longitude": {
+              "a": true,
+              "h": "Geoplugin Longitude",
+              "n": "geoplugin_longitude",
+              "r": false,
+              "sh": "Longitude coordinate",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_region",
-              "req": false,
-              "short": "Region or state name",
-              "type": "`$STRING`"
+            "geoplugin_region": {
+              "a": true,
+              "h": "Geoplugin Region",
+              "n": "geoplugin_region",
+              "r": false,
+              "sh": "Region or state name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_regionCode",
-              "req": false,
-              "short": "Region or state code",
-              "type": "`$STRING`"
+            "geoplugin_regionCode": {
+              "a": true,
+              "h": "Geoplugin Region Code",
+              "n": "geoplugin_regionCode",
+              "r": false,
+              "sh": "Region or state code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_regionName",
-              "req": false,
-              "short": "Full region or state name",
-              "type": "`$STRING`"
+            "geoplugin_regionName": {
+              "a": true,
+              "h": "Geoplugin Region Name",
+              "n": "geoplugin_regionName",
+              "r": false,
+              "sh": "Full region or state name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_request",
-              "req": false,
-              "short": "The IP address that was geolocated",
-              "type": "`$STRING`"
+            "geoplugin_request": {
+              "a": true,
+              "h": "Geoplugin Request",
+              "n": "geoplugin_request",
+              "r": false,
+              "sh": "The IP address that was geolocated",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "geoplugin_status",
-              "req": false,
-              "short": "HTTP status code of the response",
-              "type": "`$INTEGER`"
+            "geoplugin_status": {
+              "a": true,
+              "h": "Geoplugin Status",
+              "n": "geoplugin_status",
+              "r": false,
+              "sh": "HTTP status code of the response",
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "name": "jsongp",
           "op": {
             "load": {
@@ -287,50 +377,50 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /json.gp",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "USD",
-                        "kind": "query",
-                        "name": "base_currency",
-                        "orig": "base_currency",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "USD",
+                        "k": "query",
+                        "n": "base_currency",
+                        "or": "base_currency",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "8.8.8.8",
-                        "kind": "query",
-                        "name": "ip",
-                        "orig": "ip",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "8.8.8.8",
+                        "k": "query",
+                        "n": "ip",
+                        "or": "ip",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /json.gp",
-                    "json": "{\"operationId\":\"getGeolocation\",\"parameters\":[{\"description\":\"The IP address to geolocate. If not provided, the IP address of the requesting client will be used automatically.\",\"in\":\"query\",\"name\":\"ip\",\"required\":false,\"schema\":{\"example\":\"8.8.8.8\",\"format\":\"ipv4\",\"type\":\"string\"}},{\"description\":\"Base currency code for currency conversion\",\"in\":\"query\",\"name\":\"base_currency\",\"required\":false,\"schema\":{\"example\":\"USD\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"success\":{\"value\":{\"geoplugin_areaCode\":\"650\",\"geoplugin_city\":\"Mountain View\",\"geoplugin_continentCode\":\"NA\",\"geoplugin_countryCode\":\"US\",\"geoplugin_countryName\":\"United States\",\"geoplugin_credit\":\"Some of the returned data includes GeoLite data created by MaxMind, available from http://www.maxmind.com\",\"geoplugin_currencyCode\":\"USD\",\"geoplugin_currencyConverter\":1,\"geoplugin_currencySymbol\":\"$\",\"geoplugin_currencySymbol_UTF8\":\"$\",\"geoplugin_dmaCode\":\"807\",\"geoplugin_latitude\":\"37.386\",\"geoplugin_longitude\":\"-122.0838\",\"geoplugin_region\":\"California\",\"geoplugin_regionCode\":\"CA\",\"geoplugin_regionName\":\"California\",\"geoplugin_request\":\"8.8.8.8\",\"geoplugin_status\":200}}},\"schema\":{\"properties\":{\"geoplugin_areaCode\":{\"description\":\"Telephone area code\",\"example\":\"650\",\"type\":\"string\"},\"geoplugin_city\":{\"description\":\"City name derived from IP address\",\"example\":\"Mountain View\",\"type\":\"string\"},\"geoplugin_continentCode\":{\"description\":\"Continent code\",\"example\":\"NA\",\"type\":\"string\"},\"geoplugin_countryCode\":{\"description\":\"ISO 3166-1 alpha-2 country code\",\"example\":\"US\",\"type\":\"string\"},\"geoplugin_countryName\":{\"description\":\"Full country name\",\"example\":\"United States\",\"type\":\"string\"},\"geoplugin_credit\":{\"description\":\"Attribution credit for data sources\",\"type\":\"string\"},\"geoplugin_currencyCode\":{\"description\":\"ISO 4217 currency code for the location\",\"example\":\"USD\",\"type\":\"string\"},\"geoplugin_currencyConverter\":{\"description\":\"Exchange rate converter value\",\"example\":1,\"type\":\"number\"},\"geoplugin_currencySymbol\":{\"description\":\"Currency symbol\",\"example\":\"$\",\"type\":\"string\"},\"geoplugin_currencySymbol_UTF8\":{\"description\":\"UTF-8 encoded currency symbol\",\"example\":\"$\",\"type\":\"string\"},\"geoplugin_dmaCode\":{\"description\":\"Designated Market Area code\",\"example\":\"807\",\"type\":\"string\"},\"geoplugin_latitude\":{\"description\":\"Latitude coordinate\",\"example\":\"37.386\",\"type\":\"string\"},\"geoplugin_longitude\":{\"description\":\"Longitude coordinate\",\"example\":\"-122.0838\",\"type\":\"string\"},\"geoplugin_region\":{\"description\":\"Region or state name\",\"example\":\"California\",\"type\":\"string\"},\"geoplugin_regionCode\":{\"description\":\"Region or state code\",\"example\":\"CA\",\"type\":\"string\"},\"geoplugin_regionName\":{\"description\":\"Full region or state name\",\"example\":\"California\",\"type\":\"string\"},\"geoplugin_request\":{\"description\":\"The IP address that was geolocated\",\"example\":\"8.8.8.8\",\"type\":\"string\"},\"geoplugin_status\":{\"description\":\"HTTP status code of the response\",\"example\":200,\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful geolocation response\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Rate limit exceeded (120 requests per minute on free plan)\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing what went wrong\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/json.gp",
-                  "segments": [
-                    {
-                      "lit": "json.gp"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/json.gp",
+                  "q": {
                     "exist": [
                       "base_currency",
                       "ip"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "json.gp"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -759,17 +849,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "currencygp_ref01",
                 "srcdatavar": "currencygp_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -789,17 +879,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "jsongp_ref01",
                 "srcdatavar": "jsongp_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

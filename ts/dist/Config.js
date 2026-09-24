@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -115,34 +108,40 @@ class Config {
             "fields": [
                 {
                     "name": "amount",
-                    "short": "Original amount to convert",
-                    "type": "`$NUMBER`"
+                    "title": "Amount",
+                    "type": "`$NUMBER`",
+                    "short": "Original amount to convert"
                 },
                 {
                     "name": "converted_amount",
-                    "short": "Converted amount in target currency",
-                    "type": "`$NUMBER`"
+                    "title": "Converted Amount",
+                    "type": "`$NUMBER`",
+                    "short": "Converted amount in target currency"
                 },
                 {
                     "name": "exchange_rate",
-                    "short": "Exchange rate used for conversion",
-                    "type": "`$NUMBER`"
+                    "title": "Exchange Rate",
+                    "type": "`$NUMBER`",
+                    "short": "Exchange rate used for conversion"
                 },
                 {
                     "name": "from",
-                    "short": "Source currency code",
-                    "type": "`$STRING`"
+                    "title": "From",
+                    "type": "`$STRING`",
+                    "short": "Source currency code"
                 },
                 {
-                    "format": "date-time",
                     "name": "timestamp",
+                    "title": "Timestamp",
+                    "type": "`$STRING`",
                     "short": "Timestamp of the conversion",
-                    "type": "`$STRING`"
+                    "format": "date-time"
                 },
                 {
                     "name": "to",
-                    "short": "Target currency code",
-                    "type": "`$STRING`"
+                    "title": "To",
+                    "type": "`$STRING`",
+                    "short": "Target currency code"
                 }
             ],
             "name": "currencygp",
@@ -152,34 +151,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": 100,
-                                        "kind": "query",
-                                        "name": "amount",
-                                        "orig": "amount",
-                                        "reqd": true,
-                                        "type": "`$NUMBER`"
-                                    },
-                                    {
-                                        "example": "USD",
-                                        "kind": "query",
-                                        "name": "from",
-                                        "orig": "from",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "EUR",
-                                        "kind": "query",
-                                        "name": "to",
-                                        "orig": "to",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/currency.gp",
@@ -188,20 +159,49 @@ class Config {
                                     "lit": "currency.gp"
                                 }
                             ],
+                            "parts": [
+                                "currency.gp"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "amount",
+                                        "orig": "amount",
+                                        "type": "`$NUMBER`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": 100
+                                    },
+                                    {
+                                        "name": "from",
+                                        "orig": "from",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "USD"
+                                    },
+                                    {
+                                        "name": "to",
+                                        "orig": "to",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "EUR"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "amount",
                                     "from",
                                     "to"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "currency.gp"
-                            ]
+                            }
                         }
                     ]
                 }
@@ -214,93 +214,111 @@ class Config {
             "fields": [
                 {
                     "name": "geoplugin_areaCode",
-                    "short": "Telephone area code",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Area Code",
+                    "type": "`$STRING`",
+                    "short": "Telephone area code"
                 },
                 {
                     "name": "geoplugin_city",
-                    "short": "City name derived from IP address",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin City",
+                    "type": "`$STRING`",
+                    "short": "City name derived from IP address"
                 },
                 {
                     "name": "geoplugin_continentCode",
-                    "short": "Continent code",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Continent Code",
+                    "type": "`$STRING`",
+                    "short": "Continent code"
                 },
                 {
                     "name": "geoplugin_countryCode",
-                    "short": "ISO 3166-1 alpha-2 country code",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Country Code",
+                    "type": "`$STRING`",
+                    "short": "ISO 3166-1 alpha-2 country code"
                 },
                 {
                     "name": "geoplugin_countryName",
-                    "short": "Full country name",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Country Name",
+                    "type": "`$STRING`",
+                    "short": "Full country name"
                 },
                 {
                     "name": "geoplugin_credit",
-                    "short": "Attribution credit for data sources",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Credit",
+                    "type": "`$STRING`",
+                    "short": "Attribution credit for data sources"
                 },
                 {
                     "name": "geoplugin_currencyCode",
-                    "short": "ISO 4217 currency code for the location",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Currency Code",
+                    "type": "`$STRING`",
+                    "short": "ISO 4217 currency code for the location"
                 },
                 {
                     "name": "geoplugin_currencyConverter",
-                    "short": "Exchange rate converter value",
-                    "type": "`$NUMBER`"
+                    "title": "Geoplugin Currency Converter",
+                    "type": "`$NUMBER`",
+                    "short": "Exchange rate converter value"
                 },
                 {
                     "name": "geoplugin_currencySymbol",
-                    "short": "Currency symbol",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Currency Symbol",
+                    "type": "`$STRING`",
+                    "short": "Currency symbol"
                 },
                 {
                     "name": "geoplugin_currencySymbol_UTF8",
-                    "short": "UTF-8 encoded currency symbol",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Currency Symbol Utf8",
+                    "type": "`$STRING`",
+                    "short": "UTF-8 encoded currency symbol"
                 },
                 {
                     "name": "geoplugin_dmaCode",
-                    "short": "Designated Market Area code",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Dma Code",
+                    "type": "`$STRING`",
+                    "short": "Designated Market Area code"
                 },
                 {
                     "name": "geoplugin_latitude",
-                    "short": "Latitude coordinate",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Latitude",
+                    "type": "`$STRING`",
+                    "short": "Latitude coordinate"
                 },
                 {
                     "name": "geoplugin_longitude",
-                    "short": "Longitude coordinate",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Longitude",
+                    "type": "`$STRING`",
+                    "short": "Longitude coordinate"
                 },
                 {
                     "name": "geoplugin_region",
-                    "short": "Region or state name",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Region",
+                    "type": "`$STRING`",
+                    "short": "Region or state name"
                 },
                 {
                     "name": "geoplugin_regionCode",
-                    "short": "Region or state code",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Region Code",
+                    "type": "`$STRING`",
+                    "short": "Region or state code"
                 },
                 {
                     "name": "geoplugin_regionName",
-                    "short": "Full region or state name",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Region Name",
+                    "type": "`$STRING`",
+                    "short": "Full region or state name"
                 },
                 {
                     "name": "geoplugin_request",
-                    "short": "The IP address that was geolocated",
-                    "type": "`$STRING`"
+                    "title": "Geoplugin Request",
+                    "type": "`$STRING`",
+                    "short": "The IP address that was geolocated"
                 },
                 {
                     "name": "geoplugin_status",
-                    "short": "HTTP status code of the response",
-                    "type": "`$INTEGER`"
+                    "title": "Geoplugin Status",
+                    "type": "`$INTEGER`",
+                    "short": "HTTP status code of the response"
                 }
             ],
             "name": "jsongp",
@@ -310,24 +328,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": "USD",
-                                        "kind": "query",
-                                        "name": "base_currency",
-                                        "orig": "base_currency",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "8.8.8.8",
-                                        "kind": "query",
-                                        "name": "ip",
-                                        "orig": "ip",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/json.gp",
@@ -336,19 +336,38 @@ class Config {
                                     "lit": "json.gp"
                                 }
                             ],
+                            "parts": [
+                                "json.gp"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "base_currency",
+                                        "orig": "base_currency",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "USD"
+                                    },
+                                    {
+                                        "name": "ip",
+                                        "orig": "ip",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "example": "8.8.8.8"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "base_currency",
                                     "ip"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "json.gp"
-                            ]
+                            }
                         }
                     ]
                 }

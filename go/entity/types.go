@@ -1,7 +1,7 @@
 // Typed models for the JsonIpGeolocation SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,12 +14,6 @@ import (
 
 // Currencygp is the typed data model for the currencygp entity.
 type Currencygp struct {
-	Amount *float64 `json:"amount,omitempty"`
-	ConvertedAmount *float64 `json:"converted_amount,omitempty"`
-	ExchangeRate *float64 `json:"exchange_rate,omitempty"`
-	From *string `json:"from,omitempty"`
-	Timestamp *string `json:"timestamp,omitempty"`
-	To *string `json:"to,omitempty"`
 }
 
 // CurrencygpLoadMatch is the typed request payload for Currencygp.LoadTyped.
@@ -31,24 +25,6 @@ type CurrencygpLoadMatch struct {
 
 // Jsongp is the typed data model for the jsongp entity.
 type Jsongp struct {
-	GeopluginAreaCode *string `json:"geoplugin_areaCode,omitempty"`
-	GeopluginCity *string `json:"geoplugin_city,omitempty"`
-	GeopluginContinentCode *string `json:"geoplugin_continentCode,omitempty"`
-	GeopluginCountryCode *string `json:"geoplugin_countryCode,omitempty"`
-	GeopluginCountryName *string `json:"geoplugin_countryName,omitempty"`
-	GeopluginCredit *string `json:"geoplugin_credit,omitempty"`
-	GeopluginCurrencyCode *string `json:"geoplugin_currencyCode,omitempty"`
-	GeopluginCurrencyConverter *float64 `json:"geoplugin_currencyConverter,omitempty"`
-	GeopluginCurrencySymbol *string `json:"geoplugin_currencySymbol,omitempty"`
-	GeopluginCurrencySymbolUTF8 *string `json:"geoplugin_currencySymbol_UTF8,omitempty"`
-	GeopluginDmaCode *string `json:"geoplugin_dmaCode,omitempty"`
-	GeopluginLatitude *string `json:"geoplugin_latitude,omitempty"`
-	GeopluginLongitude *string `json:"geoplugin_longitude,omitempty"`
-	GeopluginRegion *string `json:"geoplugin_region,omitempty"`
-	GeopluginRegionCode *string `json:"geoplugin_regionCode,omitempty"`
-	GeopluginRegionName *string `json:"geoplugin_regionName,omitempty"`
-	GeopluginRequest *string `json:"geoplugin_request,omitempty"`
-	GeopluginStatus *int `json:"geoplugin_status,omitempty"`
 }
 
 // JsongpLoadMatch is the typed request payload for Jsongp.LoadTyped.

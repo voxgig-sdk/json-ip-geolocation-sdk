@@ -1,0 +1,28 @@
+# BasicJsongpFlow
+
+main: kit: flow: BasicJsongpFlow:
+{
+  entity: "jsongp",
+  kind: "basic",
+  name: "BasicJsongpFlow",
+  step: [
+    {
+      i: {
+        ref: "jsongp_ref01",
+        srcdatavar: "jsongp_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-jsongp_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicJsongpFlow"
+}
