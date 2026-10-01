@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 JsonIpGeolocationUtility::setRegistrar(function (JsonIpGeolocationUtility $u): void {
     $u->clean = [JsonIpGeolocationClean::class, 'call'];
+    $u->clean_add = [JsonIpGeolocationClean::class, 'add'];
+    $u->clean_explain = [JsonIpGeolocationDone::class, 'clean_explain'];
     $u->done = [JsonIpGeolocationDone::class, 'call'];
     $u->make_error = [JsonIpGeolocationMakeError::class, 'call'];
     $u->feature_add = [JsonIpGeolocationFeatureAdd::class, 'call'];

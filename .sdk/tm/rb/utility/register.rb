@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 JsonIpGeolocationUtility.registrar = ->(u) {
   u.clean = JsonIpGeolocationUtilities::Clean
+  u.clean_add = JsonIpGeolocationUtilities::CleanAdd
+  u.clean_explain = JsonIpGeolocationUtilities::CleanExplain
   u.done = JsonIpGeolocationUtilities::Done
   u.make_error = JsonIpGeolocationUtilities::MakeError
   u.feature_add = JsonIpGeolocationUtilities::FeatureAdd
