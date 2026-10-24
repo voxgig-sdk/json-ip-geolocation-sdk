@@ -3,5 +3,23 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "City name derived from IP address",
+      "Continent code",
+      "Converted amount in target currency",
+      "Exchange rate used for conversion",
+      "Full country name",
+      "GeoPlugin JSON API Server",
+      "ISO 3166-1 alpha-2 country code",
+      "Original amount to convert",
+      "Source currency code",
+      "Successful currency conversion response",
+      "Successful geolocation response",
+      "Telephone area code",
+      "The JSON IP Geolocation API allows you to determine the geographical location of visitors based on their IP addresses. It provides detailed location data such as country, region, city, and coordinates in a structured JSON format. This API also includes currency conversion capabilities with up-to-date exchange rates.",
+      "Timestamp of the conversion"
+    ]
+  }
 }

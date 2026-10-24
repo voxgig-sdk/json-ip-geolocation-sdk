@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -160,6 +161,7 @@ func MakeConfig() map[string]any {
 											"kind": "query",
 											"reqd": true,
 											"example": 100,
+											"field": true,
 										},
 										map[string]any{
 											"name": "from",
@@ -168,6 +170,7 @@ func MakeConfig() map[string]any {
 											"kind": "query",
 											"reqd": true,
 											"example": "USD",
+											"field": true,
 										},
 										map[string]any{
 											"name": "to",
@@ -176,6 +179,7 @@ func MakeConfig() map[string]any {
 											"kind": "query",
 											"reqd": true,
 											"example": "EUR",
+											"field": true,
 										},
 									},
 								},
@@ -185,6 +189,10 @@ func MakeConfig() map[string]any {
 										"from",
 										"to",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},
@@ -346,11 +354,10 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"base_currency",
-										"ip",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},

@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -185,6 +186,7 @@ def make_config():
                       "kind": "query",
                       "reqd": True,
                       "example": 100,
+                      "field": True,
                     },
                     {
                       "name": "from",
@@ -193,6 +195,7 @@ def make_config():
                       "kind": "query",
                       "reqd": True,
                       "example": "USD",
+                      "field": True,
                     },
                     {
                       "name": "to",
@@ -201,6 +204,7 @@ def make_config():
                       "kind": "query",
                       "reqd": True,
                       "example": "EUR",
+                      "field": True,
                     },
                   ],
                 },
@@ -210,6 +214,10 @@ def make_config():
                     "from",
                     "to",
                   ],
+                },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],
@@ -371,11 +379,10 @@ def make_config():
                     },
                   ],
                 },
-                "select": {
-                  "exist": [
-                    "base_currency",
-                    "ip",
-                  ],
+                "select": {},
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],

@@ -8,6 +8,19 @@ import { JsonIpGeolocationEntityBase } from './JsonIpGeolocationEntityBase';
 import { Utility } from './utility/Utility';
 import { BaseFeature } from './feature/base/BaseFeature';
 declare const stdutil: Utility;
+type DirectResult = {
+    ok: false;
+    err: any;
+    status?: undefined;
+    headers?: undefined;
+    data?: undefined;
+} | {
+    ok: boolean;
+    status: number;
+    headers: any;
+    data: any;
+    err?: any;
+};
 declare class JsonIpGeolocationSDK {
     _mode: string;
     _options: any;
@@ -18,32 +31,8 @@ declare class JsonIpGeolocationSDK {
     options(): any;
     utility(): any;
     prepare(fetchargs?: any): Promise<any>;
-    direct(fetchargs?: any): Promise<Error | {
-        ok: boolean;
-        err: any;
-        status?: undefined;
-        headers?: undefined;
-        data?: undefined;
-    } | {
-        ok: boolean;
-        status: number;
-        headers: any;
-        data: any;
-        err?: undefined;
-    }>;
-    _rawRequest(fetchargs?: any): Promise<Error | {
-        ok: boolean;
-        err: any;
-        status?: undefined;
-        headers?: undefined;
-        data?: undefined;
-    } | {
-        ok: boolean;
-        status: number;
-        headers: any;
-        data: any;
-        err?: undefined;
-    }>;
+    direct(fetchargs?: any): Promise<DirectResult>;
+    _rawRequest(fetchargs?: any): Promise<DirectResult>;
     graphql(query: string, variables?: any, ctrl?: any): Promise<any>;
     Currencygp(entopts?: Record<string, any>): CurrencygpEntity;
     Jsongp(entopts?: Record<string, any>): JsongpEntity;
@@ -57,3 +46,4 @@ declare class JsonIpGeolocationSDK {
 }
 declare const SDK: typeof JsonIpGeolocationSDK;
 export { stdutil, config, BaseFeature, JsonIpGeolocationEntityBase, JsonIpGeolocationSDK, SDK, };
+export type { DirectResult };

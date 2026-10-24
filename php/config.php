@@ -93,6 +93,7 @@ class JsonIpGeolocationConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -182,6 +183,7 @@ class JsonIpGeolocationConfig
                         'kind' => 'query',
                         'reqd' => true,
                         'example' => 100,
+                        'field' => true,
                       ],
                       [
                         'name' => 'from',
@@ -190,6 +192,7 @@ class JsonIpGeolocationConfig
                         'kind' => 'query',
                         'reqd' => true,
                         'example' => 'USD',
+                        'field' => true,
                       ],
                       [
                         'name' => 'to',
@@ -198,6 +201,7 @@ class JsonIpGeolocationConfig
                         'kind' => 'query',
                         'reqd' => true,
                         'example' => 'EUR',
+                        'field' => true,
                       ],
                     ],
                   ],
@@ -207,6 +211,10 @@ class JsonIpGeolocationConfig
                       'from',
                       'to',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -368,11 +376,10 @@ class JsonIpGeolocationConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'base_currency',
-                      'ip',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

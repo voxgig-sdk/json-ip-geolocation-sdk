@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { JsonIpGeolocationSDK, BaseFeature, stdutil } from '../../..'
+import { JsonIpGeolocationSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('CurrencygpEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = JsonIpGeolocationSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Currencygp().load({"amount":"x","from":"x","to":"x"} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.JSON_IP_GEOLOCATION_TEST_LIVE
@@ -51,7 +63,7 @@ describe('CurrencygpEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"amount":{"a":true,"h":"Amount","n":"amount","r":false,"sh":"Original amount to convert","t":"`$NUMBER`","key$":"amount","index$":0},"converted_amount":{"a":true,"h":"Converted Amount","n":"converted_amount","r":false,"sh":"Converted amount in target currency","t":"`$NUMBER`","key$":"converted_amount","index$":1},"exchange_rate":{"a":true,"h":"Exchange Rate","n":"exchange_rate","r":false,"sh":"Exchange rate used for conversion","t":"`$NUMBER`","key$":"exchange_rate","index$":2},"from":{"a":true,"h":"From","n":"from","r":false,"sh":"Source currency code","t":"`$STRING`","key$":"from","index$":3},"timestamp":{"a":true,"fo":"date-time","h":"Timestamp","n":"timestamp","r":false,"sh":"Timestamp of the conversion","t":"`$STRING`","key$":"timestamp","index$":4},"to":{"a":true,"h":"To","n":"to","r":false,"sh":"Target currency code","t":"`$STRING`","key$":"to","index$":5}},"name":"currencygp","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /currency.gp","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":100,"k":"query","n":"amount","or":"amount","r":true,"t":"`$NUMBER`","index$":0},{"a":true,"ex":"USD","k":"query","n":"from","or":"from","r":true,"t":"`$STRING`","index$":1},{"a":true,"ex":"EUR","k":"query","n":"to","or":"to","r":true,"t":"`$STRING`","index$":2}]},"k":"http","m":"GET","o":"/currency.gp","q":{"exist":["amount","from","to"]},"r":{},"s":[{"lit":"currency.gp"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"currencygp","name__orig":"currencygp","Name":"Currencygp","name_":"currencygp","name-":"currencygp","NAME":"CURRENCYGP","index$":0}, {"active":true,"entity":"currencygp","key$":"BasicCurrencygpFlow","kind":"basic","name":"BasicCurrencygpFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"currencygp_ref01","srcdatavar":"currencygp_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-currencygp_ref01"}}],"index$":0}]}, 'Currencygp', {"GET /currency.gp":{"protocol":"http","parameters":[{"name":"from","in":"query","description":"Source currency code (3-letter ISO code)","required":true,"schema":{"type":"string","example":"USD","minLength":3,"maxLength":3},"index$":0},{"name":"to","in":"query","description":"Target currency code (3-letter ISO code)","required":true,"schema":{"type":"string","example":"EUR","minLength":3,"maxLength":3},"index$":1},{"name":"amount","in":"query","description":"Amount to convert","required":true,"schema":{"type":"number","format":"double","example":100,"minimum":0},"index$":2}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"amount":{"a":true,"h":"Amount","n":"amount","r":false,"sh":"Original amount to convert","t":"`$NUMBER`","key$":"amount","index$":0},"converted_amount":{"a":true,"h":"Converted Amount","n":"converted_amount","r":false,"sh":"Converted amount in target currency","t":"`$NUMBER`","key$":"converted_amount","index$":1},"exchange_rate":{"a":true,"h":"Exchange Rate","n":"exchange_rate","r":false,"sh":"Exchange rate used for conversion","t":"`$NUMBER`","key$":"exchange_rate","index$":2},"from":{"a":true,"h":"From","n":"from","r":false,"sh":"Source currency code","t":"`$STRING`","key$":"from","index$":3},"timestamp":{"a":true,"fo":"date-time","h":"Timestamp","n":"timestamp","r":false,"sh":"Timestamp of the conversion","t":"`$STRING`","key$":"timestamp","index$":4},"to":{"a":true,"h":"To","n":"to","r":false,"sh":"Target currency code","t":"`$STRING`","key$":"to","index$":5}},"name":"currencygp","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /currency.gp","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":100,"k":"query","n":"amount","or":"amount","r":true,"t":"`$NUMBER`","index$":0},{"a":true,"ex":"USD","k":"query","n":"from","or":"from","r":true,"t":"`$STRING`","index$":1},{"a":true,"ex":"EUR","k":"query","n":"to","or":"to","r":true,"t":"`$STRING`","index$":2}]},"k":"http","m":"GET","o":"/currency.gp","q":{"exist":["amount","from","to"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"currency.gp"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"currencygp","name__orig":"currencygp","Name":"Currencygp","name_":"currencygp","name-":"currencygp","NAME":"CURRENCYGP","index$":0}, {"active":true,"entity":"currencygp","key$":"BasicCurrencygpFlow","kind":"basic","name":"BasicCurrencygpFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"currencygp_ref01","srcdatavar":"currencygp_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-currencygp_ref01"}}],"index$":0}]}, 'Currencygp', {"GET /currency.gp":{"protocol":"http","parameters":[{"name":"from","in":"query","description":"Source currency code (3-letter ISO code)","required":true,"schema":{"type":"string","example":"USD","minLength":3,"maxLength":3},"index$":0},{"name":"to","in":"query","description":"Target currency code (3-letter ISO code)","required":true,"schema":{"type":"string","example":"EUR","minLength":3,"maxLength":3},"index$":1},{"name":"amount","in":"query","description":"Amount to convert","required":true,"schema":{"type":"number","format":"double","example":100,"minimum":0},"index$":2}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +84,12 @@ describe('CurrencygpEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

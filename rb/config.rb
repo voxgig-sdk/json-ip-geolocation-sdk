@@ -79,6 +79,7 @@ module JsonIpGeolocationConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -168,6 +169,7 @@ module JsonIpGeolocationConfig
                         "kind" => "query",
                         "reqd" => true,
                         "example" => 100,
+                        "field" => true,
                       },
                       {
                         "name" => "from",
@@ -176,6 +178,7 @@ module JsonIpGeolocationConfig
                         "kind" => "query",
                         "reqd" => true,
                         "example" => "USD",
+                        "field" => true,
                       },
                       {
                         "name" => "to",
@@ -184,6 +187,7 @@ module JsonIpGeolocationConfig
                         "kind" => "query",
                         "reqd" => true,
                         "example" => "EUR",
+                        "field" => true,
                       },
                     ],
                   },
@@ -193,6 +197,10 @@ module JsonIpGeolocationConfig
                       "from",
                       "to",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -354,11 +362,10 @@ module JsonIpGeolocationConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "base_currency",
-                      "ip",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

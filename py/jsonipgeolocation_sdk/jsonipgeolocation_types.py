@@ -16,17 +16,21 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
-class Currencygp(TypedDict, total=False):
-    amount: float
-    converted_amount: float
-    exchange_rate: float
-    timestamp: str
-    to: str
+Currencygp = TypedDict('Currencygp', {
+    "amount": float,
+    "converted_amount": float,
+    "exchange_rate": float,
+    "from": str,
+    "timestamp": str,
+    "to": str,
+}, total=False)
 
 
-class CurrencygpLoadMatch(TypedDict):
-    amount: float
-    to: str
+CurrencygpLoadMatch = TypedDict('CurrencygpLoadMatch', {
+    "amount": float,
+    "from": str,
+    "to": str,
+})
 
 
 class Jsongp(TypedDict, total=False):

@@ -166,11 +166,9 @@ main: kit: entity: jsongp: {
           }
           m: "GET"
           o: "/json.gp"
-          q: {
-            exist: [
-              "base_currency"
-              "ip"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

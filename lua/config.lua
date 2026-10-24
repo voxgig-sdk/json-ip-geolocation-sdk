@@ -67,6 +67,7 @@ local function make_config()
         },
         ["optspec"] = {
           ["clearTimer"] = "`$FUNCTION`",
+          ["now"] = "`$FUNCTION`",
           ["setTimer"] = "`$FUNCTION`",
         },
         ["strict"] = false,
@@ -156,6 +157,7 @@ local function make_config()
                       ["kind"] = "query",
                       ["reqd"] = true,
                       ["example"] = 100,
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "from",
@@ -164,6 +166,7 @@ local function make_config()
                       ["kind"] = "query",
                       ["reqd"] = true,
                       ["example"] = "USD",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "to",
@@ -172,6 +175,7 @@ local function make_config()
                       ["kind"] = "query",
                       ["reqd"] = true,
                       ["example"] = "EUR",
+                      ["field"] = true,
                     },
                   },
                 },
@@ -181,6 +185,10 @@ local function make_config()
                     "from",
                     "to",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },
@@ -342,11 +350,10 @@ local function make_config()
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "base_currency",
-                    "ip",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },

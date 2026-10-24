@@ -21,10 +21,28 @@ const PLAN = [
             "to": "EUR"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "from",
             "to",
             "amount"
+        ],
+        "queryArgs": [
+            {
+                "name": "amount",
+                "wire": "amount"
+            },
+            {
+                "name": "from",
+                "wire": "from"
+            },
+            {
+                "name": "to",
+                "wire": "to"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -50,9 +68,23 @@ const PLAN = [
             "ip": "8.8.8.8"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "ip",
             "base_currency"
+        ],
+        "queryArgs": [
+            {
+                "name": "base_currency",
+                "wire": "base_currency"
+            },
+            {
+                "name": "ip",
+                "wire": "ip"
+            }
         ],
         "auth": null,
         "status": 200,

@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -202,7 +203,8 @@ class Config {
                     "type": "`$NUMBER`",
                     "kind": "query",
                     "reqd": true,
-                    "example": 100
+                    "example": 100,
+                    "field": true
                   },
                   {
                     "name": "from",
@@ -210,7 +212,8 @@ class Config {
                     "type": "`$STRING`",
                     "kind": "query",
                     "reqd": true,
-                    "example": "USD"
+                    "example": "USD",
+                    "field": true
                   },
                   {
                     "name": "to",
@@ -218,7 +221,8 @@ class Config {
                     "type": "`$STRING`",
                     "kind": "query",
                     "reqd": true,
-                    "example": "EUR"
+                    "example": "EUR",
+                    "field": true
                   }
                 ]
               },
@@ -228,6 +232,10 @@ class Config {
                   "from",
                   "to"
                 ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
@@ -389,11 +397,10 @@ class Config {
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "base_currency",
-                  "ip"
-                ]
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
